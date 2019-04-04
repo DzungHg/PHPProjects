@@ -1,0 +1,1 @@
+2019-04-04 11:45:18	guest	http://caan.vn/	Added filedata to DB schema for 'images'

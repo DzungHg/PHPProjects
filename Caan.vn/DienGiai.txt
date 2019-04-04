@@ -1,0 +1,8 @@
+﻿
+- Publich_html: down file gốc từ web đang triển khai để hiểu cấu trúc
+- Dev: thư mục để phát triển cho
+- Chỉ dev phần site với các template mà thôi
+- Database:    admincan_one
+Host:    localhost
+Username:    admincan_can
+Password:    AdminCan123$
