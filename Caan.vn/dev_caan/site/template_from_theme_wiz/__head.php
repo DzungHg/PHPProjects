@@ -16,21 +16,21 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
 
 	<!-- Plugins CSS -->
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/font-awesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/themify-icons/css/themify-icons.css" />
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/animate/animate.min.css" />
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/fancybox/css/jquery.fancybox.min.css" />
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/owlcarousel/css/owl.carousel.min.css" />
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/swiper/css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates ?>assets/vendor/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates ?>assets/vendor/themify-icons/css/themify-icons.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates ?>assets/vendor/animate/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates ?>assets/vendor/fancybox/css/jquery.fancybox.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates ?>assets/vendor/owlcarousel/css/owl.carousel.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates ?>assets/vendor/swiper/css/swiper.min.css" />
 
 	<!-- Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates ?>assets/css/style.css" />
 
 </head>
 
 <body>
 	<div class="preloader">
-		<img src="/assets/images/preloader.svg" alt="Pre-loader">
+		<img src="<?php echo $config->urls->templates ?>assets/images/preloader.svg" alt="Pre-loader">
 	</div>
 
 	<!-- =======================
