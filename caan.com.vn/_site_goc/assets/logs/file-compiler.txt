@@ -1,0 +1,3 @@
+2019-04-07 20:18:22	admin	http://caan.com.vn/	Compiled file: /site/templates/_init.php
+2019-04-07 20:18:22	admin	http://caan.com.vn/	Compiled file: /site/templates/_main.php
+2019-04-07 20:18:22	admin	http://caan.com.vn/	Compiled file: /site/templates/__head.php

@@ -149,7 +149,7 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 
 					<?php
-					include('./_nav-menu.php');
+ include(\ProcessWire\wire('files')->compile(\ProcessWire\wire("config")->paths->root . 'site/templates/_nav-menu.php',array('includes'=>true,'namespace'=>true,'modules'=>true,'skipIfNamespace'=>true)));
 					?>
 
 
