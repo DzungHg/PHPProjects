@@ -14,8 +14,8 @@
 					</div>
 					<div class="col-7 px-2 mb-3">
 						<div class="border-radius-3 wow fadeInLeft bg-grad p-2 p-sm-3 p-lg-4 p-xl-5 all-text-white" data-wow-duration="0.8s" data-wow-delay="0s">
-							<span>Our goal:</span>
-							<h3 class="font-weight-bold">"Web đang được xây dựng lại, mong quý khách thông cảm"</h3>
+							<span>Với mục đích:</span>
+							<h3 class="font-weight-bold"><?php echo $page->home_about_line01 ?></h3>
 						</div>
 					</div>
 					<div class="col-5 align-self-start pl-2 mb-3">
@@ -25,12 +25,12 @@
 			</div>
 			<!-- right -->
 			<div class="col-md-6 pl-lg-5">
-				<h2 class="h1">Web chúng tôi đang xây dựng lại. </h2>
-				<p class="lead">Rất mong quý khách thông cảm <abbr title="title">scalable workforce solutions.</abbr></p>
-				<p>There is nothing that can stop you from achieving what you want, except yourself. If you devote yourself to it you will achieve your goal.</p>
+				<h2 class="h1"><?php echo $page->home_about_line02 ?> </h2>
+				<p class="lead"><?php echo $page->home_about_line03 ?></abbr></p>
+				<p><?php echo $page->home_about_line04?></p>
 				<div>
 					<a href="#" class="btn btn-dark">Liên Hệ</a>
-					<a href="#" class="btn btn-link">View Portfolio</a>
+					<a href="#" class="btn btn-link">Xem Hồ Sơ Năng Lực</a>
 				</div>
 			</div>
 		</div>
