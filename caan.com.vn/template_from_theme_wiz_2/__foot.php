@@ -64,8 +64,10 @@
 								-->
 							<!-- footer SVG logo End -->
 						</a>
-						<p class="mt-3">Wizixo is a highly creative, modern, visually stunning and Bootstrap 4 Creative Multi-purpose corporate and portfolio HTML5 template.</p>
-						<p>It is based on the powerful Bootstrap 4 Framework to make sure an entirely responsive layout. </p>
+						<div class="mt-3"><?php echo $page->home_about_tom_tat ?></div>
+						<!--<p class="mt-3"><?php echo $page->home_about_tom_tat ?></p>
+						
+						 <p>It is based on the powerful Bootstrap 4 Framework to make sure an entirely responsive layout. </p> -->
 					</div>
 				</div>
 				<!-- Footer widget 2 -->
@@ -73,7 +75,7 @@
 					<div class="widget address" style="background-image: url('assets/images/world-map.png'); background-position: 50% 20px; background-repeat: no-repeat; background-size: contain;">
 						<ul class="list-unstyled">
 							<li class="media mb-3"><i class="mr-3 display-8 ti-map-alt"></i>132 Cộng Hòa, P. 4, Tân Bình, TPHCM. </li>
-							<li class="media mb-3"><i class="mr-3 display-8 ti-headphone-alt"></i> (+84) 38623700 </li>
+							<li class="media mb-3"><i class="mr-3 display-8 ti-headphone-alt"></i> (+84-28) 38623700 </li>
 							<li class="media mb-3"><i class="mr-3 display-8 ti-email"></i> info[@]caan.com.vn</li>
 							<li class="media mb-3"><i class="mr-3 display-8 ti-time"></i>
 								<p>T2 - T7: <strong>08:00 - 17:15</strong> <br>CN: <strong>Nghỉ</strong></p>
@@ -86,8 +88,8 @@
 					<div class="widget">
 						<h6>Quick Links</h6>
 						<ul class="nav flex-column primary-hover">
-							<li class="nav-item"><a class="nav-link" href="about-classic.html">Về Ca An</a></li>
-							<li class="nav-item"><a class="nav-link" href="contact.html">Liên Hệ</a></li>
+							<li class="nav-item"><a class="nav-link" href="\about">Về Ca An</a></li>
+							<li class="nav-item"><a class="nav-link" href="\lien-he">Liên Hệ</a></li>
 							<li class="nav-item"><a class="nav-link" href="\">Trang Chủ</a></li>
 							<li class="nav-item"><a class="nav-link" href="blog-grid-left-sidebar.html">Blog</a></li>
 							<li class="nav-item"><a class="nav-link" href="portfolio-grid-column-4.html">Portfolio</a></li>
@@ -120,7 +122,7 @@
 				<div class="copyright-links primary-hover mt-3 mt-md-0">
 					<ul class="list-inline">
 						<li class="list-inline-item pl-2"><a class="list-group-item-action" href="\">Trang Chủ</a></li>
-						<li class="list-inline-item pl-2"><a class="list-group-item-action" href="#">Về Ca An</a></li>
+						<li class="list-inline-item pl-2"><a class="list-group-item-action" href="\about">Về Ca An</a></li>
 						<li class="list-inline-item pl-2"><a class="list-group-item-action" href="#">Tuyển Dụng</a></li>
 						<li class="list-inline-item pl-2"><a class="list-group-item-action" href="#">Chính Sách Bảo Mật</a></li>
 						<li class="list-inline-item pl-2"><a class="list-group-item-action pr-0" href="#">Điều Khoản & Điều Kiện</a></li>

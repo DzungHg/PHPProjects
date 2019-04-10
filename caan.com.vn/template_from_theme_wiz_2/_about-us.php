@@ -29,7 +29,7 @@
 				<p class="lead"><?php echo $page->home_about_line03 ?></abbr></p>
 				<p><?php echo $page->home_about_line04?></p>
 				<div>
-					<a href="#" class="btn btn-dark">Liên Hệ</a>
+					<a href="\lien-he" class="btn btn-dark">Liên Hệ</a>
 					<a href="#" class="btn btn-link">Xem Hồ Sơ Năng Lực</a>
 				</div>
 			</div>

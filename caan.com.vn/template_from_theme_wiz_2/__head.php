@@ -95,7 +95,7 @@
 						<!-- top link -->
 						<ul class="nav">
 							<li class="nav-item">
-								<a class="nav-link" href="contact.html">Liên Hệ</a>
+								<a class="nav-link" href="lien-he">Liên Hệ</a>
 							</li>
 						</ul>
 						<!-- top social -->
@@ -120,9 +120,9 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
 				<!-- Logo -->
-				<!--
+				
 				<a class="navbar-brand" href="\">
-					<img src="<?php echo $config->urls->templates; ?>assets/images/logo.png" alt="logo">
+					<!--<img src="<?php echo $config->urls->templates; ?>assets/images/logo.png" alt="logo">
 					-->
 				<!-- SVG Logo Start -->
 				<svg class="navbar-brand-item" width="156" height="40" viewBox="0 0 2356 602" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
