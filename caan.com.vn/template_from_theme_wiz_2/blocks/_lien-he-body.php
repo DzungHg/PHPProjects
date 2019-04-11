@@ -5,8 +5,8 @@
 			<div class="row">
 				<div class="col-12 col-lg-8 mx-auto">
 					<div class="title text-center">
-						<h2>How can we assist you?</h2>
-						<p>Wizixo customer support is available free of charge. Connection charges can vary when calling from outside the area, abroad or from a mobile phone.</p>
+						<h2>Chúng tôi luôn sẵn sàng!</h2>
+						<p>Thông tin của bạn sẽ được phúc đáp sớm nhất có thể, thường chỉ trong vòng 24 giờ làm việc.</p>
 					</div>
 				</div>
 			</div>
@@ -16,20 +16,20 @@
 						<!-- Phone -->
 						<div class="contact-info all-text-white">
 							<div class="contact-box-icon"><i class="ti-map-alt"></i></div>
-							<h5 class="mb-2">Address</h5>
-							<p>1421 Coburn Hollow Road Metamora, Near Center Point, IL 61548.</p>
+							<h5 class="mb-2">Địa chỉ</h5>
+							<p>132 Cộng Hòa, P. 4, Tân Bình, TPHCM.</p>
 						</div>
 						<!-- Email -->
 						<div class="contact-info all-text-white">
 							<div class="contact-box-icon"><i class="ti-email"></i></div>
 							<h5 class="mb-2">E-mail</h5>
-							<p>help@wizixo.com</p>
+							<p>info[]caan.com.vn</p>
 						</div>
 						<!-- Phone -->
 						<div class="contact-info all-text-white">
 							<div class="contact-box-icon"><i class="ti-panel"></i></div>
-							<h5 class="mb-2">Phone</h5>
-							<p>(+251) 854-6308<br>(+001) 564-2589</p>
+							<h5 class="mb-2">Đ. Thoại</h5>
+							<p>(+84-28) 38623700<br>(Hot line) 18006549</p>
 						</div>
 					</div>
 				</div>
@@ -45,14 +45,14 @@
 				<!-- contact form -->
 				<div class="col-md-6">
 					<div class="h-100">
-						<h3>Have a project? Let's make something great together!</h3>
-						<p>Get in touch with us to see how we can help you with your project</p>
+						<h3>Bạn có ý tưởng mới, bạn muốn tham gia cùng chúng tôi, xin mời!</h3>
+						<p>Bạn thoải mái liên lạc với chúng tôi, chào đón bạn</p>
 						<form class="contact-form" id="contact-form" name="contactform" method="post" action="assets/include/contact-action.php">
 							<!-- Start form message -->
 							<div class="row">
 								<div class="col-12">
 									<div class="alert alert-success contact-msg" style="display: none" role="alert">
-										Your message was sent successfully.
+										Thông điệp của bạn đã được gởi đi.
 									</div>
 								</div>
 							</div>
@@ -85,7 +85,7 @@
 									</span>
 								</div>
 								<!-- submit button -->
-								<div class="col-md-12 text-center"><button class="btn btn-dark btn-block">Send Message</button></div>
+								<div class="col-md-12 text-center"><button class="btn btn-dark btn-block">Gởi thông điệp</button></div>
 							</div>
 							<!-- End main form -->
 						</form>
@@ -108,7 +108,7 @@
 				</div>
 				<div class="col-md-4 text-center">
 					<h5 class="mb-1"> General communication</h5>
-					<p>For general queries, including partnership opportunities, please email <a href="#">help@wizixo.com</a></p>
+					<p>For general queries, including partnership opportunities, please email <a href="#">info[]caan.com.vn</a></p>
 				</div>
 			</div>
 		</div>
