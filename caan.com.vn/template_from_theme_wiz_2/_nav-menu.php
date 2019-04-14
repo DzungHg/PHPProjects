@@ -1,25 +1,38 @@
 <!-- top navigation -->
 <ul class="navbar-nav ml-auto">
-   <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="\" id="docMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trang chủ</a>
-      <ul class="dropdown-menu" aria-labelledby="docMenu">
+   <?php
+   $label_menus = array(
+      "lanh_vuc" => array(
+         "label" => "Lãnh Vực",
+         "link" => "#",
+         "page_name" => "/lanh-vuc/"
+      ),
+      "about" => array(
+         "label" => "Thông Tin",
+         "link" => "#",
+         "page_name" => "/thong-tin/"
+      )
+   );
+   //
+   $page_path = "";
+   foreach ($label_menus as $label_menu => $info) { ?>
+      <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="docMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $info['label']; ?></a>
          <?php
-         // get the homepage object
-         $homePage = $pages->get("/");
-         $navItems = $homePage->children;
-         // get PageArray of homepage object and child page objects
-         //$navItems = $homePage->and($homePage->children);
-         // or if you don't want the home link
-         // $navItems = $homePage->children;
-         // iterate over the $navItems PageArray
-         //Đang làm menu tầng 1
-         foreach ($navItems as $navItem) :
-            ?>
+         $page_path =  $info['page_name'];
+         //$page_path =  "/lanh-vuc/";//chạy tốt
+         if ($pages->get($page_path) <> null) { ?>
+            <ul class="dropdown-menu" aria-labelledby="docMenu">
+               <?php
+               $curr_page = $pages->get($page_path);
+               $navItems = $curr_page->children;
+               foreach ($navItems as $navItem) { ?>
+                  <li>
+                     <a class="dropdown-item" href="<?php echo $navItem->url; ?>"><?php echo $navItem->title; ?></a>
+                  </li>
 
-            <li>
-               <a class="dropdown-item" href="<?php echo $navItem->url; ?>"><?php echo $navItem->title; ?></a>
-            </li>
-
-         <?php endforeach; ?>
-      </ul>
-   </li>
+               <?php  } ?>
+            </ul>
+         <?php
+      }
+   } ?>
 </ul>

@@ -88,8 +88,8 @@
 					<div class="widget">
 						<h6>Quick Links</h6>
 						<ul class="nav flex-column primary-hover">
-							<li class="nav-item"><a class="nav-link" href="\about">Về Ca An</a></li>
-							<li class="nav-item"><a class="nav-link" href="\lien-he">Liên Hệ</a></li>
+							<li class="nav-item"><a class="nav-link" href="\thong-tin\gioi-thieu-ve-caan">Về Ca An</a></li>
+							<li class="nav-item"><a class="nav-link" href="\thong-tin\lien-he">Liên Hệ</a></li>
 							<li class="nav-item"><a class="nav-link" href="\">Trang Chủ</a></li>
 							<li class="nav-item"><a class="nav-link" href="blog-grid-left-sidebar.html">Blog</a></li>
 							<li class="nav-item"><a class="nav-link" href="portfolio-grid-column-4.html">Portfolio</a></li>
@@ -122,7 +122,7 @@
 				<div class="copyright-links primary-hover mt-3 mt-md-0">
 					<ul class="list-inline">
 						<li class="list-inline-item pl-2"><a class="list-group-item-action" href="\">Trang Chủ</a></li>
-						<li class="list-inline-item pl-2"><a class="list-group-item-action" href="\about">Về Ca An</a></li>
+						<li class="list-inline-item pl-2"><a class="list-group-item-action" href="\thong-tin\gioi-thieu-ve-caan">Về Ca An</a></li>
 						<li class="list-inline-item pl-2"><a class="list-group-item-action" href="#">Tuyển Dụng</a></li>
 						<li class="list-inline-item pl-2"><a class="list-group-item-action" href="#">Chính Sách Bảo Mật</a></li>
 						<li class="list-inline-item pl-2"><a class="list-group-item-action pr-0" href="#">Điều Khoản & Điều Kiện</a></li>
