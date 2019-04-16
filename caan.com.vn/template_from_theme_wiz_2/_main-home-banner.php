@@ -10,7 +10,7 @@
 						<div class="col-lg-8 col-xl-6 mr-auto slider-content justify-content-center align-self-center align-items-start text-left">
 							<h2 class="animated fadeInUp dealy-500 display-6 display-md-4 display-lg-3 font-weight-bold text-white"><?php echo $page->text_01; ?></h2>
 							<h3 class="animated fadeInUp dealy-1000 text-white display-8 display-md-7 alt-font font-italic mb-2 my-md-4"><?php echo $page->text_02; ?></h3>
-							<div class="animated fadeInUp mt-3 dealy-1500"><a href="#" class="btn btn-grad">Xem thêm!</a> <a href="#" class="btn btn-link text-white">Check live demo!</a></div>
+							<div class="animated fadeInUp mt-3 dealy-1500"><a href="<?php echo  $page->link_to_page_01 ?>" class="btn btn-grad"><?php echo  $page->button_label_01 ?></a> <a href="#" class="btn btn-link text-white">Check live demo!</a></div>
 						</div>
 					</div>
 				</div>
@@ -23,7 +23,7 @@
 							<div class="slider-content text-center ">
 								<h3 class="animated fadeInUp dealy-500 display-8 display-md-7 text-white alt-font font-italic"><?php echo $page->text_03; ?></h3>
 								<h2 class="animated fadeInUp dealy-1000 display-6 display-md-4 display-lg-3 font-weight-bold text-white"><?php echo $page->text_04; ?></h2>
-								<div class="animated fadeInUp mt-3 dealy-1500"><a href="\lien-he" class="btn btn-grad">Liên hệ</a></div>
+								<div class="animated fadeInUp mt-3 dealy-1500"><a href="<?php echo $page->link_to_page_02 ?>" class="btn btn-grad"><?php echo  $page->button_label_02 ?></a></div>
 							</div>
 						</div>
 					</div>

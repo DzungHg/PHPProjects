@@ -29,8 +29,8 @@
 				<p class="lead"><?php echo $page->home_about_line03 ?></abbr></p>
 				<p><?php echo $page->home_about_line04 ?></p>
 				<div>
-					<a href="\lien-he" class="btn btn-dark">Liên Hệ</a>
-					<a href="#" class="btn btn-link">Xem Hồ Sơ Năng Lực</a>
+					<a href="<?php echo $page->url_link_01 ?>" target="_blank" class="btn btn-dark"><?php echo $page->button_label_03 ?></a>
+					<a href="<?php echo $page->link_to_page_03 ?>" class="btn btn-link">Xem Hồ Sơ Năng Lực</a>
 				</div>
 			</div>
 		</div>
