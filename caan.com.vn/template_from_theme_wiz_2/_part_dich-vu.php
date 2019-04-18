@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-12 col-lg-8 mx-auto">
 				<div class="title text-center">
-					<span class="pre-title">Dịch vụ tận tâm</span>
+					<span class="pre-title">Luôn nỗ lực</span>
 					<h2><?php echo $page->service_title; ?></h2>
 					<p class="mb-0"><?php echo $page->service_text; ?></p>
 				</div>
