@@ -5,52 +5,15 @@
 			<div class="row mb-4">
 				<!-- portfolio images -->
 				<div class="col-md-8">
-					<a class="mb-4 d-block" href="<?php echo $config->urls->templates; ?>assets/images/portfolio/big/01.jpg" data-fancybox="portfolio" data-caption="Perfect planning"><img src="assets/images/portfolio/big/01.jpg" alt=""></a>
-					<a class="mb-4 d-block" href="<?php echo $config->urls->templates; ?>assets/images/portfolio/big/02.jpg" data-fancybox="portfolio" data-caption="Kitchen design"><img src="assets/images/portfolio/big/02.jpg" alt=""></a>
-					<a class="mb-4 d-block" href="<?php echo $config->urls->templates; ?>assets/images/portfolio/big/03.jpg" data-fancybox="portfolio" data-caption="Sitting room design"><img src="assets/images/portfolio/big/03.jpg" alt=""></a>
+					<a class="mb-4 d-block" href="<?php echo $config->urls->templates; ?>assets/images/portfolio/big/01.jpg" data-fancybox="portfolio" data-caption="Perfect planning"><img src="<?php echo $config->urls->templates; ?>assets/images/portfolio/big/01.jpg" alt=""></a>
+					<a class="mb-4 d-block" href="<?php echo $config->urls->templates; ?>assets/images/portfolio/big/02.jpg" data-fancybox="portfolio" data-caption="Kitchen design"><img src="<?php echo $config->urls->templates; ?>assets/images/portfolio/big/02.jpg" alt=""></a>
+					<a class="mb-4 d-block" href="<?php echo $config->urls->templates; ?>assets/images/portfolio/big/03.jpg" data-fancybox="portfolio" data-caption="Sitting room design"><img src="<?php echo $config->urls->templates; ?>assets/images/portfolio/big/03.jpg" alt=""></a>
 				</div>
 				<!-- portfolio details -->
 				<div class="col-md-4">
 					<div class="sticky-element">
-						
-						<h2>Interior architecture </h2>
-						<p>Two assure Edward whence the was. Who worthy yet ten boy denote wonder. Weeks views her sight old tears sorry. Additions can suspected its concealed put furnished. Met the why particular Devonshire decisively considered partiality. Certain it waiting no entered is.</p>
-						<p> Passed her indeed uneasy shy polite appear denied. Oh less girl no walk. At he spot with five of view. </p>
-						<ul class="list-unstyled">
-							<li class="media mt-2">
-								<div class="d-flex w-40">
-									<h6>Client:</h6> </div>
-								<div class="media-body"> <span>Allen Smith</span> </div>
-							</li>
-							<li class="media mt-2">
-								<div class="d-flex w-40">
-									<h6>Manager:</h6> </div>
-								<div class="media-body">
-									<span>Emma Watson,</span>
-									<span>Maria Smith</span>
-								</div>
-							</li>
-
-							<li class="media mt-2">
-								<div class="d-flex w-40">
-									<h6>Category:</h6> </div>
-								<div class="media-body">
-									<span>Interior design</span>
-								</div>
-							</li>
-
-							<li class="media mt-2">
-								<div class="d-flex w-40">
-									<h6>Awards:</h6> </div>
-								<div class="media-body">
-									<span class="d-block"> Pineapple Award Design</span>
-									<span class="d-block mt-2"> Project of the Year </span>
-									<span class="d-block mt-2"> Designer of the Year</span>
-								</div>
-							</li>
-						</ul>
-						<a class="btn btn-grad mt-4" href="#!">View project website <i class="fa fa-external-link ml-2 mr-0"></i></a>
-					
+						<?php echo $page->summary_ck; ?>
+						<a class="btn btn-grad mt-4" href="<?php echo $page->url_link_01; ?>" target="_blank">Xem Website <i class="fa fa-external-link ml-2 mr-0"></i></a>
 					</div>
 				</div>
 				<!-- portfolio details End -->
@@ -59,10 +22,10 @@
 			<div class="row mt-4">
 				<!-- portfolio testimonial -->
 				<div class="col-md-6">
-					<h4 class="mb-4">Lời khách hàng</h4>
+					<h4 class="mb-4">Khách hàng</h4>
 					<blockquote class="blockquote" cite="#">
-						<h5 class="mb-2 text-light-gray">Design everything on the assumption that people are not heartless or stupid but marvelously capable, given the chance. Mr be cottage so related minuter is. Delicate say and blessing ladyship exertion few Margaret. Delight herself welcome against smiling its for. Suspected discovery by he affection household of principle perfectly he.</h5>
-						<cite>– Allen Smith</cite>
+						<h5 class="mb-2 text-light-gray"><?php echo $page->text_01; ?></h5>
+						<cite>– Ms. Linh, PNJ</cite>
 					</blockquote>
 				</div>
 				<!-- portfolio information -->
