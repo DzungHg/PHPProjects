@@ -7,70 +7,24 @@
 
 	<!-- Stylesheets
 	============================================= -->
-	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $config->urls->templates; ?>assets/css/bootstrap.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $config->urls->templates; ?>assets/css/style.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
 
-	<!-- One Page Module Specific Stylesheet -->
-	<link rel="stylesheet" href="<?php echo $config->urls->templates; ?>assets/css/onepage.css" type="text/css" />
-	<!-- / -->
-
-	<link rel="stylesheet" href="<?php echo $config->urls->templates; ?>assets/css/dark.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $config->urls->templates; ?>assets/css/font-icons.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $config->urls->templates; ?>assets/css/et-line.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $config->urls->templates; ?>assets/css/animate.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $config->urls->templates; ?>assets/css/magnific-popup.css" type="text/css" />
-
-	<link rel="stylesheet" href="<?php echo $config->urls->templates; ?>assets/css/fonts.css" type="text/css" />
-
-	<link rel="stylesheet" href="<?php echo $config->urls->templates; ?>assets/css/responsive.css" type="text/css" />
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<!-- Document Title
 	============================================= -->
-	<title><?php echo $page->headline; ?></title>
+	<title>Landing Page | Canvas</title>
 
 </head>
 
-<body class="stretched side-push-panel">
-
-	<div class="body-overlay"></div>
-
-	<div id="side-panel" class="dark">
-
-		<div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="icon-line-cross"></i></a></div>
-
-		<div class="side-panel-wrap">
-
-			<div class="widget widget_links clearfix">
-
-				<h4>In Gia Công 123in</h4>
-
-				<div style="font-size: 14px; line-height: 1.7;">
-					<address style="line-height: 1.7;">
-						132 Cộng Hòa, P. 4, Tân Bình<br>
-						292 Đường 3/2, P. 12, Quận 10<br>
-					</address>
-
-					<div class="clear topmargin-sm"></div>
-
-					<abbr title="Số MB của sales">Mobile 01:</abbr> 0938 389 050<br>
-					<abbr title="Số MB của sales">Mobile 02:</abbr> 0938 389 692<br>
-					<abbr title="Số MB của sales">Mobile 03:</abbr> 0909.004.405<br>
-					<abbr title="Hot Line">Hot Line:</abbr> 18006549<br>
-					<abbr title="Email liên hệ">Email:</abbr> innhanh@123in.vn
-				</div>
-
-			</div>
-			
-			<!--Widget kết nối mạng xã hội -->
-			<?php include("./blocks/_wg-ket-noi-mang-xa-hoi.php"); ?>
-			<!--Widget kết nối mạng xã hội End -->
-			
-
-		</div>
-
-	</div>
+<body class="stretched">
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -78,7 +32,7 @@
 
 		<!-- Header
 		============================================= -->
-		<header id="header" class="full-header transparent-header border-full-header dark static-sticky" data-sticky-class="not-dark" data-sticky-offset="full" data-sticky-offset-negative="100">
+		<header id="header">
 
 			<div id="header-wrap">
 
@@ -89,24 +43,22 @@
 					<!-- Logo
 					============================================= -->
 					<div id="logo">
-						<a href="index.html" class="standard-logo" data-dark-logo="<?php echo $config->urls->templates; ?>assets/images/canvasone-dark.png"><img src="<?php echo $config->urls->templates; ?>assets/images/canvasone.png" alt="123in Logo"></a>
-						<a href="index.html" class="retina-logo" data-dark-logo="<?php echo $config->urls->templates; ?>assets/images/canvasone-dark@2x.png"><img src="<?php echo $config->urls->templates; ?>assets/images/canvasone@2x.png" alt="123in Logo"></a>
+						<a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
 					</div><!-- #logo end -->
 
 					<!-- Primary Navigation
 					============================================= -->
 					<nav id="primary-menu">
 
-						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
-							<li><a href="#" data-href="#wrapper"><div>Trang Chủ</div></a></li>
-							<li><a href="#" data-href="#section-about"><div>Giới Thiệu</div></a></li>
-							<li><a href="#" data-href="#section-works"><div>Works</div></a></li>
-							<li><a href="#" data-href="#section-services"><div>Dịch Vụ</div></a></li>
-							<li><a href="#" data-href="#section-blog"><div>Blog</div></a></li>
-							<li><a href="#" data-href="#section-contact"><div>Liên Hệ</div></a></li>
+						<ul class="one-page-menu">
+							<li class="current"><a href="#" data-href="#section-home"><div>Home</div></a></li>
+							<li><a href="#" data-href="#section-features"><div>Features</div></a></li>
+							<li><a href="#" data-href="#section-pricing"><div>Pricing</div></a></li>
+							<li><a href="#" data-href="#section-faqs"><div>FAQs</div></a></li>
+							<li><a href="#" data-href="#section-contact"><div>Contact</div></a></li>
+							<li><a href="#" data-href="#section-buy"><div>Buy Now</div></a></li>
 						</ul>
-
-						<div id="side-panel-trigger" class="side-panel-trigger"><a href="#"><i class="icon-reorder"></i></a></div>
 
 					</nav><!-- #primary-menu end -->
 
@@ -115,7 +67,3 @@
 			</div>
 
 		</header><!-- #header end -->
-
-		<!-- Slider ============================================ -->
-		<?php include("./blocks/_head_slider.php"); ?>
-		<!-- #slider end -->

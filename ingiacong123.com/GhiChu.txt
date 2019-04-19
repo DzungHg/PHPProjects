@@ -1,0 +1,3 @@
+﻿3). _canvas_2: Lấy trang landing làm web cho tiện
+2). _flat: css không hoạt dộng do less
+1). _canvas: hoạt động khá tốt do nguyên gốc html mua
