@@ -44,37 +44,14 @@
 					<!-- Logo
 					============================================= -->
 					<div id="logo">
-						<a href="/" class="standard-logo" data-dark-logo="<?php echo $config->urls->templates; ?>assets/images/logo-dark.png"><img src="assets/images/logo.png" alt="Canvas Logo"></a>
-						<a href="/" class="retina-logo" data-dark-logo="<?php echo $config->urls->templates; ?>assets/images/logo-dark@2x.png"><img src="assets/images/logo@2x.png" alt="Canvas Logo"></a>
+						<a href="/" class="standard-logo" data-dark-logo="<?php echo $config->urls->templates; ?>assets/images/logo-dark.png"><img src="<?php echo $config->urls->templates; ?>assets/images/logo.png" alt="123in Logo"></a>
+						<a href="/" class="retina-logo" data-dark-logo="<?php echo $config->urls->templates; ?>assets/images/logo-dark@2x.png"><img src="<?php echo $config->urls->templates; ?>assets/images/logo@2x.png" alt="123in Logo"></a>
 					</div><!-- #logo end -->
 
 					<!-- Primary Navigation
 					============================================= -->
-					<nav id="primary-menu">
-
-						<ul class="one-page-menu">
-							<li class="current"><a href="#" data-href="#section-home">
-									<div>Home</div>
-								</a></li>
-							<li><a href="#" data-href="#section-features">
-									<div>Features</div>
-								</a></li>
-							<li><a href="#" data-href="#section-pricing">
-									<div>Pricing</div>
-								</a></li>
-							<li><a href="#" data-href="#section-faqs">
-									<div>FAQs</div>
-								</a></li>
-							<li><a href="#" data-href="#section-contact">
-									<div>Contact</div>
-								</a></li>
-							<li><a href="#" data-href="#section-buy">
-									<div>Buy Now</div>
-								</a></li>
-						</ul>
-
-					</nav><!-- #primary-menu end -->
-
+					<?php include("./blocks/_nav.php");  ?>
+					<!-- Primary Navigation -->
 				</div>
 
 			</div>

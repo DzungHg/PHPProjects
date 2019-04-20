@@ -8,8 +8,8 @@
 				<div class="container clearfix">
 
 					<div id="section-home" class="heading-block title-center nobottomborder page-section">
-						<h1>Starter's Guide to create Landing Pages</h1>
-						<span>Building a Landing Page was never so <span class="color">Easy</span> &amp; Interactive</span>
+						<h1><?php echo $page->headline; ?></h1>
+						<span><?php echo $page->summary; ?></span>
 					</div>
 
 					<div class="center bottommargin">
@@ -21,31 +21,27 @@
 					<div class="col_two_third topmargin nobottommargin">
 
 						<div style="position: relative;" data-height-xl="535" data-height-lg="442" data-height-md="338" data-height-sm="316" data-height-xs="201">
-							<img data-animate="fadeInLeft" src="<?php echo $config->urls->templates; ?>assets/images/landing/device1.png" alt="Mac" style="position: absolute; top: 0; left: 0;">
+							<img data-animate="fadeInLeft" src="<?php echo $config->urls->templates; ?>assets/images/landing/device1.jpg" alt="Mac" style="position: absolute; top: 0; left: 0;">
 							<img data-animate="fadeInRight" data-delay="300" src="<?php echo $config->urls->templates; ?>assets/images/landing/device2.png" alt="iPad" style="position: absolute; top: 0; left: 0;">
-							<img data-animate="fadeInUp" data-delay="600" src="<?php echo $config->urls->templates; ?>assets/images/landing/device3.png" alt="iPhone" style="position: absolute; top: 0; left: 0;">
+							<!--<img data-animate="fadeInUp" data-delay="600" src="<?php echo $config->urls->templates; ?>assets/images/landing/device3.png" alt="iPhone" style="position: absolute; top: 0; left: 0;"> -->
 						</div>
 
 					</div>
 
 					<div class="col_one_third topmargin nobottommargin col_last">
 
-						<h3>Short Overview.</h3>
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, quos, facilis esse rem dicta dignissimos eligendi earum sapiente ipsam iure vel deserunt? Soluta doloremque aspernatur quis asperiores numquam placeat dolore.</p>
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, ab incidunt temporibus rerum odio accusantium.</p>
+						<?php echo $page->body; ?>
 
 						<div class="divider divider-short"><i class="icon-circle"></i></div>
 
 						<ul class="iconlist iconlist-large iconlist-color">
-							<li><i class="icon-ok-sign"></i> Interactive Live Builder</li>
-							<li><i class="icon-ok-sign"></i> Valid HTML5 &amp; CSS3 Semantics</li>
-							<li><i class="icon-ok-sign"></i> 100% Open Source &amp; Customizable</li>
-							<li><i class="icon-ok-sign"></i> More than 70+ Widgets</li>
-							<li><i class="icon-ok-sign"></i> Responsive &amp; Retina Devices Support</li>
-							<li><i class="icon-ok-sign"></i> Easy Embeddable Media &amp; Graphics</li>
-							<li><i class="icon-ok-sign"></i> Lifetime <strong>FREE</strong> Updates</li>
+							<li><i class="icon-ok-sign"></i> Chất lượng in chuyên nghiệp</li>
+							<li><i class="icon-ok-sign"></i> Thành phẩm đa dạng</li>
+							<li><i class="icon-ok-sign"></i> In và thành phẩm trên mọi chất liệu giấy</li>
+							<li><i class="icon-ok-sign"></i> Giá hợp lý</li>
+							<li><i class="icon-ok-sign"></i> Quy trình khép kín tại xưởng</li>
+							<li><i class="icon-ok-sign"></i> Đặt in online nhanh chóng</li>
+							<li><i class="icon-ok-sign"></i> Giao hàng tận nơi miễn phí</li>
 						</ul>
 
 					</div>
@@ -53,106 +49,9 @@
 					<div class="clear"></div>
 
 					<div class="divider divider-short divider-center"><i class="icon-circle"></i></div>
-
-					<div id="section-features" class="heading-block title-center page-section">
-						<h2>Features Overview</h2>
-						<span>Some of the Features that are gonna blow your mind off</span>
-					</div>
-
-					<div class="col_one_third">
-						<div class="feature-box fbox-plain">
-							<div class="fbox-icon" data-animate="bounceIn">
-								<a href="#"><img src="<?php echo $config->urls->templates; ?>assets/images/icons/features/responsive.png" alt="Responsive Layout"></a>
-							</div>
-							<h3>Responsive Layout</h3>
-							<p>Powerful Layout with Responsive functionality that can be adapted to any screen size. Resize browser to view.</p>
-						</div>
-					</div>
-
-					<div class="col_one_third">
-						<div class="feature-box fbox-plain">
-							<div class="fbox-icon" data-animate="bounceIn" data-delay="200">
-								<a href="#"><img src="<?php echo $config->urls->templates; ?>assets/images/icons/features/retina.png" alt="Retina Graphics"></a>
-							</div>
-							<h3>Retina Graphics</h3>
-							<p>Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Retina Icons, Fonts &amp; all others graphics are optimized.</p>
-						</div>
-					</div>
-
-					<div class="col_one_third col_last">
-						<div class="feature-box fbox-plain">
-							<div class="fbox-icon" data-animate="bounceIn" data-delay="400">
-								<a href="#"><img src="<?php echo $config->urls->templates; ?>assets/images/icons/features/performance.png" alt="Powerful Performance"></a>
-							</div>
-							<h3>Powerful Performance</h3>
-							<p>Canvas includes tons of optimized code that are completely customizable and deliver unmatched fast performance.</p>
-						</div>
-					</div>
-
-					<div class="clear"></div>
-
-					<div class="col_one_third">
-						<div class="feature-box fbox-plain">
-							<div class="fbox-icon" data-animate="bounceIn" data-delay="600">
-								<a href="#"><img src="<?php echo $config->urls->templates; ?>assets/images/icons/features/flag.png" alt="Responsive Layout"></a>
-							</div>
-							<h3>Endless Possibilities</h3>
-							<p>You have complete easy control on each &amp; every element that provides endless customization possibilities.</p>
-						</div>
-					</div>
-
-					<div class="col_one_third">
-						<div class="feature-box fbox-plain">
-							<div class="fbox-icon" data-animate="bounceIn" data-delay="800">
-								<a href="#"><img src="<?php echo $config->urls->templates; ?>assets/mages/icons/features/tick.png" alt="Retina Graphics"></a>
-							</div>
-							<h3>Light &amp; Dark Scheme</h3>
-							<p>Change your Website's Primary Scheme instantly by simply adding the dark class to the body.</p>
-						</div>
-					</div>
-
-					<div class="col_one_third col_last">
-						<div class="feature-box fbox-plain">
-							<div class="fbox-icon" data-animate="bounceIn" data-delay="1000">
-								<a href="#"><img src="<?php echo $config->urls->templates; ?>assets/images/icons/features/tools.png" alt="Powerful Performance"></a>
-							</div>
-							<h3>Customizable Fonts</h3>
-							<p>Use any Font you like from Google Web Fonts, Typekit or other Web Fonts. They will blend in perfectly.</p>
-						</div>
-					</div>
-
-					<div class="clear"></div>
-
-					<div class="col_one_third">
-						<div class="feature-box fbox-plain">
-							<div class="fbox-icon" data-animate="bounceIn" data-delay="1200">
-								<a href="#"><img src="<?php echo $config->urls->templates; ?>assets/images/icons/features/map.png" alt="Responsive Layout"></a>
-							</div>
-							<h3>Responsive Layout</h3>
-							<p>Powerful Layout with Responsive functionality that can be adapted to any screen size. Resize browser to view.</p>
-						</div>
-					</div>
-
-					<div class="col_one_third">
-						<div class="feature-box fbox-plain">
-							<div class="fbox-icon" data-animate="bounceIn" data-delay="1400">
-								<a href="#"><img src="<?php echo $config->urls->templates; ?>assets/images/icons/features/seo.png" alt="Retina Graphics"></a>
-							</div>
-							<h3>Retina Graphics</h3>
-							<p>Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Retina Icons, Fonts &amp; all others graphics are optimized.</p>
-						</div>
-					</div>
-
-					<div class="col_one_third col_last">
-						<div class="feature-box fbox-plain">
-							<div class="fbox-icon" data-animate="bounceIn" data-delay="1600">
-								<a href="#"><img src="<?php echo $config->urls->templates; ?>assets/images/icons/features/support.png" alt="Powerful Performance"></a>
-							</div>
-							<h3>Powerful Performance</h3>
-							<p>Canvas includes tons of optimized code that are completely customizable and deliver unmatched fast performance.</p>
-						</div>
-					</div>
-
+<!-- phần feature bắt đầu -->
+					<?php include("./blocks/_features_test.php"); ?>
+<!-- phần feature kết thúc -->
 					<div class="clear"></div>
 
 					<div class="divider divider-short divider-center"><i class="icon-circle"></i></div>
