@@ -16,17 +16,10 @@
 
 							<img src="images/footer-widget-logo.png" alt="" class="footer-logo">
 
-							<p>We believe in <strong>Simple</strong>, <strong>Creative</strong> &amp; <strong>Flexible</strong> Design Standards.</p>
+							<p>Chúng tôi tin <strong>Tận Tâm</strong>, <strong>Sáng Tạo</strong> &amp; <strong>Đổi Mới</strong> là sự thành công.</p>
 
 							<div style="background: url('images/world-map.png') no-repeat center center; background-size: 100%;">
-								<address>
-									<strong>Headquarters:</strong><br>
-									795 Folsom Ave, Suite 600<br>
-									San Francisco, CA 94107<br>
-								</address>
-								<abbr title="Phone Number"><strong>Phone:</strong></abbr> (91) 8547 632521<br>
-								<abbr title="Fax"><strong>Fax:</strong></abbr> (91) 11 4752 1433<br>
-								<abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
+								<?php echo $page->dia_chi_lien_he ?>
 							</div>
 
 						</div>
@@ -37,16 +30,16 @@
 
 						<div class="widget widget_links clearfix">
 
-							<h4>Blogroll</h4>
+							<h4>Blogs</h4>
 
 							<ul>
-								<li><a href="http://codex.wordpress.org/">Documentation</a></li>
-								<li><a href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li>
+								<li><a href="http://kienthucinan.com/">Kiến Thức In Ấn</a></li>
+								<!--	<li><a href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li>
 								<li><a href="http://wordpress.org/extend/plugins/">Plugins</a></li>
 								<li><a href="http://wordpress.org/support/">Support Forums</a></li>
 								<li><a href="http://wordpress.org/extend/themes/">Themes</a></li>
 								<li><a href="http://wordpress.org/news/">WordPress Blog</a></li>
-								<li><a href="http://planet.wordpress.org/">WordPress Planet</a></li>
+								<li><a href="http://planet.wordpress.org/">WordPress Planet</a></li> -->
 							</ul>
 
 						</div>
@@ -56,7 +49,7 @@
 					<div class="col_one_third col_last">
 
 						<div class="widget clearfix">
-							<h4>Recent Posts</h4>
+							<h4>Blog mới nhất</h4>
 
 							<div id="post-list-footer">
 								<div class="spost clearfix">
@@ -65,7 +58,7 @@
 											<h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
 										</div>
 										<ul class="entry-meta">
-											<li>10th July 2014</li>
+											<li>10th July 2019</li>
 										</ul>
 									</div>
 								</div>
@@ -106,12 +99,12 @@
 
 							<div class="col-lg-6 bottommargin-sm">
 								<div class="counter counter-small"><span data-from="50" data-to="15065421" data-refresh-interval="80" data-speed="3000" data-comma="true"></span></div>
-								<h5 class="nobottommargin">Total Downloads</h5>
+								<h5 class="nobottommargin">Tổng trang đã in</h5>
 							</div>
 
 							<div class="col-lg-6 bottommargin-sm">
 								<div class="counter counter-small"><span data-from="100" data-to="18465" data-refresh-interval="50" data-speed="2000" data-comma="true"></span></div>
-								<h5 class="nobottommargin">Clients</h5>
+								<h5 class="nobottommargin">Bài in</h5>
 							</div>
 
 						</div>
@@ -119,7 +112,7 @@
 					</div>
 
 					<div class="widget subscribe-widget clearfix">
-						<h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
+						<h5><strong>Tôi muốn nhận tin</strong> tin khuyến mãi, tin mới &amp; hữu ích:</h5>
 						<div class="widget-subscribe-form-result"></div>
 						<form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="nobottommargin">
 							<div class="input-group divcenter">
@@ -143,7 +136,7 @@
 									<i class="icon-facebook"></i>
 									<i class="icon-facebook"></i>
 								</a>
-								<a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
+								<a href="#"><small style="display: block; margin-top: 3px;"><strong>Like 123in</strong><br>trên Facebook</small></a>
 							</div>
 							<div class="col-lg-6 clearfix">
 								<a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
@@ -170,7 +163,7 @@
 			<div class="container clearfix">
 
 				<div class="col_half">
-					Copyrights &copy; 2014 All Rights Reserved by Canvas Inc.<br>
+					Bản quyền &copy; 2019 Ca An Co. Ltd.<br>
 					<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
 				</div>
 
@@ -219,7 +212,7 @@
 
 					<div class="clear"></div>
 
-					<i class="icon-envelope2"></i> info@canvas.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369 <span class="middot">&middot;</span> <i class="icon-skype2"></i> CanvasOnSkype
+					<i class="icon-envelope2"></i> innhanh@123in.vn <span class="middot">&middot;</span> <i class="icon-headphones"></i> 18006549 <span class="middot">&middot;</span> <i class="icon-skype2"></i><a title="Chat qua Skype " href="skype:nickskype?chat"><img alt="Chat Skype" src="<?php echo $config->urls->templates; ?>assets/images/icons/skype.png"></a>
 				</div>
 
 			</div>
@@ -245,34 +238,8 @@
 
 	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCzkxzbEni5vR_Ugt1De8gBzrLX3236bnA"></script>
 	<script src="<?php echo $config->urls->templates; ?>assets/js/jquery.gmap.js"></script>
+	<?php echo $page->chat_code; ?>
 
-	<script>
-		jQuery('#google-map').gMap({
-
-			address: 'Melbourne, Australia',
-			maptype: 'ROADMAP',
-			zoom: 14,
-			markers: [{
-				address: "Melbourne, Australia",
-				html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Envato</span></h4><p class="nobottommargin">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day, and a network of educational blogs where millions learn <strong>creative skills</strong>.</p></div>',
-				icon: {
-					image: "images/icons/map-icon-red.png",
-					iconsize: [32, 39],
-					iconanchor: [32, 39]
-				}
-			}],
-			doubleclickzoom: false,
-			controls: {
-				panControl: true,
-				zoomControl: true,
-				mapTypeControl: true,
-				scaleControl: false,
-				streetViewControl: false,
-				overviewMapControl: false
-			}
-
-		});
-	</script>
 
 	</body>
 
