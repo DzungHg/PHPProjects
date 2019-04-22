@@ -81,7 +81,7 @@
             </ul>
          </div>
          <div class="pricing-action">
-            <a href="#" class="btn btn-danger btn-block btn-lg">Liên hệ</a>
+            <a href="#" data-scrollto="#section-contact" class="btn btn-danger btn-block btn-lg">Liên hệ</a>
          </div>
       </div>
 
@@ -107,7 +107,7 @@
             </ul>
          </div>
          <div class="pricing-action">
-            <a href="#" class="btn btn-danger btn-block btn-lg">Liên hệ</a>
+            <a href="#" data-scrollto="#section-contact" class="btn btn-danger btn-block btn-lg">Liên hệ</a>
          </div>
       </div>
 

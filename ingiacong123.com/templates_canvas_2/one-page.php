@@ -13,7 +13,7 @@
 					</div>
 
 					<div class="center bottommargin">
-						<a href="http://chat.ingiacong123.vn/chat.php?v=2&linkid=" class="button button-3d button-teal button-xlarge nobottommargin"><i class="icon-star3"></i>Chat để in thử</a> - Hoặc - <a href="#" data-scrollto="#section-pricing" class="button button-3d button-red button-xlarge nobottommargin"><i class="icon-user2"></i>Liên hệ</a>
+						<a href="http://chat.ingiacong123.vn/chat.php?v=2&linkid=" class="button button-3d button-teal button-xlarge nobottommargin"><i class="icon-star3"></i>Chat để in thử</a> - Hoặc - <a href="#" data-scrollto="#section-contact" class="button button-3d button-red button-xlarge nobottommargin"><i class="icon-user2"></i>Liên hệ</a>
 					</div>
 
 					<div class="clear"></div>
@@ -97,7 +97,7 @@
 
 						<div class="center">
 
-							<a href="http://chat.ingiacong123.vn/chat.php?v=2&linkid=" data-animate="tada" class="button button-3d button-teal button-xlarge nobottommargin"><i class="icon-star3"></i>Chat để in thử</a> - Hoặc - <a href="#" data-scrollto="#section-pricing" class="button button-3d button-red button-xlarge nobottommargin"><i class="icon-user2"></i>Liên hệ</a>
+							<a href="http://chat.ingiacong123.vn/chat.php?v=2&linkid=" data-animate="tada" class="button button-3d button-teal button-xlarge nobottommargin"><i class="icon-star3"></i>Chat để in thử</a> - Hoặc - <a href="#" data-scrollto="#section-contact" class="button button-3d button-red button-xlarge nobottommargin"><i class="icon-user2"></i>Liên hệ</a>
 
 						</div>
 
