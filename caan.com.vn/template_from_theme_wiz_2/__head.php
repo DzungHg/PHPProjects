@@ -26,6 +26,13 @@
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates; ?>assets/css/style.css" />
 
+
+	<script src='<?php echo $config->urls->root; ?>wire/modules/Jquery/JqueryCore/jquery-1.11.1.js'></script>
+	<script src='<?php echo $config->urls->root; ?>site/modules/FormBuilder/frameworks/bootstrap/js/bootstrap.min.js'></script>
+	<script src='<?php echo $config->urls->root; ?>wire/templates-admin/scripts/inputfields.min.js'></script>
+	<!-- This next script (form-builder-d.js) must go either in the document head or somewhere before the <form> -->
+	<script src='<?php echo $config->urls->FormBuilder; ?>form-builder-d.js'></script>
+	<!-- Phần của FormBuilder -->
 </head>
 
 <body>
