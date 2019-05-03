@@ -894,7 +894,7 @@ function ukSanPhamSum(Page $page, $options = array())
 		'summarize' => null, // Display blog post summary rather than full post? (null=auto-detect)
 		'metaIcon' => 'info',
 		'moreIcon' => 'arrow-right',
-		'moreText' => __('Read more'),
+		'moreText' => __('Xem thêm'),
 		'categoryIcon' => 'hashtag',
 		'bylineText' => __('Posted by %1$s on %2$s'),
 	);
@@ -904,9 +904,9 @@ function ukSanPhamSum(Page $page, $options = array())
 	//$date = $page->get('date|createdStr');
 	//$name = $page->createdUser->name;
 	$body = $page->get('body');
-	//$metaIcon = ukIcon($options['metaIcon']);
-	//$moreIcon = ukIcon($options['moreIcon']);
-	//$categoryIcon = ukIcon($options['categoryIcon']);
+	$metaIcon = ukIcon($options['metaIcon']);
+	$moreIcon = ukIcon($options['moreIcon']);
+	$categoryIcon = ukIcon($options['categoryIcon']);
 	//$n = $page->get('comments')->count();
 	//$numComments = $n ? "<a href='$page->url#comments'>" . ukIcon('comments') . " $n</a>" : "";
 
@@ -915,7 +915,7 @@ function ukSanPhamSum(Page $page, $options = array())
 		$options['summarize'] = page()->id != $page->id;
 	}
 
-	$categories = $page->get('categories')->each(
+	$categories = $page->get('danh-muc-san-pham')->each(
 		$categoryIcon .
 			"<a class='uk-button uk-button-text' href='{url}'>{title}</a> "
 	);
@@ -937,8 +937,10 @@ function ukSanPhamSum(Page $page, $options = array())
 		$heading = "<h1 class='uk-article-title uk-margin-remove'>$title</h1>";
 	}
 
-	$byline = sprintf($options['bylineText'], $name, $date);
-
+	//$byline = sprintf($options['bylineText'], $name, $date);
+	$returnText = "
+	<
+	";
 	// return the blog post article markup
 	return "
 		<article class='uk-article blog-post $class'>
@@ -946,13 +948,13 @@ function ukSanPhamSum(Page $page, $options = array())
 			<p class='uk-margin-small'>
 				<span class='uk-article-meta'>
 					$metaIcon
-					$byline
+					
 				</span>
 				<span class='categories'>
 					$categories
 				</span>
 				<span class='num-comments uk-margin-small-left uk-text-muted'>
-					$numComments
+					
 				</span>
 			</p>
 			$body
