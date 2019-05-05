@@ -1,7 +1,7 @@
 <?php namespace ProcessWire;
 // _main.php template file, called after a page’s template file	
 $home = pages()->get('/'); // homepage
-$siteTitle = 'Regular';
+$siteTitle = 'Show Sản Phẩm Ảnh';
 $siteTagline = $home->summary;
 
 // as a convenience, set location of our 3rd party resources (Uikit and jQuery)...
