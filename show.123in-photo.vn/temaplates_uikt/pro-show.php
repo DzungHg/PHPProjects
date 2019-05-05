@@ -1,7 +1,7 @@
 <?php namespace ProcessWire;
 
 // đây là home page toàn bộ sản phẩm show nằm ở đay
-$blog = pages()->get('/blog/');
+$blog = pages()->get('/san-pham/');
 $blogPost = $blog->child();
 
 ?>
@@ -15,11 +15,17 @@ $blogPost = $blog->child();
    <hr>
    <p class='uk-margin-small'>
       <a class='uk-button uk-button-link uk-link-muted' href='<?= $blog->url ?>'>
-         In the blog
+         Thông tin Sản Phẩm
       </a>
    </p>
-   <?= ukBlogPost($blogPost) ?>
+   <?= ukSanPhamSum($blogPost) ?>
    <p class='uk-margin-small'>
-      <a href='<?= $blog->url ?>'>More blog posts <?= ukIcon('arrow-right') ?></a>
+      <a href='<?= $blog->url ?>'>Còn nhiều Sản Phẩm <?= ukIcon('arrow-right') ?></a>
    </p>
 </div>
+<aside id='sidebar'>
+   <?= ukNav(pages()->get('/danh-muc-san-pham/')->children) ?>
+   <div class='uk-card uk-card-default uk-card-hover uk-card-body uk-margin-medium-top'>
+      <?= page()->sidebar ?>
+   </div>
+</aside>

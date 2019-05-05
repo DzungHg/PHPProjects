@@ -6,8 +6,8 @@
 <div id='content'>
 	<?php
 	echo ukHeading1(page()->title, 'divider');
-	$posts = page()->children('limit=10');
-	echo ukBlogPosts($posts);
+	$sanPhams = page()->children('limit=10');
+	echo ukSanPhamSums($sanPhams);
 	?>
 </div>
 

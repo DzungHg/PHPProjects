@@ -33,20 +33,11 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 
 	<!-- MASTHEAD -->
 	<header class='uk-background-muted'>
-		<div id='masthead' class="uk-container">
-			<h2 id='masthead-logo' class='uk-text-center uk-margin-medium-top uk-margin-small-bottom'>
-				<a href='<?= urls()->root ?>'>
-					<img src='<?= urls()->templates ?>uikit/images/coffee4.svg' alt='coffee'><br />
-				</a>
-				<?= $siteTitle ?>
-			</h2>
-			<p id='masthead-tagline' class='uk-text-center uk-text-small uk-text-muted uk-margin-remove'>
-				<?= $siteTagline ?>
-			</p>
+		<div id='masthead' class="uk-container" uk-sticky>
 			<nav id='masthead-navbar' class="uk-navbar-container" uk-navbar>
 				<div class="uk-navbar-center uk-visible@m">
 					<?= ukNavbarNav($home->and($home->children), [
-						'dropdown' => ['basic-page', 'categories']
+						'dropdown' => ['basic-page', 'danh-muc-san-pham', 'san-pham']
 					]) ?>
 				</div>
 			</nav>
@@ -71,7 +62,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 		</div>
 	</main>
 
-	<?php if (config()->debug && user()->isSuperuser()) : 
+	<?php if (config()->debug && user()->isSuperuser()) :
 		?>
 		<section id='debug' class='uk-section uk-section-muted'>
 			<div class='uk-container'>
@@ -97,7 +88,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 					</h3>
 					<p class='uk-margin-remove'>
 						<small class='uk-text-small uk-text-muted'>&copy; <?= date('Y') ?> &bull;</small>
-						<a href='https://processwire.com'>Powered by ProcessWire CMS</a>
+						<a href='https://123in-photo.vn'>Trang Chính</a>
 					</p>
 				</div>
 			</div>
@@ -132,7 +123,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 	<?php if (page()->editable) : ?>
 		<!-- PAGE EDIT LINK -->
 		<a id='edit-page' href='<?= page()->editUrl ?>'>
-			<?= ukIcon('pencil') ?> Edit
+			<?= ukIcon('pencil') ?> Sửa
 		</a>
 	<?php endif; ?>
 

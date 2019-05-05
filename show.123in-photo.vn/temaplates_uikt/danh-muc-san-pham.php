@@ -1,6 +1,20 @@
 <?php namespace ProcessWire;
 
 $danhMucs = page()->children();
+//Tìm image
+function thumbImageUrl($page)
+{
+	$textRet = "";
+	foreach ($page->images as $image) {
+		// $image and $thumb are both Pageimage objects
+		if ($image->basename == $page->link_to_image) {
+			$textRet = $image->url;
+			break;
+		}
+	};
+	return $textRet;
+}
+
 
 ?>
 
@@ -9,7 +23,7 @@ $danhMucs = page()->children();
 	foreach ($danhMucs as $danhMuc) { ?>
 		<div>
 			<div class="uk-card uk-card-default uk-card-hover uk-card-body">
-				<a href="<?php echo $danhMuc->link_to_page; ?>" alt="<?php echo $danhMuc->image_alter_text; ?>"> <img src="<?php echo $danhMuc->link_to_image; ?>"> </a>
+				<a href="<?php echo $danhMuc->url; ?>"><img src="<?php echo thumbImageUrl($danhMuc); ?>" alt="<?php echo $danhMuc->image_alt_text; ?>"></a>
 				<h3 class="uk-card-title"><?php echo $danhMuc->get('title|headline'); ?></h3>
 				<p><?php echo $danhMuc->summary; ?></p>
 			</div>
@@ -20,5 +34,5 @@ $danhMucs = page()->children();
 
 
 <aside id='sidebar'>
-	<?= ukNav(pages()->get('/blog/')->children('limit=3'), ['header' => 'Recent posts']) ?>
+	<?= ukNav(pages()->get('/san-pham/')->children('limit=3'), ['header' => 'Recent posts']) ?>
 </aside>

@@ -9,7 +9,7 @@
  *
  */
 
-include_once("./_func.php");  // shared functions
+
 include_once('./_uikit.php'); //Từ bản ukit blog default, dùng cho uikit
 /***************************************************************************************
  * DEFINE REGIONS

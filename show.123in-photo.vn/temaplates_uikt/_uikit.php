@@ -900,67 +900,78 @@ function ukSanPhamSum(Page $page, $options = array())
 	);
 
 	$options = _ukMergeOptions($defaults, $options);
-	$title = $page->title;
-	//$date = $page->get('date|createdStr');
-	//$name = $page->createdUser->name;
-	$body = $page->get('body');
-	$metaIcon = ukIcon($options['metaIcon']);
-	$moreIcon = ukIcon($options['moreIcon']);
-	$categoryIcon = ukIcon($options['categoryIcon']);
-	//$n = $page->get('comments')->count();
-	//$numComments = $n ? "<a href='$page->url#comments'>" . ukIcon('comments') . " $n</a>" : "";
+	// Độ
+	$heading2 = $page->title;
+	//Tìm hình 
+	$thumbImageUrl = "";
+	foreach ($page->images as $image) {
+		// $image and $thumb are both Pageimage objects
+		if ($image->basename == $page->link_to_image_thumb) {
+			$thumbImageUrl = $image->url;
+			break;
+		}
+	};
 
-	if ($options['summarize'] === null) {
-		// auto-detect: summarize if current page is not the same as the blog post
-		$options['summarize'] = page()->id != $page->id;
-	}
+	$imageAltText = "Testing";
+	$tomTatSanPham = $page->summary;
+	$linkToPage = $page->url;
 
-	$categories = $page->get('danh-muc-san-pham')->each(
-		$categoryIcon .
-			"<a class='uk-button uk-button-text' href='{url}'>{title}</a> "
-	);
-
-	if ($options['summarize']) {
-		// link to post in title, and use just the first paragraph in teaser mode
-		$title = "<a href='$page->url'>$title</a>";
-		$body = explode('</p>', $body);
-		$body = reset($body) . ' ';
-		$body .= "<a href='$page->url'>$options[moreText] $moreIcon</a></p>";
-		$class = 'blog-post-summary';
-	} else {
-		$class = 'blog-post-full';
-	}
-
-	if ($options['summarize']) {
-		$heading = "<h2 class='uk-margin-remove'>$title</h2>";
-	} else {
-		$heading = "<h1 class='uk-article-title uk-margin-remove'>$title</h1>";
-	}
-
-	//$byline = sprintf($options['bylineText'], $name, $date);
 	$returnText = "
-	<
+	<div class= 'uk-panel'>
+       <a class=' uk-link-reset' href='$linkToPage'><img src=' $thumbImageUrl' alt='$imageAltText'></a> 
+        <a href='$linkToPage'><h1 class= 'uk-article-title'> $heading2</h1></a> 
+        <p>$tomTatSanPham</p>
+   </div>
 	";
 	// return the blog post article markup
-	return "
-		<article class='uk-article blog-post $class'>
-			$heading
-			<p class='uk-margin-small'>
-				<span class='uk-article-meta'>
-					$metaIcon
-					
-				</span>
-				<span class='categories'>
-					$categories
-				</span>
-				<span class='num-comments uk-margin-small-left uk-text-muted'>
-					
-				</span>
-			</p>
-			$body
-		</article>
-		<hr>
+	return $returnText;
+}
+/* làm lại trang sản phẩm chi tiết 
+các fields:
+- Title: xài
+- Summary: chỉ xài tóm tắt ở trang mục sản phẩm
+- chi_tiet_sp_matrix: repeat Xài
+  - thuoc_tinh_struct: là 1 loại field nhóm của 
+	 - link_to_image: hình to dùng xem kỹ chi tiết sản phẩm, dùng hình của trang
+	 - image_alt_text: 
+	 - mo_ta_thuoc_tinh_sp: CK dùng viết thêm
+==> Dùng panel uikit, image, hiển thị hình ảnh thử codepen
+*/
+/*fuction này phụ */
+
+function ukSanPhamChiTiet(Page $page)
+{
+
+	//Nội dung trang theo Matrix file
+	$returnText = "";
+	foreach ($page->chi_tiet_sp_matrix as $item) {
+		if ($item->type == 'thuoc_tinh_struct') {
+			//Tìm link hình
+			$imageUrl = "";
+			$imageWidth = 0;
+			$imageHeight = 0;
+			$imageAltText = $item->image_alt_text;
+			$moTaThuocTinh = $item->mo_ta_thuoc_tinh_sp;
+			foreach ($page->images as $image) {
+				// $image and $thumb are both Pageimage objects
+				if ($image->basename == $item->link_to_image) {
+					$imageUrl = $image->url;
+					$imageWidth = $image->width();
+					$imageHeight = $image->height();
+					break;
+				}
+			};
+			$returnText .= "
+	<div class= 'uk-panel'>
+		<img data-src='$imageUrl' width='$imageWidth' height='$imageHeight'  alt='$imageAltText' uk-img>
+		 <div>$moTaThuocTinh</div>
+        
+   </div> 
 	";
+		}
+	}
+	// return the blog post article markup
+	return $returnText;
 }
 /**
  * Render multiple blog posts summarized
@@ -1012,7 +1023,7 @@ function ukSanPhamSums(PageArray $sanPhams, $options = array())
 	$options = _ukMergeOptions($defaults, $options);
 	$out = "<div class='blog-posts'>";
 	foreach ($sanPhams as $sanPham) {
-		$out .= ukBlogPost($sanPham, $options);
+		$out .= ukSanPhamSum($sanPham, $options);
 	}
 	if ($options['paginate'] && $sanPhams->getTotal() > $sanPhams->count()) {
 		$out .= ukPagination($sanPhams);
