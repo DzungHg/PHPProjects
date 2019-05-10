@@ -87,7 +87,8 @@
  * @return string
  *
  */
-function ukNav($items, $options = array()) {
+function ukNav($items, $options = array())
+{
 
 	static $depth = 0;
 
@@ -116,7 +117,7 @@ function ukNav($items, $options = array()) {
 	);
 
 	// options that should not go past root depth
-	if($depth) unset($options['divider'], $options['heading'], $options['header']);
+	if ($depth) unset($options['divider'], $options['heading'], $options['header']);
 
 	// combine defaults with custom options
 	$options = _ukNavOptions(_ukMergeOptions($defaults, $options));
@@ -128,16 +129,16 @@ function ukNav($items, $options = array()) {
 	$out = $options['ul'] ? "<ul $attr>" : "";
 	$itemsParent = null;
 	$repeatParent = new NullPage();
-	
+
 	// if given a Page rather than a PageArray, use children as the items and use Page as the header
-	if($items instanceof Page) {
-		if(empty($header)) $header = $items;
+	if ($items instanceof Page) {
+		if (empty($header)) $header = $items;
 		$itemsParent = $items;
 		$items = $items->children();
 	}
 
 	// if we have a PageArray, get the total items an convert to regular arary
-	if($items instanceof PageArray) {
+	if ($items instanceof PageArray) {
 		$totalItems = $items->getTotal();
 		$itemsArray = $items->getArray();
 	} else {
@@ -146,63 +147,62 @@ function ukNav($items, $options = array()) {
 	}
 
 	// if there are no items to render, exit now
-	if(!count($items)) return '';
+	if (!count($items)) return '';
 
 	// determine parent for items
-	if(!$itemsParent) $itemsParent = reset($itemsArray)->parent();
+	if (!$itemsParent) $itemsParent = reset($itemsArray)->parent();
 
 	// determine if we should repeat the parent item in subnav 
-	if(($options['repeatParent'] === true && $depth) || $options['repeatParent'] === 1) {
+	if (($options['repeatParent'] === true && $depth) || $options['repeatParent'] === 1) {
 		$repeatParent = $itemsParent;
 		array_unshift($itemsArray, $repeatParent);
 	}
 
 	// if header option is boolean true, it means show parent as header
-	if($header === true) $header = $itemsParent;
+	if ($header === true) $header = $itemsParent;
 
 	// cycle through all the items
-	foreach($itemsArray as $n => $item) {
+	foreach ($itemsArray as $n => $item) {
 
 		$classes = array();
 		$hasChildren = $item->hasChildren;
 		$isParent = $hasChildren && $item->id != $repeatParent->id && _ukNavIsParent($item, $depth, $options);
-		
-		// determine if we should show a uk-nav-header
-		if(!$header) $header = $item->get('ukNavHeader');
 
-		if($header === true) {
+		// determine if we should show a uk-nav-header
+		if (!$header) $header = $item->get('ukNavHeader');
+
+		if ($header === true) {
 			// boolean true $item pulled from item.ukNavHeader indicates item should represent a header
 			$classes[] = 'uk-nav-header';
 			$header = false;
-			if($options['divider']) $out .= $divider;
-
-		} else if($header) {
+			if ($options['divider']) $out .= $divider;
+		} else if ($header) {
 			// string or Page $header indicates header is a new item prepended to list
 			$headerClass = 'uk-nav-header';
-			if($header instanceof Page) {
-				if($page->id == $header->id) $headerClass .= ' uk-active';
+			if ($header instanceof Page) {
+				if ($page->id == $header->id) $headerClass .= ' uk-active';
 				$header = "<a href='$header->url'>$header->title</a>";
 			}
 			$out .= "<li class='$headerClass'>$header</li>";
-			if($options['divider']) $out .= $divider;
+			if ($options['divider']) $out .= $divider;
 			$header = false;
 		}
 
 		// determine if we should show a uk-nav-divider
-		if(($options['divider'] && $n) || $item->get('ukNavDivider')) {
+		if (($options['divider'] && $n) || $item->get('ukNavDivider')) {
 			$out .= $divider;
 		}
 
 		// determine additional classes
-		if($item->id == $page->id) $classes[] = 'uk-active';
-		if($isParent) $classes[] = 'uk-parent';
-		if($repeatParent->id === $item->id) $classes[] = 'pw-uk-nav-parent';
+		if ($item->id == $page->id) $classes[] = 'uk-active';
+		if ($isParent) $classes[] = 'uk-parent';
+		if ($repeatParent->id === $item->id) $classes[] = 'pw-uk-nav-parent';
 
 		// open the list item
 		$out .= count($classes) ? "<li class='" . implode(' ', $classes) . "'>" : "<li>";
 
 		// get the link markup
-		if(empty($options['markup'])) {
+		if (empty($options['markup'])) {
 			$itemLabel = $item->get($options['itemLabel']);
 			$out .= "<a href='$item->url'>$itemLabel</a>";
 		} else {
@@ -210,17 +210,17 @@ function ukNav($items, $options = array()) {
 		}
 
 		// markup for any additional fields specified
-		foreach($options['fields'] as $name) {
+		foreach ($options['fields'] as $name) {
 			$value = $item->get($name);
-			if(!$value) $value = "$name";
-			if($value) $out .= "<div class='pw-field-$name'>$value</div>";
+			if (!$value) $value = "$name";
+			if ($value) $out .= "<div class='pw-field-$name'>$value</div>";
 		}
 
 		// see if we are working with a nested list and go recursive if so
-		if($isParent) {
+		if ($isParent) {
 			$selector = "start=0,";
 			// limit quantity of items if the maxItems option is in use
-			if($options['maxItems'] && $options['maxItems'] < $hasChildren) {
+			if ($options['maxItems'] && $options['maxItems'] < $hasChildren) {
 				$selector .= "limit=$options[maxItems],";
 			}
 			// adjust depth and render children recursively
@@ -233,15 +233,15 @@ function ukNav($items, $options = array()) {
 		$out .= "</li>";
 
 		// if we've exceeded the max items we can display, end list with a note about it
-		if($options['maxItems'] && $n+1 >= $options['maxItems'] && strlen($options['maxNote'])) {
+		if ($options['maxItems'] && $n + 1 >= $options['maxItems'] && strlen($options['maxNote'])) {
 			$o = sprintf($options['maxNote'], $totalItems - $n);
-			if($options['maxLink']) $o = "<a href='{$item->parent->url}'>$o</a>";
+			if ($options['maxLink']) $o = "<a href='{$item->parent->url}'>$o</a>";
 			$out .= "<li class='pw-uk-nav-max'>$o</li>";
 			break;
 		}
 	}
 
-	if($options['ul']) $out .= "</ul>";
+	if ($options['ul']) $out .= "</ul>";
 
 	return $out;
 }
@@ -253,44 +253,45 @@ function ukNav($items, $options = array()) {
  * @return array
  * 
  */
-function _ukNavOptions(array $options) {
-	
+function _ukNavOptions(array $options)
+{
+
 	// accordion mode requires some adjustments
-	if($options['accordion']) {
+	if ($options['accordion']) {
 		$options['class'] = trim("$options[class] uk-nav-parent-icon");
 		$options['attr'] = trim("$options[attr] uk-nav");
 	}
-	
+
 	$openParents = array();
-	
+
 	// if certain parents specified to be open, normalize to array of Page IDs
-	if(!empty($options['openParents'])) {
-		if($options['openParents'] instanceof PageArray) {
-			foreach($options['openParents'] as $item) {
+	if (!empty($options['openParents'])) {
+		if ($options['openParents'] instanceof PageArray) {
+			foreach ($options['openParents'] as $item) {
 				$openParents[] = $item->id;
 				// include the item's parents too (supported only when PageArray specified)
-				foreach($item->parents() as $parent) $openParents[] = $parent->id;
+				foreach ($item->parents() as $parent) $openParents[] = $parent->id;
 			}
-		} else if(is_array($options['openParents'])) {
+		} else if (is_array($options['openParents'])) {
 			$openParents = $options['openParents'];
 		}
 	}
 
 	// if openParent option in use, add it to openParents array
-	if($options['openParent']) {
-		if($options['openParent'] instanceof Page) {
+	if ($options['openParent']) {
+		if ($options['openParent'] instanceof Page) {
 			$openParents[] = $options['openParent']->id;
-		} else if(is_int($options['openParent'])) {
+		} else if (is_int($options['openParent'])) {
 			$openParents[] = $options['openParent'];
 		}
 	}
 
 	// stuff back in options 
 	$options['openParents'] = $openParents;
-	
-	if(!is_array($options['blockParents'])) $options['blockParents'] = array($options['blockParents']);
-	if(!is_array($options['allowParents'])) $options['allowParents'] = array($options['allowParents']);
-	
+
+	if (!is_array($options['blockParents'])) $options['blockParents'] = array($options['blockParents']);
+	if (!is_array($options['allowParents'])) $options['allowParents'] = array($options['allowParents']);
+
 	return $options;
 }
 
@@ -303,26 +304,27 @@ function _ukNavOptions(array $options) {
  * @return bool
  * 
  */
-function _ukNavIsParent(Page $item, $depth, array $options) {
+function _ukNavIsParent(Page $item, $depth, array $options)
+{
 	$isParent = true;
-	if(!$options['depth'] || !$item->hasChildren) {
+	if (!$options['depth'] || !$item->hasChildren) {
 		$isParent = false;
-	} else if($depth >= $options['depth']) {
+	} else if ($depth >= $options['depth']) {
 		$isParent = false;
-	} else if($options['noNavQty'] && $item->hasChildren > $options['noNavQty']) {
+	} else if ($options['noNavQty'] && $item->hasChildren > $options['noNavQty']) {
 		$isParent = false;
-	} else if(!empty($options['openParents']) && !in_array($item->id, $options['openParents'])) {
+	} else if (!empty($options['openParents']) && !in_array($item->id, $options['openParents'])) {
 		$isParent = false;
-	} else if(count($options['allowParents'])) {
+	} else if (count($options['allowParents'])) {
 		$isParent = false;
-		foreach($options['allowParents'] as $p) {
-			if($p !== $item && $item->id !== $p && $item->name !== $p) continue;
+		foreach ($options['allowParents'] as $p) {
+			if ($p !== $item && $item->id !== $p && $item->name !== $p) continue;
 			$isParent = true;
 			break;
 		}
-	} else if(count($options['blockParents'])) {
-		foreach($options['blockParents'] as $p) {
-			if($p !== $item && $item->id !== $p && $item->name !== $p) continue;
+	} else if (count($options['blockParents'])) {
+		foreach ($options['blockParents'] as $p) {
+			if ($p !== $item && $item->id !== $p && $item->name !== $p) continue;
 			$isParent = false;
 			break;
 		}
@@ -344,25 +346,26 @@ function _ukNavIsParent(Page $item, $depth, array $options) {
  * @return string
  * 
  */
-function ukNavbar(PageArray $items, $options = array()) {
-	
+function ukNavbar(PageArray $items, $options = array())
+{
+
 	$defaults = array(
-		'align' => 'left', 
-		'class' => '', 
-		'dropdown' => null, 
+		'align' => 'left',
+		'class' => '',
+		'dropdown' => null,
 	);
-	
-	$options = _ukMergeOptions($defaults, $options); 
-	if($options['class']) $options['class'] = " $options[class]";
-	
-	$out = 
-		"<nav class='uk-navbar-container$options[class]' uk-navbar>" . 
-			"<div class='uk-navbar-$options[align]'>" . 
-				ukNavbarNav($items, $options) . 
-			"</div>" . 
+
+	$options = _ukMergeOptions($defaults, $options);
+	if ($options['class']) $options['class'] = " $options[class]";
+
+	$out =
+		"<nav class='uk-navbar-container$options[class]' uk-navbar>" .
+		"<div class='uk-navbar-$options[align]'>" .
+		ukNavbarNav($items, $options) .
+		"</div>" .
 		"</nav>";
-	
-	return $out; 
+
+	return $out;
 }
 
 /**
@@ -389,10 +392,11 @@ function ukNavbar(PageArray $items, $options = array()) {
  * @return string
  * 
  */
-function ukNavbarNav(PageArray $items, $options = array()) {
-	
-	if(!$items->count) return '';
-	
+function ukNavbarNav(PageArray $items, $options = array())
+{
+
+	if (!$items->count) return '';
+
 	$defaults = array(
 		'dropdown' => null, // array of page paths, page IDs, or template names where dropdown is allowed (null=allow all)
 	);
@@ -403,41 +407,41 @@ function ukNavbarNav(PageArray $items, $options = array()) {
 	$out = "<ul class='uk-navbar-nav'>";
 	$liActive = "<li class='uk-active'>";
 	$li = "<li>";
-	
-	foreach($items as $item) {
+
+	foreach ($items as $item) {
 
 		$out .= $activeItems->has($item) ? $liActive : $li;
 		$out .= "<a href='$item->url'>$item->title</a>";
-		
+
 		// determine whether dropdown should be used for this $item
 		$useDropdown = false;
-		if($options['dropdown'] === null) {
+		if ($options['dropdown'] === null) {
 			$useDropdown = $item->hasChildren && $item->id > 1;
-		} else if($item->hasChildren && is_array($options['dropdown'])) {
-			foreach($options['dropdown'] as $s) {
-				if($item->template->name === $s || $page->path === $s || $page->id === $s) {
+		} else if ($item->hasChildren && is_array($options['dropdown'])) {
+			foreach ($options['dropdown'] as $s) {
+				if ($item->template->name === $s || $page->path === $s || $page->id === $s) {
 					$useDropdown = true;
 					break;
 				}
 			}
 		}
 
-		if($useDropdown) {
+		if ($useDropdown) {
 			$out .= "<div class='uk-navbar-dropdown'>";
 			$out .= "<ul class='uk-nav uk-navbar-dropdown-nav'>";
-			foreach($item->children as $child) {
+			foreach ($item->children as $child) {
 				$out .= $activeItems->has($child) ? $liActive : $li;
 				$out .= "<a href='$child->url'>$child->title</a></li>";
 			}
 			$out .= "</ul></div>";
 		}
-		
+
 		$out .= "</li>";
 	}
-	
+
 	$out .= "</ul>";
-	
-	return $out; 
+
+	return $out;
 }
 
 /**
@@ -450,33 +454,34 @@ function ukNavbarNav(PageArray $items, $options = array()) {
  * @return string
  * 
  */
-function ukBreadcrumb($items = null, $options = array()) {
-	
+function ukBreadcrumb($items = null, $options = array())
+{
+
 	$defaults = array(
 		'class' => '',
-		'appendCurrent' => false, 
+		'appendCurrent' => false,
 	);
-	
-	if($items === null) $items = page();
-	if($items instanceof Page) $items = $items->parents();
-	if(!$items->count) return '';
-	
+
+	if ($items === null) $items = page();
+	if ($items instanceof Page) $items = $items->parents();
+	if (!$items->count) return '';
+
 	$options = _ukMergeOptions($defaults, $options);
-	$class = trim("uk-breadcrumb $options[class]"); 
+	$class = trim("uk-breadcrumb $options[class]");
 	$out = "<ul class='$class'>";
-	
-	foreach($items as $item) {
+
+	foreach ($items as $item) {
 		$out .= "<li><a href='$item->url'>$item->title</a></li>";
-	}	
-	
-	if($options['appendCurrent']) {
-		$page = $items->wire('page'); 
+	}
+
+	if ($options['appendCurrent']) {
+		$page = $items->wire('page');
 		$out .= "<li><span>$page->title</span></li>";
 	}
-	
+
 	$out .= "</ul>";
-	
-	return $out; 
+
+	return $out;
 }
 
 /**
@@ -488,11 +493,12 @@ function ukBreadcrumb($items = null, $options = array()) {
  * @return string
  * 
  */
-function ukAlert($html, $type = '', $icon = '') {
+function ukAlert($html, $type = '', $icon = '')
+{
 	$out = $type ? "<div class='uk-alert-$type uk-alert'>" : "<div uk-alert>";
-	if($icon) $out .= ukIcon($icon) . ' ';
+	if ($icon) $out .= ukIcon($icon) . ' ';
 	$out .= $html . "<a class='uk-alert-close' uk-close></a></div>";
-	return $out; 
+	return $out;
 }
 
 /**
@@ -502,9 +508,10 @@ function ukAlert($html, $type = '', $icon = '') {
  * @param string $icon
  * @return string
  * 
- */ 
-function ukAlertSuccess($html, $icon = '') {
-	return ukAlert($html, 'success', $icon); 
+ */
+function ukAlertSuccess($html, $icon = '')
+{
+	return ukAlert($html, 'success', $icon);
 }
 
 /**
@@ -514,8 +521,9 @@ function ukAlertSuccess($html, $icon = '') {
  * @param string $icon
  * @return string
  *
- */ 
-function ukAlertPrimary($html, $icon = '') {
+ */
+function ukAlertPrimary($html, $icon = '')
+{
 	return ukAlert($html, 'primary', $icon);
 }
 
@@ -526,8 +534,9 @@ function ukAlertPrimary($html, $icon = '') {
  * @param string $icon
  * @return string
  *
- */ 
-function ukAlertWarning($html, $icon = '') {
+ */
+function ukAlertWarning($html, $icon = '')
+{
 	return ukAlert($html, 'warning', $icon);
 }
 
@@ -538,8 +547,9 @@ function ukAlertWarning($html, $icon = '') {
  * @param string $icon
  * @return string
  *
- */ 
-function ukAlertDanger($html, $icon = '') {
+ */
+function ukAlertDanger($html, $icon = '')
+{
 	return ukAlert($html, 'danger', $icon);
 }
 
@@ -558,35 +568,36 @@ function ukAlertDanger($html, $icon = '') {
  * @return string
  * 
  */
-function ukHeading($text, $type = 1, $options = array()) {
+function ukHeading($text, $type = 1, $options = array())
+{
 	$defaults = array(
-		'primary' => false, 
-		'divider' => false, 
-		'bullet' => false, 
+		'primary' => false,
+		'divider' => false,
+		'bullet' => false,
 		'line' => false, // left, right, center 
 		'icon' => '', // icon to display before heading
-		'class' => '', 
+		'class' => '',
 	);
-	$options = _ukMergeOptions($defaults, $options); 
+	$options = _ukMergeOptions($defaults, $options);
 	$classes = array();
-	if($options['icon']) $text = ukIcon($options['icon']) . " $text";
-	if($options['class']) $classes = explode(' ', $options['class']); 
-	if($options['primary']) $classes[] = 'uk-heading-primary';
-	if($options['divider']) $classes[] = 'uk-heading-divider';
-	if($options['bullet']) $classes[] = 'uk-heading-bullet';
-	if($options['line']) {
+	if ($options['icon']) $text = ukIcon($options['icon']) . " $text";
+	if ($options['class']) $classes = explode(' ', $options['class']);
+	if ($options['primary']) $classes[] = 'uk-heading-primary';
+	if ($options['divider']) $classes[] = 'uk-heading-divider';
+	if ($options['bullet']) $classes[] = 'uk-heading-bullet';
+	if ($options['line']) {
 		$classes[] = 'uk-heading-line';
 		$text = "<span>$text</span>";
-		if($options['line'] == 'center') $classes[] = 'uk-text-center';
-		if($options['line'] == 'right') $classes[] = 'uk-heading-right';
+		if ($options['line'] == 'center') $classes[] = 'uk-text-center';
+		if ($options['line'] == 'right') $classes[] = 'uk-heading-right';
 	}
-	if(count($classes)) {
+	if (count($classes)) {
 		$class = " class='" . implode(' ', $classes) . "'";
 	} else {
 		$class = '';
 	}
-	
-	return "<h$type$class>$text</h$type>";
+
+	return "<h$type $class>$text</h$type>";
 }
 
 /**
@@ -597,8 +608,9 @@ function ukHeading($text, $type = 1, $options = array()) {
  * @return string
  * 
  */
-function ukHeading1($text, $options = array()){
-	return ukHeading($text, 1, $options); 
+function ukHeading1($text, $options = array())
+{
+	return ukHeading($text, 1, $options);
 }
 
 /**
@@ -609,7 +621,8 @@ function ukHeading1($text, $options = array()){
  * @return string
  *
  */
-function ukHeading2($text, $options = array()){
+function ukHeading2($text, $options = array())
+{
 	return ukHeading($text, 2, $options);
 }
 
@@ -621,7 +634,8 @@ function ukHeading2($text, $options = array()){
  * @return string
  *
  */
-function ukHeading3($text, $options = array()){
+function ukHeading3($text, $options = array())
+{
 	return ukHeading($text, 3, $options);
 }
 
@@ -633,7 +647,8 @@ function ukHeading3($text, $options = array()){
  * @return string
  *
  */
-function ukHeading4($text, $options = array()){
+function ukHeading4($text, $options = array())
+{
 	return ukHeading($text, 4, $options);
 }
 
@@ -649,30 +664,31 @@ function ukHeading4($text, $options = array()){
  * @return string
  * 
  */
-function ukIcon($name, $options = array()) {
-	
+function ukIcon($name, $options = array())
+{
+
 	$defaults = array(
-		'href' => '', 
-		'button' => false, 
+		'href' => '',
+		'button' => false,
 		'ratio' => 0,
-		'class' => '', 
+		'class' => '',
 	);
-	
-	if(is_float($options)) {
+
+	if (is_float($options)) {
 		$defaults['ratio'] = $options;
 		$options = array();
 	}
-	
+
 	$options = _ukMergeOptions($defaults, $options);
-	
-	if($options['button']) $options['class'] .= ' uk-icon-button';
-	if($options['ratio']) $name .= "; ratio: $options[ratio]";
-	
+
+	if ($options['button']) $options['class'] .= ' uk-icon-button';
+	if ($options['ratio']) $name .= "; ratio: $options[ratio]";
+
 	$out = $options['href'] ? "<a href='$options[href]' " : "<span ";
 	$out .= "uk-icon='icon: $name'";
 	$out .= $options['class'] ? " class='$options[class]'>" : ">";
 	$out .= $options['href'] ? "</a>" : "</span>";
-	
+
 	return $out;
 }
 
@@ -687,15 +703,16 @@ function ukIcon($name, $options = array()) {
  * @return string
  *
  */
-function ukPagination(PageArray $items, $options = array()) {
+function ukPagination(PageArray $items, $options = array())
+{
 
 	$page = $items->wire('page');
 
-	if(!$page->template->allowPageNum) {
+	if (!$page->template->allowPageNum) {
 		return ukAlert('This template needs page numbers enabled to support pagination', 'danger');
 	}
 
-	if(!$items->getLimit() || $items->getTotal() <= $items->getLimit()) return '';
+	if (!$items->getLimit() || $items->getTotal() <= $items->getLimit()) return '';
 
 	$next = isset($options['next']) ? $options['next'] : __('Next');
 	$previous = isset($options['previous']) ? $options['previous'] : __('Previous');
@@ -719,7 +736,7 @@ function ukPagination(PageArray $items, $options = array()) {
 
 	$options = _ukMergeOptions($defaults, $options);
 
-	if($options['center']) {
+	if ($options['center']) {
 		$options['listMarkup'] = str_replace('uk-pagination', 'uk-pagination uk-flex-center', $options['listMarkup']);
 	}
 
@@ -738,9 +755,10 @@ function ukPagination(PageArray $items, $options = array()) {
  * @return string
  *
  */
-function ukDescriptionListPages(PageArray $items, $options = array()) {
+function ukDescriptionListPages(PageArray $items, $options = array())
+{
 
-	if(!$items->count) return '';
+	if (!$items->count) return '';
 
 	$defaults = array(
 		'dt' => 'title',    // field to use for <dt> element
@@ -754,15 +772,15 @@ function ukDescriptionListPages(PageArray $items, $options = array()) {
 	$options = _ukMergeOptions($defaults, $options);
 	$attr = $options['attr'];
 	$class = 'uk-description-list ';
-	if($options['divider']) $class .= 'uk-description-list-divider ';
+	if ($options['divider']) $class .= 'uk-description-list-divider ';
 	$class = rtrim("$class $options[class]");
 	$attr = rtrim("class='$class' $attr");
 	$out = "<dl $attr>";
 
-	foreach($items as $item) {
+	foreach ($items as $item) {
 		$dt = $item->get($options['dt']);
 		$dd = $item->get($options['dd']);
-		if($options['link']) $dt = "<a href='$item->url'>$dt</a>";
+		if ($options['link']) $dt = "<a href='$item->url'>$dt</a>";
 		$out .= "<dt>$dt</dt>";
 		$out .= "<dd>$dd</dd>";
 	}
@@ -791,41 +809,43 @@ function ukDescriptionListPages(PageArray $items, $options = array()) {
  * @return string
  * 
  */
-function ukBlogPost(Page $page, $options = array()) {
-	
+function ukBlogPost(Page $page, $options = array())
+{
+
 	$defaults = array(
 		'summarize' => null, // Display blog post summary rather than full post? (null=auto-detect)
 		'metaIcon' => 'info',
 		'moreIcon' => 'arrow-right',
-		'moreText' => __('Read more'), 
+		'moreText' => __('Đọc Thêm'),
 		'categoryIcon' => 'hashtag',
-		'bylineText' => __('Posted by %1$s on %2$s'), 
+		'bylineText' => __('Posted by %1$s on %2$s'),
 	);
 
 	$options = _ukMergeOptions($defaults, $options);
 	$title = $page->title;
 	$date = $page->get('date|createdStr');
-	$name = $page->createdUser->name; 
+	$name = $page->createdUser->name;
 	$body = $page->get('body');
 	$metaIcon = ukIcon($options['metaIcon']);
 	$moreIcon = ukIcon($options['moreIcon']);
 	$categoryIcon = ukIcon($options['categoryIcon']);
 	$n = $page->get('comments')->count();
 	$numComments = $n ? "<a href='$page->url#comments'>" . ukIcon('comments') . " $n</a>" : "";
-	
-	if($options['summarize'] === null) {
+
+	if ($options['summarize'] === null) {
 		// auto-detect: summarize if current page is not the same as the blog post
 		$options['summarize'] = page()->id != $page->id;
 	}
-	
-	$categories = $page->get('categories')->each($categoryIcon . 
-		"<a class='uk-button uk-button-text' href='{url}'>{title}</a> "
+
+	$categories = $page->get('categories')->each(
+		$categoryIcon .
+			"<a class='uk-button uk-button-text' href='{url}'>{title}</a> "
 	);
 
-	if($options['summarize']) {
+	if ($options['summarize']) {
 		// link to post in title, and use just the first paragraph in teaser mode
 		$title = "<a href='$page->url'>$title</a>";
-		$body = explode('</p>', $body); 
+		$body = explode('</p>', $body);
 		$body = reset($body) . ' ';
 		$body .= "<a href='$page->url'>$options[moreText] $moreIcon</a></p>";
 		$class = 'blog-post-summary';
@@ -833,14 +853,14 @@ function ukBlogPost(Page $page, $options = array()) {
 		$class = 'blog-post-full';
 	}
 
-	if($options['summarize']) {
+	if ($options['summarize']) {
 		$heading = "<h2 class='uk-margin-remove'>$title</h2>";
 	} else {
 		$heading = "<h1 class='uk-article-title uk-margin-remove'>$title</h1>";
 	}
-	
-	$byline = sprintf($options['bylineText'], $name, $date); 
-	
+
+	$byline = sprintf($options['bylineText'], $name, $date);
+
 	// return the blog post article markup
 	return "
 		<article class='uk-article blog-post $class'>
@@ -860,7 +880,7 @@ function ukBlogPost(Page $page, $options = array()) {
 			$body
 		</article>
 		<hr>
-	";	
+	";
 }
 
 /**
@@ -872,9 +892,10 @@ function ukBlogPost(Page $page, $options = array()) {
  * @return string
  * 
  */
-function ukBlogPosts(PageArray $posts, $options = array()) {
-	if(!$posts->count) {
-		if(input()->pageNum > 1) {
+function ukBlogPosts(PageArray $posts, $options = array())
+{
+	if (!$posts->count) {
+		if (input()->pageNum > 1) {
 			// redirect to first pagination if accessed at an out-of-bounds pagination
 			session()->redirect(page()->url);
 		}
@@ -885,14 +906,14 @@ function ukBlogPosts(PageArray $posts, $options = array()) {
 	);
 	$options = _ukMergeOptions($defaults, $options);
 	$out = "<div class='blog-posts'>";
-	foreach($posts as $post) {
-		$out .= ukBlogPost($post, $options); 
+	foreach ($posts as $post) {
+		$out .= ukBlogPost($post, $options);
 	}
-	if($options['paginate'] && $posts->getTotal() > $posts->count()) {
+	if ($options['paginate'] && $posts->getTotal() > $posts->count()) {
 		$out .= ukPagination($posts);
 	}
 	$out .= "</div>";
-	return $out; 
+	return $out;
 }
 
 /*****************************************************************************************
@@ -909,7 +930,8 @@ function ukBlogPosts(PageArray $posts, $options = array()) {
  * @return string
  *
  */
-function ukComment(Comment $comment) {
+function ukComment(Comment $comment)
+{
 
 	$text = $comment->getFormatted('text');
 	$cite = $comment->getFormatted('cite');
@@ -921,18 +943,18 @@ function ukComment(Comment $comment) {
 	$gravatar = '';
 	$replies = '';
 
-	if($field->get('useGravatar')) {
+	if ($field->get('useGravatar')) {
 		$img = $comment->gravatar($field->get('useGravatar'), $field->get('useGravatarImageset'));
-		if($img) $gravatar = "<div class='uk-width-auto'><img class='uk-comment-avatar' src='$img' alt='$cite'></div>";
+		if ($img) $gravatar = "<div class='uk-width-auto'><img class='uk-comment-avatar' src='$img' alt='$cite'></div>";
 	}
 
-	if($website) $cite = "<a href='$website' rel='nofollow' target='_blank'>$cite</a>";
+	if ($website) $cite = "<a href='$website' rel='nofollow' target='_blank'>$cite</a>";
 	$created = wireDate('relative', $comment->created);
 
-	if($field->get('usePermalink')) {
+	if ($field->get('usePermalink')) {
 		$permalink = $page->httpUrl;
 		$urlSegmentStr = $this->wire('input')->urlSegmentStr;
-		if($urlSegmentStr) $permalink .= rtrim($permalink, '/') . $urlSegmentStr . '/';
+		if ($urlSegmentStr) $permalink .= rtrim($permalink, '/') . $urlSegmentStr . '/';
 		$permalink .= '#Comment' . $comment->id;
 		$permalink = "<a href='$permalink'>" . __('Permalink') . "</a>";
 		$metas[] = "<li>$permalink</li>";
@@ -975,21 +997,22 @@ function ukComment(Comment $comment) {
  * @return string
  *
  */
-function ukComments(CommentArray $comments, $options = array()) {
+function ukComments(CommentArray $comments, $options = array())
+{
 
 	$defaults = array(
 		'id' => 'comments',
 	);
 
-	if(!count($comments)) return '';
+	if (!count($comments)) return '';
 	$options = _ukMergeOptions($defaults, $options);
 
 	$out = "<ul id='$options[id]' class='uk-comment-list'>";
-	
-	foreach($comments as $comment) {
+
+	foreach ($comments as $comment) {
 		$out .= "<li class='uk-margin'>" . ukComment($comment) . "</li>";
 	}
-	
+
 	$out .= "</ul>";
 
 	return $out;
@@ -1003,16 +1026,17 @@ function ukComments(CommentArray $comments, $options = array()) {
  * @return string
  *
  */
-function ukCommentForm(CommentArray $comments, array $options = array()) {
+function ukCommentForm(CommentArray $comments, array $options = array())
+{
 
 	$defaults = array(
 		'headline' => "",
 		'successMessage' =>
-			__('Thank you, your comment has been posted.'),
+		__('Thank you, your comment has been posted.'),
 		'pendingMessage' =>
-			__('Your comment has been submitted and will appear once approved by the moderator.'),
+		__('Your comment has been submitted and will appear once approved by the moderator.'),
 		'errorMessage' =>
-			__('Your comment was not saved due to one or more errors.') . ' ' .
+		__('Your comment was not saved due to one or more errors.') . ' ' .
 			__('Please check that you have completed all fields before submitting again.'),
 	);
 
@@ -1021,7 +1045,7 @@ function ukCommentForm(CommentArray $comments, array $options = array()) {
 	$options['pendingMessage'] = ukAlertSuccess($options['pendingMessage'], 'check');
 	$options['errorMessage'] = ukAlertDanger($options['errorMessage'], 'warning');
 
-	if(!isset($options['attrs']) || !isset($options['attrs']['class'])) {
+	if (!isset($options['attrs']) || !isset($options['attrs']['class'])) {
 		$options['attrs'] = array('class' => 'uk-comment uk-comment-primary');
 	}
 
@@ -1057,19 +1081,20 @@ function ukCommentForm(CommentArray $comments, array $options = array()) {
  * @internal
  *
  */
-function _ukMergeOptions(array $defaults, $options) {
+function _ukMergeOptions(array $defaults, $options)
+{
 
 	// allow for ProcessWire selector style strings
 	// allow for Uikit data attribute strings
-	if(is_string($options)) {
+	if (is_string($options)) {
 		$options = str_replace(';', ',', $options);
 		$o = explode(',', $options);
 		$options = array();
-		foreach($o as $value) {
-			if(strpos($value, '=')) {
+		foreach ($o as $value) {
+			if (strpos($value, '=')) {
 				// key=value
 				list($key, $value) = explode('=', $value, 2);
-			} else if(strpos($value, ':')) {
+			} else if (strpos($value, ':')) {
 				// key: value 
 				list($key, $value) = explode(':', $value, 2);
 			} else {
@@ -1078,23 +1103,23 @@ function _ukMergeOptions(array $defaults, $options) {
 				$value = true;
 			}
 			$key = trim($key);
-			if(is_string($value)) {
+			if (is_string($value)) {
 				$value = trim($value);
 				// convert boolean strings to real booleans
 				$v = strtolower($value);
-				if($v === 'false') $value = false;
-				if($v === 'true') $value = true;
+				if ($v === 'false') $value = false;
+				if ($v === 'true') $value = true;
 			}
 			$options[$key] = $value;
 		}
-	} 
+	}
 
-	if(!is_array($options)) {
+	if (!is_array($options)) {
 		$options = array();
 	}
 
-	foreach($options as $key => $value) {
-		if(is_int($key) && is_string($value)) {
+	foreach ($options as $key => $value) {
+		if (is_int($key) && is_string($value)) {
 			// non-associative options convert to boolean attribute
 			$defaults[$value] = true;
 		}
@@ -1102,4 +1127,3 @@ function _ukMergeOptions(array $defaults, $options) {
 
 	return array_merge($defaults, $options);
 }
-

@@ -132,7 +132,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 	<?php if (page()->editable) : ?>
 		<!-- PAGE EDIT LINK -->
 		<a id='edit-page' href='<?= page()->editUrl ?>'>
-			<?= ukIcon('pencil') ?> Edit
+			<?= ukIcon('pencil') ?> Sửa
 		</a>
 	<?php endif; ?>
 
