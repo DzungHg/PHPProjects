@@ -46,7 +46,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 			<nav id='masthead-navbar' class="uk-navbar-container" uk-navbar>
 				<div class="uk-navbar-center uk-visible@m">
 					<?= ukNavbarNav($home->and($home->children), [
-						'dropdown' => ['basic-page', 'categories']
+						'dropdown' => ['basic-page', 'an-pham-nhanh', 'blog-news', 'categories']
 					]) ?>
 				</div>
 			</nav>
