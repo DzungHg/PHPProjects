@@ -15,12 +15,12 @@ $blogPost = $blog->child();
 	<hr>
 	<p class='uk-margin-small'>
 		<a class='uk-button uk-button-link uk-link-muted' href='<?= $blog->url ?>'>
-			In the blog
+			Trong blog có
 		</a>
 	</p>
 	<?= ukBlogPost($blogPost) ?>
 	<p class='uk-margin-small'>
-		<a href='<?= $blog->url ?>'>More blog posts <?= ukIcon('arrow-right') ?></a>
+		<a href='<?= $blog->url ?>'>Còn blog posts khác <?= ukIcon('arrow-right') ?></a>
 	</p>
 </div>
 
