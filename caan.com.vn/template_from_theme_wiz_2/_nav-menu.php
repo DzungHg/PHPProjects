@@ -3,7 +3,7 @@
 
    <?php
    $homePage = $pages->get("/"); //lấy trang home   
-   $menu_pages = $homePage->children->find("template=menu-page"); //lấy con của trang home với đk là page menu
+   $menu_pages = $homePage->children->find('template=menu-page'); //lấy con của trang home với đk là page menu
    foreach ($menu_pages as $menu_page) { ?>
       <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="docMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $menu_page->title; ?></a>
          <?php
