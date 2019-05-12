@@ -1,6 +1,6 @@
 <?php namespace ProcessWire;
 
-/***************************************************************************************
+/****************************Lấy từ Skyscarpper***********************************************************
  * SHARED SKYSCRAPER FUNCTIONS
  *
  * The following functions find and render skyscrapers are are defined here so that
@@ -17,7 +17,8 @@
  * @return array
  *
  */
-function getValidSorts() {
+function getValidSorts()
+{
 	return array(
 		// field => label
 		'-images.count' => 'Images (Most)',
@@ -45,7 +46,8 @@ function getValidSorts() {
  * @return PageArray
  *
  */
-function findSkyscrapers($selector) {
+function findSkyscrapers($selector)
+{
 
 	$validSorts = getValidSorts();
 
@@ -53,10 +55,10 @@ function findSkyscrapers($selector) {
 	$sort = sanitizer('name', input()->get('sort'));
 
 	// if no valid sort, then use 'title' as a default
-	if(!$sort || !isset($validSorts[$sort])) $sort = 'name';
+	if (!$sort || !isset($validSorts[$sort])) $sort = 'name';
 
 	// whitelist the sort value so that it is retained in pagination
-	if($sort != 'name') input()->whitelist('sort', $sort);
+	if ($sort != 'name') input()->whitelist('sort', $sort);
 
 	// expand on the provided selector to limit it to 10 sorted skyscrapers
 	$selector = "template=skyscraper, limit=10, " . trim($selector, ", ");
@@ -64,7 +66,7 @@ function findSkyscrapers($selector) {
 	// check if there are any keyword searches in the selector by looking for the presence of 
 	// ~= operator. if present, then omit the 'sort' param, since ProcessWire sorts by 
 	// relevance when no sort specified.
-	if(strpos($selector, "~=") === false) $selector .= ", sort=$sort";
+	if (strpos($selector, "~=") === false) $selector .= ", sort=$sort";
 
 	// now call upon ProcessWire to find the skyscrapers for us
 	$skyscrapers = pages($selector);
@@ -85,10 +87,11 @@ function findSkyscrapers($selector) {
  * @return PageArray All Skyscraper pages stored so far
  *
  */
-function mapSkyscrapers($items = null) {
+function mapSkyscrapers($items = null)
+{
 	static $skyscrapers = null;
-	if(is_null($skyscrapers)) $skyscrapers = new PageArray();
-	if(!is_null($items) && $items instanceof PageArray) $skyscrapers->add($items);
+	if (is_null($skyscrapers)) $skyscrapers = new PageArray();
+	if (!is_null($items) && $items instanceof PageArray) $skyscrapers->add($items);
 	return $skyscrapers;
 }
 
@@ -98,35 +101,36 @@ function mapSkyscrapers($items = null) {
  * @return string
  *
  */
-function renderSkyscraperListSort() {
+function renderSkyscraperListSort()
+{
 
 	// query string that will be used to retain other GET variables in searches
 	input()->whitelist->remove('sort');
 	$queryString = input()->whitelist->queryString();
-	if($queryString) $queryString = sanitizer('entities', "&$queryString");
+	if ($queryString) $queryString = sanitizer('entities', "&$queryString");
 
 	// get the 'sort' property, if it's present
 	$sort = input()->get('sort');
 	$validSorts = getValidSorts();
-	
+
 	// validate the 'sort' pulled from input
-	if(!$sort || !isset($validSorts[$sort])) $sort = 'name';
+	if (!$sort || !isset($validSorts[$sort])) $sort = 'name';
 
 	$options = array();
 	$selectedLabel = '';
 
 	// generate options
-	foreach($validSorts as $key => $label) {
-		if($key === $sort) $selectedLabel = $label;
-		$options["./?sort=$key$queryString"] = $label;
+	foreach ($validSorts as $key => $label) {
+		if ($key === $sort) $selectedLabel = $label;
+		$options["./?sort=$key $queryString"] = $label;
 	}
 
 	// render output
 	$out = files()->render('./includes/skyscraper-list-sort.php', array(
-		'options' => $options, 
+		'options' => $options,
 		'selectedLabel' => $selectedLabel
 	));
-	
+
 	return $out;
 }
 
@@ -139,34 +143,35 @@ function renderSkyscraperListSort() {
  * @return string The rendered markup
  *
  */
-function renderSkyscraperList(PageArray $skyscrapers, $showPagination = true, $headline = '') {
+function renderSkyscraperList(PageArray $skyscrapers, $showPagination = true, $headline = '')
+{
 
 	$pagination = '';
 	$sortSelect = '';
 	$items = array();
-	
-	if($showPagination && $skyscrapers->count()) {
+
+	if ($showPagination && $skyscrapers->count()) {
 		$headline = $skyscrapers->getPaginationString('Skyscrapers'); // i.e. Skyscrapers 1-10 of 500
 		$pagination = renderPagination($skyscrapers); // pagination links
 		$sortSelect = renderSkyscraperListSort();
 	}
 
-	foreach($skyscrapers as $skyscraper) {
+	foreach ($skyscrapers as $skyscraper) {
 		$items[] = renderSkyscraperListItem($skyscraper);
 	}
 
-	$selector = (string) $skyscrapers->getSelectors();
-	if($selector) $selector = makePrettySelector($selector);
-	
+	$selector = (string)$skyscrapers->getSelectors();
+	if ($selector) $selector = makePrettySelector($selector);
+
 	$out = files()->render('./includes/skyscraper-list.php', array(
-		'skyscrapers' => $skyscrapers, 
-		'headline' => $headline, 
-		'items' => $items, 
-		'pagination' => $pagination, 
-		'sortSelect' => $sortSelect, 
+		'skyscrapers' => $skyscrapers,
+		'headline' => $headline,
+		'items' => $items,
+		'pagination' => $pagination,
+		'sortSelect' => $sortSelect,
 		'selector' => $selector
 	));
-		
+
 	return $out;
 }
 
@@ -177,17 +182,17 @@ function renderSkyscraperList(PageArray $skyscrapers, $showPagination = true, $h
  * @return string
  *
  */
-function renderSkyscraperListItem(Page $skyscraper) {
+function renderSkyscraperListItem(Page $skyscraper)
+{
 
 	/** @var Pageimages $images */
 	$images = $skyscraper->get('images');
 
 	// make a thumbnail if the first skyscraper image
-	if(count($images)) {
+	if (count($images)) {
 		// our thumbnail is 200px wide with proportional height
 		$thumb = $images->first()->width(200);
 		$img = $thumb->url;
-
 	} else {
 		// skyscraper has no images
 		$img = config()->urls->templates . "styles/images/photo_placeholder.png";
@@ -201,15 +206,15 @@ function renderSkyscraperListItem(Page $skyscraper) {
 	$out = files()->render('./includes/skyscraper-list-item.php', array(
 		'skyscraper' => $skyscraper,
 		'url' => $skyscraper->url,
-		'img' => $img, 
-		'title' => $skyscraper->title, 
+		'img' => $img,
+		'title' => $skyscraper->title,
 		'city' => $skyscraper->parent->get("title"),
 		'height' => $skyscraper->get('height|unknown'),
 		'floors' => $skyscraper->get('floors|unknown'),
 		'year' => $skyscraper->get('year|unknown'),
 		'summary' => summarizeText($skyscraper->get('body'), 500)
 	));
-	
+
 	return $out;
 }
 
@@ -221,34 +226,35 @@ function renderSkyscraperListItem(Page $skyscraper) {
  * @return string
  * 
  */
-function renderMap($items = null, array $options = array()) {
-	
+function renderMap($items = null, array $options = array())
+{
+
 	static $mapQty = 0;
 	$defaults = array(
-		'height' => '320px', 
+		'height' => '320px',
 		'useHoverBox' => true,
 	);
-	
+
 	$options = array_merge($defaults, $options);
-	
-	if(is_null($items)) {
-		if($mapQty) return ''; // if no items given and map has already been rendered, return blank
+
+	if (is_null($items)) {
+		if ($mapQty) return ''; // if no items given and map has already been rendered, return blank
 		$items = mapSkyscrapers(); // otherwise map skyscrapers already listed on the page
 	}
-	
+
 	$map = page('map');
 	$out = '';
-	
-	if(($map && $map->lat) || count($items)) {
+
+	if (($map && $map->lat) || count($items)) {
 		$mapQty++;
 		$map = modules('MarkupGoogleMap');
-		if(count($items)) {
+		if (count($items)) {
 			$out .= $map->render($items, 'map', $options);
 		} else {
 			$out .= $map->render(page(), 'map', $options);
 		}
 	}
-	
+
 	return $out;
 }
 
@@ -259,17 +265,18 @@ function renderMap($items = null, array $options = array()) {
  * @return string
  *
  */
-function renderPagination(PageArray $items) {
+function renderPagination(PageArray $items)
+{
 
-	if(!$items->getLimit() || $items->getTotal() <= $items->getLimit()) return '';
+	if (!$items->getLimit() || $items->getTotal() <= $items->getLimit()) return '';
 	$page = page();
-	if(!$page->template->allowPageNum) {
+	if (!$page->template->allowPageNum) {
 		return "Pagination is not enabled for this template";
 	}
 
 	// customize the MarkupPagerNav to output in Foundation-style pagination links
 	$options = array(
-		'numPageLinks' => 5, 
+		'numPageLinks' => 5,
 		'nextItemLabel' => '<i class="uk-icon-angle-double-right"></i>',
 		'nextItemClass' => '',
 		'previousItemLabel' => '<span><i class="uk-icon-angle-double-left"></i></span>',
@@ -302,11 +309,12 @@ function renderPagination(PageArray $items) {
  * @return string
  *
  */
-function makePrettySelector($selector) {
-	if(preg_match('/(architects|parent)=(\d+)/', $selector, $matches)) {
-		if($page = pages()->get($matches[2]))
+function makePrettySelector($selector)
+{
+	if (preg_match('/(architects|parent)=(\d+)/', $selector, $matches)) {
+		if ($page = pages()->get($matches[2]))
 			$selector = str_replace($matches[0], "$matches[1]={$page->path}", $selector);
-		if($matches[1] == 'parent') $selector = str_replace("template=skyscraper, ", "", $selector); // template not necessary here
+		if ($matches[1] == 'parent') $selector = str_replace("template=skyscraper, ", "", $selector); // template not necessary here
 	}
 	$selector = sanitizer('entities', $selector);
 	$span = "<span class='uk-text-nowrap'>";
@@ -323,31 +331,30 @@ function makePrettySelector($selector) {
  * @return string
  *
  */
-function summarizeText($text, $maxLength = 500) {
+function summarizeText($text, $maxLength = 500)
+{
 
-	if(!strlen($text)) return '';
+	if (!strlen($text)) return '';
 	$summary = trim(strip_tags($text));
-	if(strlen($summary) <= $maxLength) return $summary;
+	if (strlen($summary) <= $maxLength) return $summary;
 
 	$summary = substr($summary, 0, $maxLength);
 	$lastPos = 0;
 
-	foreach(array('. ', '!', '?') as $punct) {
+	foreach (array('. ', '!', '?') as $punct) {
 		// truncate to last sentence
 		$pos = strrpos($summary, $punct);
-		if($pos > $lastPos) $lastPos = $pos;
+		if ($pos > $lastPos) $lastPos = $pos;
 	}
 
-	if(!$lastPos) {
+	if (!$lastPos) {
 		// if no last sentence was found, truncate to last space
 		$lastPos = strrpos($summary, ' ');
 	}
 
-	if($lastPos) {
+	if ($lastPos) {
 		$summary = substr($summary, 0, $lastPos + 1); // and truncate to last sentence
 	}
 
 	return trim($summary);
 }
-
-

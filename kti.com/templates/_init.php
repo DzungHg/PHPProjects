@@ -9,6 +9,7 @@
  *
  */
 
+include('./_uikit.php'); //Xài cho Uikit lấy từ innhanh123.vn
 include_once("./_func.php");  // shared functions
 
 /***************************************************************************************
@@ -25,4 +26,3 @@ region('mainHeader', '');
 region('content', page('body'));
 region('sidebar', '');
 region('sidebarHeader', '');
-
