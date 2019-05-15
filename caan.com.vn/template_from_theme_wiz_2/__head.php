@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Webestica.com">
-	<meta name="description" content="Creative Multipurpose Bootstrap Template">
+	<meta name="description" content="<?php echo $page->summary; ?>">
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="<?php echo $config->urls->templates; ?>assets/images/favicon.ico">
