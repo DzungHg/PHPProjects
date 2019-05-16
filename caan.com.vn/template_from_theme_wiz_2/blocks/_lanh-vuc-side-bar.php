@@ -26,12 +26,12 @@
 	?>
 
 
-
 		<!-- Newsletter Widget -->
 		<div class="widget widget-newsletter">
-			<div id="email-subsc">
+			<div id="email-subsc-2">
 			</div>
-			<?php //include($config->urls->templates .= 'promailer-subscribe.php'); ?>
+			<?php include('./_pre-email-subscribe-2.php'); ?>
+
 			<!--<h5 class="widget-title">Tôi nhận tin</h5>
 			<p class="mb-1">Subscribe to our newsletter to receive exclusive offers.</p>
 			<form>
