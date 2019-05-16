@@ -101,7 +101,7 @@
 					<div class="widget bg-grad p-4 all-text-white border-radius-3">
 						<div id="email-subsc">
 						</div>
-						<?php include('./blocks/_pre-email-subscribe.php'); ?>
+						<?php include('./promailer-subscribe.php'); ?>
 					</div>
 				</div>
 			</div>

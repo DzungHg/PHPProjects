@@ -29,7 +29,10 @@
 
 		<!-- Newsletter Widget -->
 		<div class="widget widget-newsletter">
-			<h5 class="widget-title">Tôi nhận tin</h5>
+			<div id="email-subsc">
+			</div>
+			<?php //include($config->urls->templates .= 'promailer-subscribe.php'); ?>
+			<!--<h5 class="widget-title">Tôi nhận tin</h5>
 			<p class="mb-1">Subscribe to our newsletter to receive exclusive offers.</p>
 			<form>
 				<div class="input-group">
@@ -38,7 +41,7 @@
 						<button type="submit" class="btn btn-grad mb-0"><i class="fa fa-paper-plane m-0"></i></button>
 					</span>
 				</div>
-			</form>
+			</form> -->
 		</div>
 
 		<!-- Tag Widget -->

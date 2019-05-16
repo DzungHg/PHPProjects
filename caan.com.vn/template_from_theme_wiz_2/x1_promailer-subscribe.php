@@ -120,12 +120,10 @@ $wrapMarkup = "<div id='promailer'>{out}</div>";
 $subscribeForm = <<< _OUT
 	<form id='promailer-form' action='{url}#promailer-form' method='post'>
 		<label for='{email_name}'>{email_label}</label>
-		<div class='form-group mb-0'>
-		<input class='form-control border-white mb-3' type='email' id='{email_name}' name='{email_name}' placeholder='{email_placeholder}' value='' required='required'>
+		<input type='email' id='{email_name}' name='{email_name}' placeholder='{email_placeholder}' value='' required='required'>
 		{honeypot}
-		<button class='btn btn-dark mb-0' type='submit' name='{submit_name}' value='1'>{submit_label}</button>
+		<button type='submit' name='{submit_name}' value='1'>{submit_label}</button>
 		{extras}
-		</div>
 	</form>
 _OUT;
 
@@ -285,7 +283,7 @@ echo $out;
 // C. MARKUP REGIONS (like that used in the ProcessWire “site-regular” profile)
 // -----------------------------------------------------------------------------------------------------------
 // echo "<div id='content-body'>$out</div>"; 
- echo "<div id='email-subsc'>$out</div>";
+
 // do not modify below this line
 endif; 
 unset($out);
