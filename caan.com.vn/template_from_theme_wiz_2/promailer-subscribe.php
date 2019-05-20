@@ -62,7 +62,7 @@
  * 
  */
 
-if(!defined("PROCESSWIRE")) die();
+if (!defined("PROCESSWIRE")) die();
 
 
 /** @var WireInput $input */
@@ -153,24 +153,24 @@ _OUT;
  */
 $subscribeOptions = array(
 	// settings
-	'listId' => (int) $input->get('list'), // ID of the subscribers list that this form is for
+	'listId' => (int)$input->get('list'), // ID of the subscribers list that this form is for
 	'useCSRF' => true,
 
 	// markup
 	'errorMarkup' => $errorMarkup,
 	'successMarkup' => $successMarkup,
 	'formMarkup' => $subscribeForm,
-	'wrapMarkup' => $wrapMarkup, 
-	
+	'wrapMarkup' => $wrapMarkup,
+
 	// double opt-in confirmation email settings
 	'emailSubject' => __('{list} - Please confirm your subscription'),
 	'emailNote' => __('Please confirm your subscription to the “{list}” list by clicking below:'),
-	'emailConfirm' => __('Confirm Subscription'), 
+	'emailConfirm' => __('Confirm Subscription'),
 	'emailBodyHTML' => $emailBodyHTML,
-	'emailBodyText' => $emailBodyText, 
+	'emailBodyText' => $emailBodyText,
 	'emailFrom' => '', // optional email address from, i.e. "news@processwire.com" 
 	'emailFromName' => '', // optional email name from, i.e. "ProcessWire"
-	
+
 	// field labels
 	'emailFieldLabel' => __('Email address to subscribe'),
 	'emailFieldPlaceholder' => __('email@domain.com'),
@@ -214,10 +214,11 @@ $subscribeOptions = array(
  *
  */
 
+$inputEmail = $sanitizer->entities($input->get->email('email')); //
 $unsubscribeForm = <<< _OUT
 	<form id='promailer-form' action='{url}#promailer-form' method='post'>
 		<label for='{email_name}'>{email_label}</label>
-		<input type='email' id='{email_name}' name='{email_name}' value='{email_value}'> 
+		<input type='email' id='{email_name}' name='{email_name}' placeholder='{email_placeholder}' value='$inputEmail' required='required'> 
 		<button type='submit' name='{submit_name}' value='1'>{submit_label}</button>
 		{extras}
 	</form>
@@ -248,44 +249,43 @@ $promailer = $modules->getModule('ProMailer');
 $isInclude = $page->template->name != 'promailer-subscribe';
 
 // determine what kind of request we are going to serve: webhook, unsubscribe or subscribe
-if($input->get('webhook') && !$isInclude) {
+if ($input->get('webhook') && !$isInclude) {
 	// webhooks (optional)
-	if(is_file('./promailer-webhooks.inc')) include('./promailer-webhooks.inc');
+	if (is_file('./promailer-webhooks.inc')) include('./promailer-webhooks.inc');
 	throw new Wire404Exception();
-	
-} else if($input->get('unsub') && !$isInclude) {
+} else if ($input->get('unsub') && !$isInclude) {
 	// unsubscribe
-	$out = $promailer->forms->unsubscribe($unsubscribeOptions); 
-	
+	$out = $promailer->forms->unsubscribe($unsubscribeOptions);
 } else {
 	// subscribe 
 	$out = $promailer->forms->subscribe($subscribeOptions);
 }
 
 // if this file was included from another, we echo the output now, otherwise we go to MAIN OUTPUT
-if($isInclude): echo $out; else: 
-	
-/*************************************************************************************************************
- * MAIN OUTPUT
- * 
- * Uncomment your intended output strategy below (and remove or comment out any others)
- *
- */
+if ($isInclude) : echo $out;
+else :
 
-// A. DIRECT OUTPUT (like that used in the Processwire “site-beginner” profile)
-// -----------------------------------------------------------------------------------------------------------
-// include('./_head.php');
-echo $out;
-// include('./_foot.php'); 
+	/*************************************************************************************************************
+	 * MAIN OUTPUT
+	 * 
+	 * Uncomment your intended output strategy below (and remove or comment out any others)
+	 *
+	 */
 
-// B. DELAYED OUTPUT (like that used in the ProcessWire “site-default” profile)
-// -----------------------------------------------------------------------------------------------------------
-// $content = $out; 
+	// A. DIRECT OUTPUT (like that used in the Processwire “site-beginner” profile)
+	// -----------------------------------------------------------------------------------------------------------
+	// include('./_head.php');
+	echo $out;
+	// include('./_foot.php'); 
 
-// C. MARKUP REGIONS (like that used in the ProcessWire “site-regular” profile)
-// -----------------------------------------------------------------------------------------------------------
-// echo "<div id='content-body'>$out</div>"; 
- echo "<div id='email-subsc'>$out</div>";
+	// B. DELAYED OUTPUT (like that used in the ProcessWire “site-default” profile)
+	// -----------------------------------------------------------------------------------------------------------
+	// $content = $out; 
+
+	// C. MARKUP REGIONS (like that used in the ProcessWire “site-regular” profile)
+	// -----------------------------------------------------------------------------------------------------------
+	// echo "<div id='content-body'>$out</div>"; 
+	echo "<div id='email-subsc'>$out</div>";
 // do not modify below this line
-endif; 
+endif;
 unset($out);
