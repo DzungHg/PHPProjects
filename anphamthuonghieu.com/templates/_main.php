@@ -79,13 +79,12 @@ namespace ProcessWire;
 		?>
 		<!-- #header end -->
 
-		<!-- Content - nơi các trang nhúng html của mình vô đây
+		<!-- Content - nơi các trang nhúng html của mình vô đây,
+		cần sửa lại section thày gì đó vì có cái có 2 section section 1 và 2
 		============================================= -->
-		<section id="content">
+		<pw-region id="pw-content">
 
-
-
-		</section><!-- #content end -->
+		</pw-region><!-- #content end -->
 
 		<!-- Footer
 		============================================= -->

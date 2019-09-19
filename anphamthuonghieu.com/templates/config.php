@@ -44,7 +44,7 @@ $config->debug = true;
 $config->useMarkupRegions = true;
 
 /**
- * Prepend template file
+ * Prepend atemplate file
  *
  * PHP file in /site/templates/ that will be loaded before each page's template file.
  * Example: _init.php
@@ -101,7 +101,7 @@ $config->chmodFile = '0644'; // permission for files created by ProcessWire
  */
 $config->timezone = 'Asia/Ho_Chi_Minh';
 /**
-thêm sau khi installed
+ *thêm sau khi installed
  */
 setlocale(LC_ALL, 'en_US.UTF-8');
 /**
