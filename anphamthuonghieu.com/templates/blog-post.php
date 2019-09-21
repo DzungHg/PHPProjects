@@ -6,13 +6,37 @@ namespace ProcessWire;
 // See README.txt for more information
 
 // Dùng thẻ
+//Tạo link entry là image hay video
+function htmlEtry($page)
+{
+
+   // $out is where we store the markup we are creating in this function
+   $out = '';
+   $image_file_name = "";
+   if ($page->entry_image) {
+      //Xài image đầu tiên mà thôi khỏi tìm
+      $image_file_name = $page->entry_image;
+      foreach ($page->images as $image) {
+         if ($image->basename == trim($image_file_name)) {
+            $out = "<a href=$image->url' data-lightbox='image'><img class='image_fade' src='$image->url' alt=''></a>";
+            break;
+         }
+      }
+   } else {
+      if ($page->entry_video_url) {
+         $out = "<iframe src='$page->entry_video_url' width='500' height='281' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
+      }
+   }
+
+   return $out;
+}
 ?>
 <!-- dùng thẻ này của pw để chêm nội dung vô _main.php -->
 <pw-region id="pw-content">
    <section id="page-title">
 
       <div class="container clearfix">
-         <h1>Blog Single</h1>
+         <h1><?php echo $page->parent->title ?></h1>
          <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Blog</a></li>
@@ -43,40 +67,30 @@ namespace ProcessWire;
                      <!-- Entry Title
 								============================================= -->
                      <div class="entry-title">
-                        <h2>This is a Standard post with a Preview Image</h2>
+                        <h2><?php echo $page->title ?></h2>
                      </div><!-- .entry-title end -->
 
                      <!-- Entry Meta
 								============================================= -->
                      <ul class="entry-meta clearfix">
-                        <li><i class="icon-calendar3"></i> 10th July 2014</li>
+                        <li><i class="icon-calendar3"></i> <?php echo $page->date ?></li>
                         <li><a href="#"><i class="icon-user"></i> admin</a></li>
                         <li><i class="icon-folder-open"></i> <a href="#">General</a>, <a href="#">Media</a></li>
-                        <li><a href="#"><i class="icon-comments"></i> 43 Comments</a></li>
+                        <li><a href="#"><i class="icon-comments"></i> 0 Comments</a></li>
                         <li><a href="#"><i class="icon-camera-retro"></i></a></li>
                      </ul><!-- .entry-meta end -->
 
                      <!-- Entry Image
 								============================================= -->
                      <div class="entry-image">
-                        <a href="#"><img src="images/blog/full/1.jpg" alt="Blog Single"></a>
+                        <?php echo htmlEtry($page) ?>
                      </div><!-- .entry-image end -->
 
                      <!-- Entry Content
 								============================================= -->
                      <div class="entry-content notopmargin">
 
-                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-
-                        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. <a href="#">Curabitur blandit tempus porttitor</a>. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
-
-                        <blockquote>
-                           <p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.</p>
-                        </blockquote>
-
-                        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus.</p>
-
-                        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. <a href="#">Nullam quis risus eget urna</a> mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+                        <?php echo $page->body ?>
 
                         <pre>
 #header-inner {
