@@ -55,7 +55,7 @@ namespace ProcessWire;
 	<meta name="description" content="<?php echo $page->summary; ?>" />
 	<!-- Document Title
 	============================================= -->
-	<title>><?php echo $title; ?></title>
+	<title><?php echo $title; ?></title>
 
 </head>
 

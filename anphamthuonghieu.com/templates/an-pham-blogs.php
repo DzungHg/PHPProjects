@@ -7,29 +7,7 @@ namespace ProcessWire;
 
 // Xài thay thế thẻ Section id="content" của _main.php để thay thế
 //Tạo link entry là image hay video
-function htmlEtry($page)
-{
 
-   // $out is where we store the markup we are creating in this function
-   $out = '';
-   $image_file_name = "";
-   if ($page->entry_image) {
-      //Xài image đầu tiên mà thôi khỏi tìm
-      $image_file_name = $page->entry_image;
-      foreach ($page->images as $image) {
-         if ($image->basename == trim($image_file_name)) {
-            $out = "<a href=$image->url' data-lightbox='image'><img class='image_fade' src='$image->url' alt=''></a>";
-            break;
-         }
-      }
-   } else {
-      if ($page->entry_video_url) {
-         $out = "<iframe src='$page->entry_video_url' width='500' height='281' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
-      }
-   }
-
-   return $out;
-}
 ?>
 <!-- Cần thêm 1 tag pw để bao phủ 2 nội dung này? -->
 <pw-region id="pw-content">

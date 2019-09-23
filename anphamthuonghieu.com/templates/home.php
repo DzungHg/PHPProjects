@@ -16,7 +16,7 @@ namespace ProcessWire;
 			<div class="section header-stick bottommargin-lg clearfix" style="padding: 20px 0;">
 				<div>
 					<div class="container clearfix">
-						<span class="badge badge-danger bnews-title">Breaking News:</span>
+						<span class="badge badge-danger bnews-title">Tin mới nhất:</span>
 
 						<div class="fslider bnews-slider nobottommargin" data-speed="800" data-pause="6000" data-arrows="false" data-pagi="false">
 							<div class="flexslider">
@@ -129,7 +129,7 @@ namespace ProcessWire;
 						<div class="col_full bottommargin-lg clearfix">
 
 							<div class="fancy-title title-border">
-								<h3>Technology</h3>
+								<h3>Ấn Phẩm</h3>
 							</div>
 
 							<div class="ipost clearfix">
@@ -232,7 +232,7 @@ namespace ProcessWire;
 						<div class="col_full bottommargin-lg clearfix">
 
 							<div class="fancy-title title-border">
-								<h3>Entertainment</h3>
+								<h3>Làm Thương Hiệu</h3>
 							</div>
 
 							<div class="ipost clearfix bottommargin-sm">
@@ -329,7 +329,7 @@ namespace ProcessWire;
 						</div>
 
 						<div class="fancy-title title-border">
-							<h3>News in Pictures</h3>
+							<h3>Tin Theo Hình</h3>
 						</div>
 
 						<div class="col_full masonry-thumbs grid-6 bottommargin-lg clearfix" data-big="5" data-lightbox="gallery">
@@ -353,7 +353,7 @@ namespace ProcessWire;
 						<div class="col_full nobottommargin clearfix">
 
 							<div class="fancy-title title-border">
-								<h3>Other News</h3>
+								<h3>Tin Khác</h3>
 							</div>
 
 							<div class="col_one_third">
@@ -514,27 +514,16 @@ namespace ProcessWire;
 
 							<div class="widget widget_links clearfix">
 
-								<h4>Categories</h4>
+								<h4>Chuyên Mục</h4>
 								<div class="col_half nobottommargin">
 									<ul>
-										<li><a href="#">World</a></li>
-										<li><a href="#">Technology</a></li>
-										<li><a href="#">Entertainment</a></li>
-										<li><a href="#">Sports</a></li>
-										<li><a href="#">Media</a></li>
-										<li><a href="#">Politics</a></li>
-										<li><a href="#">Business</a></li>
-									</ul>
-								</div>
-								<div class="col_half nobottommargin col_last">
-									<ul>
-										<li><a href="#">Lifestyle</a></li>
-										<li><a href="#">Travel</a></li>
-										<li><a href="#">Cricket</a></li>
-										<li><a href="#">Football</a></li>
-										<li><a href="#">Education</a></li>
-										<li><a href="#">Photography</a></li>
-										<li><a href="#">Nature</a></li>
+										<?php foreach ($page->children as $item) {
+											if ($item->template->name == "blog-page") {
+												echo "<li><a href='$item->url'>$item->title</a></li>";
+											}
+										}
+										?>
+
 									</ul>
 								</div>
 
