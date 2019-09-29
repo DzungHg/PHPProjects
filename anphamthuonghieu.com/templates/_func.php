@@ -13,6 +13,46 @@ namespace ProcessWire;
  *
  */
 
+/**
+ * Render các sản phẩm Ấn phẩm theo Article 
+ * Đầu vô là bản dãy các trang ấn phẩm
+ * Có mục fileter = pf-xxxx là chưa làm
+ */
+
+function cvRenderArticlesAnPham(PageArray $items)
+{
+	$out = '';
+	if (!$items->count) {
+		return '';
+	}
+	$repImageLink = "";
+	$filter = ""; //dùng để lọc các item theo các điều kiện dùng css vd: pf-media pf-icons
+	foreach ($items as $item) {
+		$repImageLink = $item->images->first();
+		$filter = ""; //Chưa thêm vì chưa có
+		$out .= "<article class='portfolio-item $filter'>
+                  <div class='portfolio-image'>
+                     <a href='$item->url'>
+                        <img src='$repImageLink' alt='$item->title'>
+                     </a>
+                     <div class='portfolio-overlay'>
+                        <a href='$repImageLink' class='left-icon' data-lightbox='image'><i class='icon-line-plus'></i></a>
+                        <a href='$item->url' class='right-icon'><i class='icon-line-ellipsis'></i></a>
+                     </div>
+                  </div>
+                  <div class='portfolio-desc'>
+                     <h3><a href='$item->url'>$item->title</a></h3>
+                     <span><a href='#'>Media</a>, <a href='#'>Icons</a></span>
+                  </div>
+               </article>";
+	}
+	return $out;
+}
+/**
+ * Diễn giải
+ *
+ */
+
 function cvSideBarCategories(PageArray $items)
 {
 	$out = '';

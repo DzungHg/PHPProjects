@@ -14,8 +14,10 @@ namespace ProcessWire;
 			<h1><?php echo $page->title ?></h1>
 			<span>Blog mới nhất</span>
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="#">Home</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Blog</li>
+				<?php foreach ($page->parents() as $item) {
+					echo "<li class='breadcrumb-item'><a href='$item->url'>$item->title</a></li>";
+				} ?>
+				<li class="breadcrumb-item active" aria-current="page"><?php echo $page->title; ?></li>
 			</ol>
 		</div>
 
