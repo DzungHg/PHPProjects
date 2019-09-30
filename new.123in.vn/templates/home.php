@@ -37,7 +37,7 @@ namespace ProcessWire;
 					<div class="col-md-6 mb-4">
 
 						<!-- Main heading -->
-						<h3 class="h3 mb-3">Material Design for Bootstrap</h3>
+						<h3 class="h3 mb-3">Đương Ô vẫn Thử kiểm tra</h3>
 						<p>This template is created with Material Design for Bootstrap (
 							<strong>MDB</strong> ) framework.</p>
 						<p>Read details below to learn more about MDB.</p>
