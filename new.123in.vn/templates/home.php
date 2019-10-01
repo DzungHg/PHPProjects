@@ -37,26 +37,14 @@ namespace ProcessWire;
 					<div class="col-md-6 mb-4">
 
 						<!-- Main heading -->
-						<h3 class="h3 mb-3">Đương Ô vẫn Thử kiểm tra</h3>
-						<p>This template is created with Material Design for Bootstrap (
-							<strong>MDB</strong> ) framework.</p>
-						<p>Read details below to learn more about MDB.</p>
-						<!-- Main heading -->
-
-						<hr>
-
-						<p>
-							<strong>400+</strong> material UI elements,
-							<strong>600+</strong> material icons,
-							<strong>74</strong> CSS animations, SASS files, templates, tutorials and many more.
-							<strong>Free for personal and commercial use.</strong>
-						</p>
+						<h3 class="h3 mb-3"><?php echo $page->home_main_heading->heading_text ?></h3>
+						<?php echo $page->body ?>
 
 						<!-- CTA -->
-						<a target="_blank" href="https://mdbootstrap.com/getting-started/" class="btn btn-indigo btn-md">Download
+						<a target="_blank" href="<?php echo $page->home_main_heading->cta_link01 ?>" class="btn btn-indigo btn-md"><?php echo $page->home_main_heading->cta_link01_text ?>
 							<i class="fas fa-download ml-1"></i>
 						</a>
-						<a target="_blank" href="https://mdbootstrap.com/components/" class="btn btn-indigo btn-md">Live demo
+						<a target="_blank" href="<?php echo $page->home_main_heading->cta_link02 ?>" class="btn btn-indigo btn-md"><?php echo $page->home_main_heading->cta_link02_text ?>
 							<i class="fas fa-image ml-1"></i>
 						</a>
 
