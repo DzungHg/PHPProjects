@@ -41,10 +41,10 @@ namespace ProcessWire;
 						<?php echo $page->body ?>
 
 						<!-- CTA -->
-						<a target="_blank" href="<?php echo $page->home_main_heading->cta_link01 ?>" class="btn btn-indigo btn-md"><?php echo $page->home_main_heading->cta_link01_text ?>
+						<a target="_blank" href="<?php echo $page->home_main_heading->cta_link01 ?>" class="btn btn-indigo btn-md"><?php echo $page->home_main_heading->cta_link01_title ?>
 							<i class="fas fa-download ml-1"></i>
 						</a>
-						<a target="_blank" href="<?php echo $page->home_main_heading->cta_link02 ?>" class="btn btn-indigo btn-md"><?php echo $page->home_main_heading->cta_link02_text ?>
+						<a target="_blank" href="<?php echo $page->home_main_heading->cta_link02 ?>" class="btn btn-indigo btn-md"><?php echo $page->home_main_heading->cta_link02_title ?>
 							<i class="fas fa-image ml-1"></i>
 						</a>
 
