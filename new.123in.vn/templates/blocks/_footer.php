@@ -55,7 +55,7 @@
      <!--Copyright-->
      <div class="footer-copyright py-3">
         &#xA9; 2019 Copyright:
-        <a href="http://caan.com.vn" target="_blank"> CTY TNHH 1TV CA AN TECH </a>
+        <a href="http://caan.com.vn" target="_blank"> CTY TNHH MTV CA AN TECH </a>
      </div>
      <!--/.Copyright-->
 
