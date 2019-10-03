@@ -56,6 +56,9 @@
      <div class="footer-copyright py-3">
         &#xA9; 2019 Copyright:
         <a href="http://caan.com.vn" target="_blank"> CTY TNHH MTV CA AN TECH </a>
+        <p>Địa chỉ: 132 Cộng Hòa, Phường 4, Quận Tân Bình, TP. HCM
+           MST: 0315399451
+           Hotline: 18006549</p>
      </div>
      <!--/.Copyright-->
 

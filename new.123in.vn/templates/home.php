@@ -70,14 +70,15 @@ namespace ProcessWire;
 
 			<?php include("./blocks/_home-main-features.php") ?>
 			<!--Section: Main features & Quick Start-->
-			<!-- tạp tắt 
-			<hr class="my-5"> -->
+
+			<hr class="my-5">
 
 			<!--Section: Not enough-->
+			<!--Section: Customerlogo-->
+			<?php include("./blocks/_home-customer-logos.php") ?>
 
+			<!--Section: Customerlogo-->
 
-
-			<!--Section: Not enough-->
 			<!-- tạp tắt
 			<hr class="mb-5"> -->
 
