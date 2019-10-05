@@ -56,7 +56,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 						<!-- main navigation begin -->
 						<nav class="uk-navbar-container uk-navbar-transparent uk-visible@m uk-margin-top uk-margin-bottom" data-uk-navbar>
 							<div class="uk-navbar-right">
-							<?php include("./blocks/_navBarNav.php"); //ukNavbarNav($home->and($home->children), ['dropdown' => ['print-services-page', 'print-service-page']]) ?>
+								<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['print-service-page', 'print-service-page']])
+								?>
 								<a href="signin.html" class="uk-button uk-button-small">Sign in<span class="uk-margin-small-left" data-uk-icon="icon: fa-sign-in-alt; ratio:0.023"></span></a>
 							</div>
 						</nav>
@@ -69,7 +70,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 							<div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport>
 								<button class="uk-modal-close-full uk-close-large" type="button" data-uk-icon="icon: fa-times; ratio: 0.040"></button>
 								<div class="uk-width-large uk-padding-large">
-									<ul class="uk-nav-primary uk-nav-parent-icon in-margin-negative-top@s" data-uk-nav>
+									<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['print-service-page', 'print-service-page']]) ?>
+									<!--	<ul class="uk-nav-primary uk-nav-parent-icon in-margin-negative-top@s" data-uk-nav>
 										<li><a href="index.html">Home</a>
 										</li>
 										<li><a href="products.html">Products</a>
@@ -93,7 +95,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 												<li><a href="#">White Paper<span data-uk-icon="icon:fa-file-pdf; ratio: 0.024"></span></a></li>
 											</ul>
 										</li>
-									</ul>
+									</ul> -->
 									<a href="signin.html" class="uk-button uk-button-primary uk-border-rounded uk-align-center">Sign in</a>
 								</div>
 							</div>
