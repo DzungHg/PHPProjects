@@ -1,0 +1,38 @@
+header {
+    transition: background-color ease 300ms;
+    .uk-section {
+        border-top: 11px solid #65696e;
+    }
+    .uk-navbar-right {
+        a.uk-button {
+            color: #468efc;
+            border-left: 1px solid #DADADA;
+            margin-left: 20px;
+            padding-left: 40px;
+        }
+    }
+}
+
+.in-header-logo {
+    margin-left: 16px;
+    img {
+        margin: 10px 8px 0 0;
+    }
+    h1 {
+        line-height: 0px;
+        padding-top: 19px;
+        a.uk-logo {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 33px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #6f7478;        
+        }
+    }
+    p.uk-text-small {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 13px;
+        font-weight: 300;
+        margin: -5px 0 10px 0;
+    }
+}
