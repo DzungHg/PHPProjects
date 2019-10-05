@@ -56,51 +56,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 						<!-- main navigation begin -->
 						<nav class="uk-navbar-container uk-navbar-transparent uk-visible@m uk-margin-top uk-margin-bottom" data-uk-navbar>
 							<div class="uk-navbar-right">
-								<ul class="uk-navbar-nav">
-									<li>
-										<a href="index.html">Home</a>
-									</li>
-									<li>
-										<a href="products.html">Products</a>
-									</li>
-									<li>
-										<a href="#" data-uk-icon="icon: fa-sort-down; ratio: 0.023">Company</a>
-										<div class="uk-navbar-dropdown">
-											<ul class="uk-nav uk-navbar-dropdown-nav">
-												<li><a href="about.html">About</a></li>
-												<li><a href="blog.html">Blog</a></li>
-												<li><a href="careers.html">Careers</a></li>
-												<li><a href="contact.html">Contact</a></li>
-											</ul>
-										</div>
-									</li>
-									<li>
-										<a href="pricing.html">Pricing</a>
-									</li>
-									<li>
-										<a href="#" data-uk-icon="icon: fa-sort-down; ratio: 0.023">Resources</a>
-										<div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
-											<div class="uk-navbar-dropdown-grid uk-child-width-1-2" data-uk-grid>
-												<div>
-													<ul class="uk-nav uk-navbar-dropdown-nav">
-														<li><a href="https://getuikit.com/docs/">Documentation<span data-uk-icon="icon:fa-external-link-alt; ratio: 0.024"></span></a></li>
-														<li><a href="#">Help Center</a></li>
-														<li><a href="customers.html">Customers</a></li>
-														<li><a href="roadmap.html">Roadmap</a></li>
-														<li><a href="#">White Paper<span data-uk-icon="icon:fa-file-pdf; ratio: 0.024"></span></a></li>
-													</ul>
-												</div>
-												<div>
-													<ul class="uk-nav uk-navbar-dropdown-nav">
-														<li>
-															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
+							<?php include("./blocks/_navBarNav.php"); //ukNavbarNav($home->and($home->children), ['dropdown' => ['print-services-page', 'print-service-page']]) ?>
 								<a href="signin.html" class="uk-button uk-button-small">Sign in<span class="uk-margin-small-left" data-uk-icon="icon: fa-sign-in-alt; ratio:0.023"></span></a>
 							</div>
 						</nav>
