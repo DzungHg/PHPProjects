@@ -122,16 +122,16 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 								<img src="img/logo-alt.svg" data-src="img/logo-alt.svg" width="25" height="36" alt="logo" data-uk-img>
 							</div>
 							<div>
-								<h1><a class="uk-logo" href="index.html">Vulcan</a></h1>
-								<p class="uk-text-small">power of business</p>
+								<h1><a class="uk-logo" href="<?= $home ?>">In123</a></h1>
+								<p class="uk-text-small">SX ĐH In Nhanh</p>
 							</div>
 						</div>
-						<p>Imperium Tower - 15 Kuningan Raya 54th Street<br>14th Floor, Jakarta, DKI 10220, Indonesia</p>
-						<span class="uk-label uk-margin-small-right in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-phone; ratio: .024"></span>1-800-123-4567</span>
-						<span class="uk-label in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-envelope; ratio: .024"></span>hello@vulcan-corp.co.id</span>
+						<p>In123 là dịch vụ của CTY TNHH MTV CA AN, 132 Cộng Hòa, P. 4, Tân Bình</p>
+						<span class="uk-label uk-margin-small-right in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-phone; ratio: .024"></span>1800-6549</span>
+						<span class="uk-label in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-envelope; ratio: .024"></span>info@caan.com.vn</span>
 					</div>
 					<div>
-						<h3>Latest News</h3>
+						<h3>Tin/bài mới</h3>
 						<ul class="uk-list uk-list-divider uk-link-text">
 							<li><a href="#">UBS rogue trader: 'It could happen again'<span class="uk-float-right uk-visible@m">August 2, 2019</span></a></li>
 							<li><a href="#">Amazon boss Bezos becomes world's third richest<span class="uk-float-right uk-visible@m">July 22, 2019</span></a></li>

@@ -1,3 +1,59 @@
+<?php
+
+namespace ProcessWire;
+// php here
+///
+function renderHomeSlides(Page $page)
+{
+   $out = '';
+   $imageLink = '';
+   foreach ($page->page_content_repeater as $item) {
+      if ($item->type == 'home_carousel_slides') {
+         $imageLink = $item->images->first()->url();
+         $out .= "<li>
+                     <img src='$imageLink' data-src='$imageLink' alt='$item->image_alt_text' data-width data-height data-uk-img data-uk-cover>
+                     <div class='uk-position-top-left uk-position-large uk-light'>
+                        <h1>$item->headline</h1>
+                     </div>
+                  </li>";
+      }
+   }
+   return $out;
+}
+function renderHomeFeatures(Page $page)
+{
+   $out = '';
+   $imageLink = '';
+   foreach ($page->page_content_repeater as $item) {
+      if ($item->type == 'home_features') {
+         $imageLink = imageUrl($page, $item->image_name);
+         $out .= "<div class='uk-width-1-1 uk-width-1-3@m'>
+                  <div class='uk-grid-small' data-uk-grid>
+                     <div class='uk-width-auto'>
+                        <img src='<?= $imageLink' data-src='$imageLink' alt='vulcan-icon1' width='70' height='70' data-uk-img>
+                     </div>
+                     <div class='uk-width-expand'>
+                        <h3>$item->headline</h3>
+                        <p>$item->summary</p>
+                     </div>
+                  </div>
+               </div>";
+      }
+   }
+   return $out;
+}
+function imageUrl(Page $page, $imageName)
+{
+   $out = '';
+   foreach ($page->images as $image) {
+      if ($image->basename == trim($imageName)) {
+         $out .= $image->url;
+         break;
+      }
+   }
+   return $out;
+}
+?>
 <pw-region id="page-content">
    <main>
       <div class="in-slide-container uk-section uk-padding-remove-vertical uk-margin-medium-bottom" data-uk-scrollspy="cls:uk-animation-fade; delay: 200">
@@ -5,24 +61,7 @@
             <!-- slideshow begin -->
             <div class="uk-position-relative uk-visible-toggle in-slideshow">
                <ul class="uk-slideshow-items">
-                  <li>
-                     <img src="<?= urls()->templates ?>img/vulcan-slideshow-image1.jpg" data-src="<?= urls()->templates ?>img/vulcan-slideshow-image1.jpg" alt="image-slide1" data-width data-height data-uk-img data-uk-cover>
-                     <div class="uk-position-top-left uk-position-large uk-light">
-                        <h1>Fall seven times and stand up eight.</h1>
-                     </div>
-                  </li>
-                  <li>
-                     <img src="<?= urls()->templates ?>img/vulcan-slideshow-image2.jpg" data-src="<?= urls()->templates ?>img/vulcan-slideshow-image2.jpg" alt="image-slide2" data-width data-height data-uk-img data-uk-cover>
-                     <div class="uk-position-center uk-position-large uk-light">
-                        <h1>Always deliver more than expected.</h1>
-                     </div>
-                  </li>
-                  <li>
-                     <img src="<?= urls()->templates ?>img/vulcan-slideshow-image3.jpg" data-src="<?= urls()->templates ?>img/vulcan-slideshow-image3.jpg" alt="image-slide3" data-width data-height data-uk-img data-uk-cover>
-                     <div class="uk-position-bottom-right uk-position-large uk-light">
-                        <h1>If you can dream it, you can do it.</h1>
-                     </div>
-                  </li>
+                  <?= renderHomeSlides($page) ?>
                </ul>
                <div class="uk-slidenav-container uk-position-bottom-right">
                   <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
@@ -36,14 +75,14 @@
             <!-- grid content begin -->
             <div class="uk-grid uk-grid-divider uk-flex-middle" data-uk-grid>
                <div class="uk-width-1-1 uk-width-expand@m">
-                  <h2>Test thử dấu ương đương design with professional look, great choice for your business site or personal site</h2>
+                  <h2><?= $page->home_cta->cta_content ?></h2>
                </div>
                <div class="uk-width-1-1 uk-width-auto@m uk-inline">
                   <div class="in-icon-wrapper btn-mix uk-float-left">
-                     <img src="img/vulcan-content-icon4.png" data-src="<?= urls()->templates ?>img/vulcan-content-icon4.png" alt="vulcan-icon4" width="70" height="70" data-uk-img>
+                     <img src="<?= urls()->templates ?>img/vulcan-content-icon4.png" data-src="<?= urls()->templates ?>img/vulcan-content-icon4.png" alt="vulcan-icon4" width="70" height="70" data-uk-img>
                   </div>
                   <div class="uk-float-left">
-                     <a href="#" class="uk-button uk-button-default uk-button-large uk-border-rounded uk-align-right uk-margin-small-top uk-margin-small-bottom">Get in touch<span class="uk-margin-small-left" data-uk-icon="icon: fa-chevron-circle-right; ratio:0.023"></span></a>
+                     <a href="<?= $page->home_cta->url_link ?>" class="uk-button uk-button-default uk-button-large uk-border-rounded uk-align-right uk-margin-small-top uk-margin-small-bottom"><?= $page->home_cta->url_link_title ?><span class="uk-margin-small-left" data-uk-icon="icon: fa-chevron-circle-right; ratio:0.023"></span></a>
                   </div>
                </div>
             </div>
@@ -52,41 +91,9 @@
       </div>
       <div class="uk-section uk-background-muted">
          <div class="uk-container">
-            <!-- grid content begin -->
+            <!-- grid feature begin -->
             <div class="uk-grid-divider" data-uk-grid>
-               <div class="uk-width-1-1 uk-width-1-3@m">
-                  <div class="uk-grid-small" data-uk-grid>
-                     <div class="uk-width-auto">
-                        <img src="<?= urls()->templates ?>img/vulcan-content-icon1.png" data-src="<?= urls()->templates ?>img/vulcan-content-icon1.png" alt="vulcan-icon1" width="70" height="70" data-uk-img>
-                     </div>
-                     <div class="uk-width-expand">
-                        <h3>Make your Business More Efficient</h3>
-                        <p>Facilis este expedita distinctio libero tempore soluta nobis eligendi cumque nihil impedit</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="uk-width-1-1 uk-width-1-3@m">
-                  <div class="uk-grid-small" data-uk-grid>
-                     <div class="uk-width-auto">
-                        <img src="<?= urls()->templates ?>img/vulcan-content-icon2.png" data-src="img/vulcan-content-icon2.png" alt="vulcan-icon3" width="70" height="70" data-uk-img>
-                     </div>
-                     <div class="uk-width-expand">
-                        <h3>Deliver an Amazing Experience</h3>
-                        <p>Facilis este expedita distinctio libero tempore soluta nobis eligendi cumque nihil impedit</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="uk-width-1-1 uk-width-1-3@m">
-                  <div class="uk-grid-small" data-uk-grid>
-                     <div class="uk-width-auto">
-                        <img src="<?= urls()->templates ?>img/vulcan-content-icon3.png" data-src="img/vulcan-content-icon3.png" alt="vulcan-icon3" width="70" height="70" data-uk-img>
-                     </div>
-                     <div class="uk-width-expand">
-                        <h3>Promote to Potential Audiance</h3>
-                        <p>Facilis este expedita distinctio libero tempore soluta nobis eligendi cumque nihil impedit</p>
-                     </div>
-                  </div>
-               </div>
+               <?= renderHomeFeatures($page) ?>
             </div>
             <!-- grid content end -->
          </div>
@@ -96,13 +103,12 @@
             <!-- grid content begin -->
             <div class="uk-child-width-1-1 uk-child-width-1-3@m" data-uk-grid>
                <div>
-                  <h3>Lời chào mừng từ Founder</h3>
-                  <p>Adipiscing elit do eiusmod tempor incididunt explicabo nemo enim ipsam voluptatem.</p>
-                  <p>Excepteur sint occaecat cupidatat proident sunt in culpa qui officia deserunt mollit anim id est laborum architecto beatae vitae dicta eno sunt nostrum exercitationem.</p>
-                  <img src="img/vulcan-content-signature.png" data-src="img/vulcan-content-signature.png" alt="signature" width="184" height="25" data-uk-img>
+                  <h3>Giới thiệu</h3>
+                  <?= $page->body ?>
+                  <img src="<?= urls()->templates ?>img/vulcan-content-signature.png" data-src="<?= urls()->templates ?>img/vulcan-content-signature.png" alt="signature" width="184" height="25" data-uk-img>
                </div>
                <div>
-                  <h3>Client testimonials</h3>
+                  <h3>Những phát biểu hay</h3>
                   <div class="uk-position-relative uk-visible-toggle" tabindex="-1" data-uk-slider="center: true">
                      <ul class="uk-slider-items uk-child-width-1-1 uk-grid uk-text-left">
                         <li>
@@ -173,7 +179,7 @@
                   </div>
                </div>
                <div>
-                  <h3>Those who grow with Us</h3>
+                  <h3>Các liên kết</h3>
                   <div class="uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small uk-text-center" data-uk-grid>
                      <div>
                         <div class="in-client-logo uk-card">
