@@ -56,7 +56,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 						<!-- main navigation begin -->
 						<nav class="uk-navbar-container uk-navbar-transparent uk-visible@m uk-margin-top uk-margin-bottom" data-uk-navbar>
 							<div class="uk-navbar-right">
-								<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['print-service-page', 'print-service-page']])
+								<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-page']])
 								?>
 								<a href="signin.html" class="uk-button uk-button-small">Sign in<span class="uk-margin-small-left" data-uk-icon="icon: fa-sign-in-alt; ratio:0.023"></span></a>
 							</div>
