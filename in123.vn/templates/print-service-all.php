@@ -3,31 +3,7 @@
 namespace ProcessWire;
 // php here
 ///
-function renderPrintServiceItemCard(PageArray $items)
-{
-   $out = '';
-   if (!$items->count()) {
-      return '';
-   }
 
-   foreach ($items as $item) {
-      $out .=  "
-    
-        <div class='uk-card uk-card-default'>
-            <div class='uk-card-media-top'>
-                <img src='images/light.jpg' alt=''>
-            </div>
-            <div class='uk-card-body'>
-            <a href='$item->url'>
-                <h5 class='uk-card-title'>$item->title</h5>
-                </a>
-                <p class='uk-margin-small-top uk-text-small'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
-        </div>
-    ";
-   }
-   return $out;
-}
 function renderAllPrintServiceCates(PageArray $items)
 {
 
@@ -53,10 +29,10 @@ function renderAllPrintServiceCates(PageArray $items)
             <!-- grid content begin -->
             <div class="uk-grid" data-uk-grid>
                <div class="uk-width-1-1 uk-width-3-4@m">
+
                   <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@m uk-text-center" data-uk-grid>
                      <?php $items = $page->children();
-                     echo renderPrintServiceItemCard($items); ?>
-
+                     echo vcRenderPrintServiceItemCard($items); ?>
                   </div>
                </div>
                <div class="uk-width-1-1 uk-width-expand@m in-margin-bottom@s">

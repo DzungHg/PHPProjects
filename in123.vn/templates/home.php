@@ -105,10 +105,10 @@ function imageUrl(Page $page, $imageName)
                <div>
                   <h3>Giới thiệu</h3>
                   <?= $page->body ?>
-                  <img src="<?= urls()->templates ?>img/vulcan-content-signature.png" data-src="<?= urls()->templates ?>img/vulcan-content-signature.png" alt="signature" width="184" height="25" data-uk-img>
+                  <img src="<?= urls()->templates ?>styles/img/vulcan-content-signature.png" data-src="<?= urls()->templates ?>styles/img/vulcan-content-signature.png" alt="Chữ ký Dzung" width="184" height="25" data-uk-img>
                </div>
                <div>
-                  <h3>Những phát biểu hay</h3>
+                  <h3>Những phát biểu tâm đắc</h3>
                   <div class="uk-position-relative uk-visible-toggle" tabindex="-1" data-uk-slider="center: true">
                      <ul class="uk-slider-items uk-child-width-1-1 uk-grid uk-text-left">
                         <li>
@@ -120,7 +120,7 @@ function imageUrl(Page $page, $imageName)
                                  <footer>
                                     <div class="uk-grid-small" data-uk-grid>
                                        <div class="uk-width-auto">
-                                          <img src="img/in-testi-sample1.png" data-src="img/in-testi-sample1.png" width="45" height="45" alt="logo" data-uk-img>
+                                          <img src="styles/img/in-testi-sample1.png" data-src="styles/img/in-testi-sample1.png" width="45" height="45" alt="logo" data-uk-img>
                                        </div>
                                        <div class="uk-width-expand">
                                           <h5>Kate Zalewska</h5>
@@ -140,7 +140,7 @@ function imageUrl(Page $page, $imageName)
                                  <footer>
                                     <div class="uk-grid-small" data-uk-grid>
                                        <div class="uk-width-auto">
-                                          <img src="<?= urls()->templates ?>img/in-testi-sample2.png" data-src="img/in-testi-sample2.png" width="45" height="45" alt="logo" data-uk-img>
+                                          <img src="<?= urls()->templates ?>styles/img/in-testi-sample2.png" data-src="styles/img/in-testi-sample2.png" width="45" height="45" alt="logo" data-uk-img>
                                        </div>
                                        <div class="uk-width-expand">
                                           <h5>Nina van Adrichem</h5>
@@ -160,7 +160,7 @@ function imageUrl(Page $page, $imageName)
                                  <footer>
                                     <div class="uk-grid-small" data-uk-grid>
                                        <div class="uk-width-auto">
-                                          <img src="<?= urls()->templates ?>img/in-testi-sample3.png" data-src="img/in-testi-sample3.png" width="45" height="45" alt="logo" data-uk-img>
+                                          <img src="<?= urls()->templates ?>styles/img/in-testi-sample3.png" data-src="styles/img/in-testi-sample3.png" width="45" height="45" alt="logo" data-uk-img>
                                        </div>
                                        <div class="uk-width-expand">
                                           <h5>Marcel Wundrich</h5>
@@ -183,32 +183,32 @@ function imageUrl(Page $page, $imageName)
                   <div class="uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small uk-text-center" data-uk-grid>
                      <div>
                         <div class="in-client-logo uk-card">
-                           <img src="<?= urls()->templates ?>img/logo_dummy1.jpg" data-src="img/logo_dummy1.jpg" alt="logo-client1" data-width data-height data-uk-img>
+                           <img src="<?= urls()->templates ?>styles/img/logo_dummy1.jpg" data-src="styles/img/logo_dummy1.jpg" alt="logo-client1" data-width data-height data-uk-img>
                         </div>
                      </div>
                      <div>
                         <div class="in-client-logo uk-card">
-                           <img src="<?= urls()->templates ?>img/logo_dummy2.jpg" data-src="img/logo_dummy2.jpg" alt="logo-client2" data-width data-height data-uk-img>
+                           <img src="<?= urls()->templates ?>styles/img/logo_dummy2.jpg" data-src="styles/img/logo_dummy2.jpg" alt="logo-client2" data-width data-height data-uk-img>
                         </div>
                      </div>
                      <div>
                         <div class="in-client-logo uk-card">
-                           <img src="<?= urls()->templates ?>img/logo_dummy3.jpg" data-src="img/logo_dummy3.jpg" alt="logo-client3" data-width data-height data-uk-img>
+                           <img src="<?= urls()->templates ?>styles/img/logo_dummy3.jpg" data-src="styles/img/logo_dummy3.jpg" alt="logo-client3" data-width data-height data-uk-img>
                         </div>
                      </div>
                      <div>
                         <div class="in-client-logo uk-card">
-                           <img src="<?= urls()->templates ?>img/logo_dummy4.jpg" data-src="img/logo_dummy4.jpg" alt="logo-client4" data-width data-height data-uk-img>
+                           <img src="<?= urls()->templates ?>styles/img/logo_dummy4.jpg" data-src="istyles/mg/logo_dummy4.jpg" alt="logo-client4" data-width data-height data-uk-img>
                         </div>
                      </div>
                      <div>
                         <div class="in-client-logo uk-card">
-                           <img src="<?= urls()->templates ?>img/logo_dummy5.jpg" data-src="img/logo_dummy5.jpg" alt="logo-client5" data-width data-height data-uk-img>
+                           <img src="<?= urls()->templates ?>styles/img/logo_dummy5.jpg" data-src="styles/img/logo_dummy5.jpg" alt="logo-client5" data-width data-height data-uk-img>
                         </div>
                      </div>
                      <div>
                         <div class="in-client-logo uk-card">
-                           <img src="<?= urls()->templates ?>img/logo_dummy6.jpg" data-src="img/logo_dummy6.jpg" alt="logo-client6" data-width data-height data-uk-img>
+                           <img src="<?= urls()->templates ?>styles/img/logo_dummy6.jpg" data-src="styles/img/logo_dummy6.jpg" alt="logo-client6" data-width data-height data-uk-img>
                         </div>
                      </div>
                   </div>

@@ -15,12 +15,12 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 
 ?>
 <!DOCTYPE html>
-<html lang="zxx" dir="ltr">
+<html lang="en" dir="ltr">
 
 <head>
 	<!-- Standard Meta -->
 	<meta charset="utf-8">
-	<meta name="description" content="Put your site description here">
+	<meta name="description" content="Dịch vụ in nhanh dành cho Thiết Kế In">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#468efc" />
 	<!-- Site Properties -->
@@ -30,8 +30,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 	<!-- Google Fonts -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700%7cRoboto&display=swap">
 	<!-- CSS -->
-	<link rel="stylesheet" href="<?= urls()->templates ?>css/uikit.css">
-	<link rel="stylesheet" href="<?= urls()->templates ?>css/style.css">
+	<link rel="stylesheet" href="<?= urls()->templates ?>styles/css/uikit.css">
+	<link rel="stylesheet" href="<?= urls()->templates ?>styles/css/style.css">
 </head>
 
 <body>
@@ -43,12 +43,12 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 						<!-- header logo begin -->
 						<div class="uk-grid-collapse in-header-logo" data-uk-grid>
 							<div>
-								<img src="img/logo.svg" data-src="img/logo.svg" width="25" height="36" alt="logo" data-uk-img>
+								<a class="uk-logo" href="<?= urls()->root ?>"><img src="<?= urls()->templates ?>styles/img/logo123in.svg" data-src="<?= urls()->templates ?>styles/img/logo123in.svg" width="88" height="150" alt="logo" data-uk-img></a>
 							</div>
-							<div>
-								<h1><a class="uk-logo" href="index.html">Vulcan</a></h1>
-								<p class="uk-text-small">power of business</p>
-							</div>
+							<!--<div>
+								<h1><a class="uk-logo" href="<?= urls()->root ?>">In123</a></h1>
+								<p class="uk-text-small">đối tác tin cậy</p>
+							</div>-->
 						</div>
 						<!-- header logo end -->
 					</div>
@@ -58,7 +58,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 							<div class="uk-navbar-right">
 								<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-page']])
 								?>
-								<a href="signin.html" class="uk-button uk-button-small">Sign in<span class="uk-margin-small-left" data-uk-icon="icon: fa-sign-in-alt; ratio:0.023"></span></a>
+								<!-- tạm ẩn <a href="signin.html" class="uk-button uk-button-small">Sign in<span class="uk-margin-small-left" data-uk-icon="icon: fa-sign-in-alt; ratio:0.023"></span></a> -->
 							</div>
 						</nav>
 						<!-- main navigation end -->
@@ -70,7 +70,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 							<div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport>
 								<button class="uk-modal-close-full uk-close-large" type="button" data-uk-icon="icon: fa-times; ratio: 0.040"></button>
 								<div class="uk-width-large uk-padding-large">
-									<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['print-service-page', 'print-service-page']]) ?>
+									<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-page']]) ?>
 									<!--	<ul class="uk-nav-primary uk-nav-parent-icon in-margin-negative-top@s" data-uk-nav>
 										<li><a href="index.html">Home</a>
 										</li>
@@ -96,7 +96,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 											</ul>
 										</li>
 									</ul> -->
-									<a href="signin.html" class="uk-button uk-button-primary uk-border-rounded uk-align-center">Sign in</a>
+									<!-- tạm ẩn<a href="signin.html" class="uk-button uk-button-primary uk-border-rounded uk-align-center">Sign in</a> -->
 								</div>
 							</div>
 						</div>
@@ -119,19 +119,20 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 					<div>
 						<div class="uk-grid-collapse in-header-logo" data-uk-grid>
 							<div>
-								<img src="img/logo-alt.svg" data-src="img/logo-alt.svg" width="25" height="36" alt="logo" data-uk-img>
+								<a class="uk-logo" href="<?= urls()->root ?>"><img src="<?= urls()->templates ?>styles/img/logo123in.svg" data-src="<?= urls()->templates ?>styles/img/logo123in.svg" width="88" height="150" alt="logo" data-uk-img></a>
 							</div>
 							<div>
-								<h1><a class="uk-logo" href="<?= $home ?>">In123</a></h1>
-								<p class="uk-text-small">SX ĐH In Nhanh</p>
+								<h1><a class="uk-logo" href="<?= urls()->root ?>">In123</a></h1>
+								<p class="uk-text-small">Đối Tác SX ĐH In Nhanh</p>
 							</div>
 						</div>
 						<p>In123 là dịch vụ của CTY TNHH MTV CA AN, 132 Cộng Hòa, P. 4, Tân Bình</p>
 						<span class="uk-label uk-margin-small-right in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-phone; ratio: .024"></span>1800-6549</span>
 						<span class="uk-label in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-envelope; ratio: .024"></span>info@caan.com.vn</span>
+						<span class="in-margin-bottom@s"></span><img src="<?= urls()->templates ?>styles/img/da-thong-bao-bo-cong-thuong.png" data-src="<?= urls()->templates ?>styles/img/da-thong-bao-bo-cong-thuong.png" alt="Đã thông báo bộ công thương" height="" width=""></span>
 					</div>
 					<div>
-						<h3>Tin/bài mới</h3>
+						<h3>Tin mới nhất</h3>
 						<ul class="uk-list uk-list-divider uk-link-text">
 							<li><a href="#">UBS rogue trader: 'It could happen again'<span class="uk-float-right uk-visible@m">August 2, 2019</span></a></li>
 							<li><a href="#">Amazon boss Bezos becomes world's third richest<span class="uk-float-right uk-visible@m">July 22, 2019</span></a></li>
@@ -165,8 +166,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.7/js/uikit.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.7/js/uikit-icons.min.js"></script>
-	<script src="<?= urls()->templates ?>js/config.js"></script>
-	<script src="<?= urls()->templates ?>js/vendor.js"></script>
+	<script src="<?= urls()->templates ?>styles/js/config.js"></script>
+	<script src="<?= urls()->templates ?>styles/js/vendor.js"></script>
 
 	<!-- OFFCANVAS NAV TOGGLE -->
 	<a id='offcanvas-toggle' class='uk-hidden@m' href="#offcanvas-nav" uk-toggle>
