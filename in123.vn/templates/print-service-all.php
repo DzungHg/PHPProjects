@@ -31,7 +31,7 @@ function renderAllPrintServiceCates(PageArray $items)
                <div class="uk-width-1-1 uk-width-3-4@m">
 
                   <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@m uk-text-center" data-uk-grid>
-                     <?php $items = $page->children();
+                     <?php $items = $pages->find("template=print-service-page");
                      echo vcRenderPrintServiceItemCard($items); ?>
                   </div>
                </div>
@@ -47,7 +47,7 @@ function renderAllPrintServiceCates(PageArray $items)
                            <h5 class="uk-text-uppercase uk-margin-remove-bottom">DANH MỤC</h5>
                            <ul class="uk-list uk-list-divider in-widget-category">
                               <?php
-                              $items = $pages->get('/dich-vu-in/danh-muc-dich-vu-in/')->children();
+                              $items = $pages->get('/dich-vu-in/')->children();
                               echo renderAllPrintServiceCates($items);
                               ?>
                            </ul>

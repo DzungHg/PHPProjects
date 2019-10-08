@@ -56,7 +56,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 						<!-- main navigation begin -->
 						<nav class="uk-navbar-container uk-navbar-transparent uk-visible@m uk-margin-top uk-margin-bottom" data-uk-navbar>
 							<div class="uk-navbar-right">
-								<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-page']])
+								<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-cates']])
 								?>
 								<!-- tạm ẩn <a href="signin.html" class="uk-button uk-button-small">Sign in<span class="uk-margin-small-left" data-uk-icon="icon: fa-sign-in-alt; ratio:0.023"></span></a> -->
 							</div>
@@ -70,7 +70,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 							<div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport>
 								<button class="uk-modal-close-full uk-close-large" type="button" data-uk-icon="icon: fa-times; ratio: 0.040"></button>
 								<div class="uk-width-large uk-padding-large">
-									<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-page']]) ?>
+									<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-cates']]) ?>
 									<!--	<ul class="uk-nav-primary uk-nav-parent-icon in-margin-negative-top@s" data-uk-nav>
 										<li><a href="index.html">Home</a>
 										</li>

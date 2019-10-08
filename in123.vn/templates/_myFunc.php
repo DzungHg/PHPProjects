@@ -10,14 +10,14 @@ namespace ProcessWire;
 /** @var ProcessWire $wire */
 function vcRenderPrintServiceItemCard(PageArray $items)
 {
-   $out = '';
-   if (!$items->count()) {
-      return '';
-   }
-   $imageLink = '';
-   foreach ($items as $item) {
-      $imageLink = $item->images->first()->url();
-      $out .=  "
+    $out = '';
+    if (!$items->count()) {
+        return '';
+    }
+    $imageLink = '';
+    foreach ($items as $item) {
+        $imageLink = $item->images->first()->url();
+        $out .=  "
     
         <div class='uk-card uk-card-default'>
             <div class='uk-card-media-top'>
@@ -31,6 +31,6 @@ function vcRenderPrintServiceItemCard(PageArray $items)
             </div>
         </div>
     ";
-   }
-   return $out;
+    }
+    return $out;
 }

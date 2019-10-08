@@ -47,7 +47,7 @@ function renderCates(PageArray $items)
                   <div class="uk-grid-match uk-grid-small uk-child-width-1-1 uk-child-width-1-3@m" data-uk-grid>
                      <?php
                      //Lấy trang danh mục dịch vụ in
-                     $items = $pages->get('/dich-vu-in/danh-muc-dich-vu-in/')->children();
+                     $items = $pages->get('/dich-vu-in/')->children();
                      echo renderCates($items) ?>
 
                   </div>

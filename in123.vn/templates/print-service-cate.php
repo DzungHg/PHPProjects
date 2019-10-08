@@ -31,7 +31,7 @@ function renderAllPrintServiceCates(PageArray $items)
             <div class="uk-grid" data-uk-grid>
                <div class="uk-width-1-1 uk-width-3-4@m">
                   <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@m uk-text-center" data-uk-grid>
-                     <?php $items = $pages->get('/dich-vu-in/danh-sach-dich-vu-in/')->children("print_service_cates=$page");
+                     <?php $items = $page->children;
                      echo vcRenderPrintServiceItemCard($items); ?>
                   </div>
                </div>
@@ -44,13 +44,12 @@ function renderAllPrintServiceCates(PageArray $items)
                   <aside class="in-blog-sidebar uk-margin-medium-bottom">
                      <div class="uk-card uk-card-default">
                         <div class="uk-card-body">
-                           <h5 class="uk-text-uppercase uk-margin-remove-bottom">DANH MỤC</h5>
+                           <h5 class="uk-text-uppercase uk-margin-remove-bottom">DANH MỤC DỊCH VỤ</h5>
                            <ul class="uk-list uk-list-divider in-widget-category">
                               <?php
-                              $items = $pages->get('/dich-vu-in/danh-muc-dich-vu-in/')->children();
+                              $items = $pages->get('/dich-vu-in/')->children();
                               echo renderAllPrintServiceCates($items);
                               ?>
-                              <li><a href="<?= $pages->get('/dich-vu-in/danh-sach-dich-vu-in/')->url ?>">Tất cả<span class="uk-float-right" data-uk-icon="icon: triangle-right; ratio: 0.9"></span></a></li>
                            </ul>
                         </div>
                      </div>

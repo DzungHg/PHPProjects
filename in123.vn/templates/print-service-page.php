@@ -29,8 +29,8 @@ function renderAllPrintService(PageArray $items)
             <div class="uk-grid">
                <div class="uk-width-1-1 uk-width-2-3@m">
                   <article class="uk-article in-blog">
-                     <p class="uk-article-meta"><span class="uk-label uk-label-warning uk-visible@m"><?php echo "" ?></span><?= $page->modifiedStr ?> &nbsp;&nbsp; | &nbsp;&nbsp;</p>
-                     <h3 class="uk-article-title uk-margin-small-top"><a class="uk-link-reset" href="single.html"><?= $page->title ?></a></h3>
+                     <!--<p class="uk-article-meta"><span class="uk-label uk-label-warning uk-visible@m"><?php echo "" ?></span><?= $page->modifiedStr ?> &nbsp;&nbsp; | &nbsp;&nbsp;</p>-->
+                     <!--<h3 class="uk-article-title uk-margin-small-top"><?= $page->title ?></h3> -->
                      <img class="uk-margin-bottom" src="<?= $page->images->first()->url ?>" data-src="<?= $page->images->first()->url ?>" alt="<?= $page->title ?>" data-width data-height data-uk-img>
                      <div class="uk-margin-large-left">
                         <?= $page->body ?>
@@ -49,11 +49,11 @@ function renderAllPrintService(PageArray $items)
                   <aside class="in-blog-sidebar uk-margin-medium-bottom">
                      <div class="uk-card uk-card-default">
                         <div class="uk-card-body">
-                           <h5 class="uk-text-uppercase uk-margin-remove-bottom">dịch vụ in</h5>
+                           <h5 class="uk-text-uppercase uk-margin-remove-bottom">DANH MỤC DỊCH VỤ</h5>
                            <ul class="uk-list uk-list-divider in-widget-category">
                               <?php
 
-                              $items = $pages->get('/dich-vu-in/danh-sach-dich-vu-in/')->children();
+                              $items = $pages->get('/dich-vu-in/')->children();
                               echo renderAllPrintService($items);
                               ?>
                            </ul>
