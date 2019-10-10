@@ -15,13 +15,47 @@ function vcRenderPrintServiceItemCard(PageArray $items)
         return '';
     }
     $imageLink = '';
+    $imaggeAltText = '';
     foreach ($items as $item) {
-        $imageLink = $item->images->first()->url();
+        if ($item->images->count()) {
+            $imageLink = $item->images->first()->url();
+            $imaggeAltText = $item->image_alt_text;
+        }
         $out .=  "
     
         <div class='uk-card uk-card-default'>
             <div class='uk-card-media-top'>
-                <img src='$imageLink' alt=''>
+                <img src='$imageLink' alt='$imaggeAltText'>
+            </div>
+            <div class='uk-card-body'>
+            <a href='$item->url'>
+                <h5 class='uk-card-title'>$item->title</h5>
+                </a>
+                <p class='uk-margin-small-top uk-text-small'>$item->headline</p>
+            </div>
+        </div>
+    ";
+    }
+    return $out;
+}
+function vcRenderPrintProductItemCard(PageArray $items)
+{
+    $out = '';
+    if (!$items->count()) {
+        return '';
+    }
+    $imageLink = '';
+    $imaggeAltText = '';
+    foreach ($items as $item) {
+        if ($item->images->count()) {
+            $imageLink = $item->images->first()->url();
+            $imaggeAltText = $item->image_alt_text;
+        }
+        $out .=  "
+    
+        <div class='uk-card uk-card-default'>
+            <div class='uk-card-media-top'>
+                <img src='$imageLink' alt='$imaggeAltText'>
             </div>
             <div class='uk-card-body'>
             <a href='$item->url'>
