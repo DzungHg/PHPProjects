@@ -31,7 +31,7 @@ function renderAllPrintProductCates(PageArray $items)
             <div class="uk-grid" data-uk-grid>
                <div class="uk-width-1-1 uk-width-3-4@m">
                   <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@m uk-text-center" data-uk-grid>
-                     <?php $items = $page->children;
+                     <?php $items = $pages->get('/san-pham-in/danh-sach-san-pham')->children("print_product_cates=$page");
                      echo vcRenderPrintProductItemCard($items); ?>
                   </div>
                </div>
