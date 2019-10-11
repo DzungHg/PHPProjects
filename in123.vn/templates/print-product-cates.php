@@ -3,32 +3,21 @@
 namespace ProcessWire;
 // php here
 ///
-function renderCates(PageArray $items)
+function renderProductCates(PageArray $items)
 {
    $out = '';
    if (!$items->count()) {
       return '';
    }
-   $imageLink = '';
+
    foreach ($items as $item) {
-      if ($item->images->count()) {
-         $imageLink = $item->images->first()->url;
-      };
-      $out .= "      <div class='uk-width-1-1 uk-width-1-2@m'>
-                        <div class='in-customer-card uk-card uk-background-contain uk-background-bottom-right' style='background-image: url($imageLink);'>
-                           <div class='uk-card-header'>
-                              <blockquote>
-                                 <p>$item->summary</p>
-                              </blockquote>
-                           </div>
-                           <div class='uk-card-footer'>
-                              <img class='uk-margin-bottom' src='$imageLink' data-src='$imageLink' width='60' height='60' alt='' data-uk-img>
-                              <footer>
-                                 <a href='$item->url'><span class='uk-text-lead'>$item->title</span></a><br><cite>$item->headline</cite>
-                              </footer>
-                           </div>
-                        </div>
-                     </div>
+      $out .= "      <div>
+        <div class='uk-card uk-card-default uk-card-small uk-card-body'>
+            <a href='$item->url'><h5 class='uk-card-title'>$item->title</h5> </a>
+            <p>$item->summary</p>
+        </div>
+    </div>
+                                 
                      ";
    }
 
@@ -45,13 +34,12 @@ function renderCates(PageArray $items)
          <div class="uk-container">
             <!-- grid content begin -->
             <div class="uk-grid">
-
                <div class="uk-width-1-1 uk-width-3-4@m in-margin-large-top@s">
                   <div class="uk-grid-match uk-grid-small uk-child-width-1-1 uk-child-width-1-3@m" data-uk-grid>
                      <?php
                      //Lấy trang danh mục dịch vụ in
-                     $items = $pages->get('/dich-vu-in/')->children();
-                     echo renderCates($items) ?>
+                     $items = $pages->get('/san-pham-in/danh-muc-san-pham/')->children();
+                     echo renderProductCates($items) ?>
 
                   </div>
                </div>

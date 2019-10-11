@@ -30,8 +30,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 	<!-- Google Fonts -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700%7cRoboto&display=swap">
 	<!-- CSS -->
-	<link rel="stylesheet" href="<?= urls()->templates ?>styles/css/uikit.css">
-	<link rel="stylesheet" href="<?= urls()->templates ?>styles/css/style.css">
+	<link rel="stylesheet" href="<?= pathToAsset() ?>css/uikit.css">
+	<link rel="stylesheet" href="<?= pathToAsset() ?>css/style.css">
 </head>
 
 <body>
@@ -43,7 +43,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 						<!-- header logo begin -->
 						<div class="uk-grid-collapse in-header-logo" data-uk-grid>
 							<div>
-								<a class="uk-logo" href="<?= urls()->root ?>"><img src="<?= urls()->templates ?>styles/img/logo123in.svg" data-src="<?= urls()->templates ?>styles/img/logo123in.svg" width="88" height="150" alt="logo" data-uk-img></a>
+								<a class="uk-logo" href="<?= urls()->root ?>"><img src="<?= pathToAsset() ?>img/logo123in.svg" data-src="<?= pathToAsset() ?>img/logo123in.svg" width="88" height="150" alt="logo" data-uk-img></a>
 							</div>
 							<!--<div>
 								<h1><a class="uk-logo" href="<?= urls()->root ?>">In123</a></h1>
@@ -166,8 +166,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.7/js/uikit.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.7/js/uikit-icons.min.js"></script>
-	<script src="<?= urls()->templates ?>styles/js/config.js"></script>
-	<script src="<?= urls()->templates ?>styles/js/vendor.js"></script>
+	<script src="<?= pathToAsset() ?>js/config.js"></script>
+	<script src="<?= pathToAsset() ?>js/vendor.js"></script>
 
 	<!-- OFFCANVAS NAV TOGGLE -->
 	<a id='offcanvas-toggle' class='uk-hidden@m' href="#offcanvas-nav" uk-toggle>

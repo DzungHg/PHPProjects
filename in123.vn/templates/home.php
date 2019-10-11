@@ -20,6 +20,39 @@ function renderHomeSlides(Page $page)
    }
    return $out;
 }
+function renderHomeQuotes(Page $page)
+{
+   $out = '';
+   $imageLink = '';
+   foreach ($page->page_content_repeater as $item) {
+      if ($item->type == 'home_quotes') {
+         if ($item->images->count()) {
+            $imageLink = $item->images->first();
+         }
+         $out .= " <li>
+                           <div class='in-testimoni-slider'>
+                              <blockquote cite='#'>
+                                 <div class='in-testimoni-card'>
+                                    <p>$item->quote_content</p>
+                                 </div>
+                                 <footer>
+                                    <div class='uk-grid-small' data-uk-grid>
+                                       <div class='uk-width-auto'>
+                                          <img src='$imageLink' data-src='$imageLink' width='45' height='45' alt='logo' data-uk-img>
+                                       </div>
+                                       <div class='uk-width-expand'>
+                                          <h5>$item->quote_writer</h5>
+                                          <cite>$item->quote_writer_title</cite>
+                                       </div>
+                                    </div>
+                                 </footer>
+                              </blockquote>
+                           </div>
+                        </li>";
+      }
+   }
+   return $out;
+}
 function renderHomeFeatures(Page $page)
 {
    $out = '';
@@ -79,7 +112,7 @@ function imageUrl(Page $page, $imageName)
                </div>
                <div class="uk-width-1-1 uk-width-auto@m uk-inline">
                   <div class="in-icon-wrapper btn-mix uk-float-left">
-                     <img src="<?= urls()->templates ?>img/vulcan-content-icon4.png" data-src="<?= urls()->templates ?>img/vulcan-content-icon4.png" alt="vulcan-icon4" width="70" height="70" data-uk-img>
+                     <img src="<?= pathToAsset() ?>img/vulcan-content-icon4.png" data-src="<?= pathToAsset() ?>img/vulcan-content-icon4.png" alt="vulcan-icon4" width="70" height="70" data-uk-img>
                   </div>
                   <div class="uk-float-left">
                      <a href="<?= $page->home_cta->url_link ?>" class="uk-button uk-button-default uk-button-large uk-border-rounded uk-align-right uk-margin-small-top uk-margin-small-bottom"><?= $page->home_cta->url_link_title ?><span class="uk-margin-small-left" data-uk-icon="icon: fa-chevron-circle-right; ratio:0.023"></span></a>
@@ -105,72 +138,13 @@ function imageUrl(Page $page, $imageName)
                <div>
                   <h3>Giới thiệu</h3>
                   <?= $page->body ?>
-                  <img src="<?= urls()->templates ?>styles/img/vulcan-content-signature.png" data-src="<?= urls()->templates ?>styles/img/vulcan-content-signature.png" alt="Chữ ký Dzung" width="184" height="25" data-uk-img>
+                  <img src="<?= pathToAsset() ?>img/vulcan-content-signature.png" data-src="<?= pathToAsset() ?>img/vulcan-content-signature.png" alt="Chữ ký Dzung" width="184" height="25" data-uk-img>
                </div>
                <div>
-                  <h3>Những phát biểu tâm đắc</h3>
+                  <h3>Những phát biểu</h3>
                   <div class="uk-position-relative uk-visible-toggle" tabindex="-1" data-uk-slider="center: true">
                      <ul class="uk-slider-items uk-child-width-1-1 uk-grid uk-text-left">
-                        <li>
-                           <div class="in-testimoni-slider">
-                              <blockquote cite="#">
-                                 <div class="in-testimoni-card">
-                                    <p>Really love the product! It saves so much time and helps a lot in organizing our feedback. Awesome idea and huge potential.</p>
-                                 </div>
-                                 <footer>
-                                    <div class="uk-grid-small" data-uk-grid>
-                                       <div class="uk-width-auto">
-                                          <img src="styles/img/in-testi-sample1.png" data-src="styles/img/in-testi-sample1.png" width="45" height="45" alt="logo" data-uk-img>
-                                       </div>
-                                       <div class="uk-width-expand">
-                                          <h5>Kate Zalewska</h5>
-                                          <cite>Product Owner at Ansible</cite>
-                                       </div>
-                                    </div>
-                                 </footer>
-                              </blockquote>
-                           </div>
-                        </li>
-                        <li>
-                           <div class="in-testimoni-slider">
-                              <blockquote cite="#">
-                                 <div class="in-testimoni-card">
-                                    <p>Quick, easy, and super helpful to collect and organise feedback from all kinds of channels we use to communicate with our customers.</p>
-                                 </div>
-                                 <footer>
-                                    <div class="uk-grid-small" data-uk-grid>
-                                       <div class="uk-width-auto">
-                                          <img src="<?= urls()->templates ?>styles/img/in-testi-sample2.png" data-src="styles/img/in-testi-sample2.png" width="45" height="45" alt="logo" data-uk-img>
-                                       </div>
-                                       <div class="uk-width-expand">
-                                          <h5>Nina van Adrichem</h5>
-                                          <cite>Designer at GWT</cite>
-                                       </div>
-                                    </div>
-                                 </footer>
-                              </blockquote>
-                           </div>
-                        </li>
-                        <li>
-                           <div class="in-testimoni-slider">
-                              <blockquote cite="#">
-                                 <div class="in-testimoni-card">
-                                    <p>The extension makes collecting feedback so much easier! Shipright then really helps us make decisions based on the data we collected.</p>
-                                 </div>
-                                 <footer>
-                                    <div class="uk-grid-small" data-uk-grid>
-                                       <div class="uk-width-auto">
-                                          <img src="<?= urls()->templates ?>styles/img/in-testi-sample3.png" data-src="styles/img/in-testi-sample3.png" width="45" height="45" alt="logo" data-uk-img>
-                                       </div>
-                                       <div class="uk-width-expand">
-                                          <h5>Marcel Wundrich</h5>
-                                          <cite>Public Relations at Semaphore</cite>
-                                       </div>
-                                    </div>
-                                 </footer>
-                              </blockquote>
-                           </div>
-                        </li>
+                        <?= renderHomeQuotes($page) ?>
                      </ul>
                      <div class="in-testimoni-nav">
                         <a href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>

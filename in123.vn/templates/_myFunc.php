@@ -68,3 +68,9 @@ function vcRenderPrintProductItemCard(PageArray $items)
     }
     return $out;
 }
+function pathToAsset()
+{
+    $out = '';
+    $out .= urls()->templates . "styles/";
+    return $out;
+}

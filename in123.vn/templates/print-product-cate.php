@@ -37,9 +37,9 @@ function renderAllPrintProductCates(PageArray $items)
                </div>
                <div class="uk-width-1-1 uk-width-expand@m in-margin-bottom@s">
                   <aside class="in-blog-sidebar uk-margin-medium-bottom">
-                     <p class="uk-text-lead"><?= $page->print_service_cate_teasing_texts->heading ?></p>
-                     <p><?= $page->print_service_cate_teasing_texts->content ?></p>
-                     <a href="<?= $page->print_service_cate_teasing_texts->url_link ?>" class="uk-button uk-button-link uk-margin-small-top uk-margin-right"><?= $page->print_service_cate_teasing_texts->url_link_title ?> <span data-uk-icon="icon: fa-arrow-right; ratio:0.028"></span></a>
+                     <p class="uk-text-lead"><?= $page->print_product_cate_teasing_texts->heading ?></p>
+                     <p><?= $page->print_product_cate_teasing_texts->content ?></p>
+                     <a href="<?= $page->print_product_cate_teasing_texts->url_link ?>" class="uk-button uk-button-link uk-margin-small-top uk-margin-right"><?= $page->print_product_cate_teasing_texts->url_link_title ?> <span data-uk-icon="icon: fa-arrow-right; ratio:0.028"></span></a>
                   </aside>
                   <aside class="in-blog-sidebar uk-margin-medium-bottom">
                      <div class="uk-card uk-card-default">
