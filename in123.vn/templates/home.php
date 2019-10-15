@@ -9,11 +9,13 @@ function renderHomeSlides(Page $page)
    $imageLink = '';
    foreach ($page->page_content_repeater as $item) {
       if ($item->type == 'home_carousel_slides') {
-         $imageLink = $item->images->first()->url();
+         if ($item->images->count()) {
+            $imageLink = $item->images->first()->url();
+         }
          $out .= "<li>
                      <img src='$imageLink' data-src='$imageLink' alt='$item->image_alt_text' data-width data-height data-uk-img data-uk-cover>
                      <div class='uk-position-top-left uk-position-large uk-light'>
-                        <h1>$item->headline</h1>
+                        <a href='$item->url_link'><h1>$item->headline</h1></a>
                      </div>
                   </li>";
       }
