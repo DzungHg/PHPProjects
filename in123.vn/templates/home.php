@@ -29,7 +29,7 @@ function renderHomeQuotes(Page $page)
    foreach ($page->page_content_repeater as $item) {
       if ($item->type == 'home_quotes') {
          if ($item->images->count()) {
-            $imageLink = $item->images->first();
+            $imageLink = $item->images->first()->url();
          }
          $out .= " <li>
                            <div class='in-testimoni-slider'>
@@ -51,6 +51,24 @@ function renderHomeQuotes(Page $page)
                               </blockquote>
                            </div>
                         </li>";
+      }
+   }
+   return $out;
+}
+function renderHome6Links(Page $page)
+{
+   $out = '';
+   $imageLink = '';
+   foreach ($page->page_content_repeater as $item) {
+      if ($item->type == 'home_6links') {
+         if ($item->images->count()) {
+            $imageLink = $item->images->first()->url();
+         }
+         $out .= " <div>
+                        <div class='in-client-logo uk-card'>
+                           <a href='$item->url_link'><img src='<?= $imageLink' data-src='$imageLink' alt='logo-link' data-width data-height data-uk-img></a>
+                        </div>
+                     </div>";
       }
    }
    return $out;
@@ -140,7 +158,8 @@ function imageUrl(Page $page, $imageName)
                <div>
                   <h3>Giới thiệu</h3>
                   <?= $page->body ?>
-                  <img src="<?= pathToAsset() ?>img/vulcan-content-signature.png" data-src="<?= pathToAsset() ?>img/vulcan-content-signature.png" alt="Chữ ký Dzung" width="184" height="25" data-uk-img>
+                  <!--<img src="<?= pathToAsset() ?>img/123in-team.png" data-src="<?= pathToAsset() ?>img/123in-team.png" alt="123In Team" width="184" height="25" data-uk-img>
+                  -->
                </div>
                <div>
                   <h3>Những phát biểu</h3>
@@ -157,7 +176,8 @@ function imageUrl(Page $page, $imageName)
                <div>
                   <h3>Các liên kết</h3>
                   <div class="uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small uk-text-center" data-uk-grid>
-                     <div>
+                     <?= renderHome6Links($page) ?>
+                     <!--<div>
                         <div class="in-client-logo uk-card">
                            <img src="<?= urls()->templates ?>styles/img/logo_dummy1.jpg" data-src="styles/img/logo_dummy1.jpg" alt="logo-client1" data-width data-height data-uk-img>
                         </div>
@@ -187,12 +207,12 @@ function imageUrl(Page $page, $imageName)
                            <img src="<?= urls()->templates ?>styles/img/logo_dummy6.jpg" data-src="styles/img/logo_dummy6.jpg" alt="logo-client6" data-width data-height data-uk-img>
                         </div>
                      </div>
+                  </div> -->
                   </div>
                </div>
+               <!-- grid content end -->
             </div>
-            <!-- grid content end -->
          </div>
-      </div>
    </main>
 
 </pw-region>
