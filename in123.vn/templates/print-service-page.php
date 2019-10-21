@@ -35,6 +35,10 @@ function renderAllPrintService(PageArray $items)
                      <div class="uk-margin-large-left">
                         <?= $page->body ?>
                      </div>
+                     <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@m uk-margin-small-bottom" data-uk-grid>
+                        <!--render các bảng giá -->
+                        <?= vcRenderPriceTable($page) ?>
+                     </div>
                   </article>
 
                </div>

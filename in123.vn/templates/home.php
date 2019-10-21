@@ -79,7 +79,7 @@ function renderHomeFeatures(Page $page)
    $imageLink = '';
    foreach ($page->page_content_repeater as $item) {
       if ($item->type == 'home_features') {
-         $imageLink = imageUrl($page, $item->image_name);
+         $imageLink = getImageUrlFromImages($page, $item->image_name);
          $out .= "<div class='uk-width-1-1 uk-width-1-3@m'>
                   <div class='uk-grid-small' data-uk-grid>
                      <div class='uk-width-auto'>
@@ -95,17 +95,7 @@ function renderHomeFeatures(Page $page)
    }
    return $out;
 }
-function imageUrl(Page $page, $imageName)
-{
-   $out = '';
-   foreach ($page->images as $image) {
-      if ($image->basename == trim($imageName)) {
-         $out .= $image->url;
-         break;
-      }
-   }
-   return $out;
-}
+
 ?>
 <pw-region id="page-content">
    <main>

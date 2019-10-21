@@ -35,7 +35,8 @@ function renderAllPrintServiceCates(PageArray $items)
                      echo vcRenderPrintServiceItemCard($items); ?>
                   </div>
                </div>
-               <div class="uk-width-1-1 uk-width-expand@m in-margin-bottom@s">
+               <div class="uk-width-1-1 uk-widht-1-4@m in-margin-bottom@s">
+                  <!--<div class="uk-width-1-1 uk-width-expand@m in-margin-bottom@s">-->
                   <aside class="in-blog-sidebar uk-margin-medium-bottom">
                      <p class="uk-text-lead"><?= $page->print_service_cate_teasing_texts->heading ?></p>
                      <p><?= $page->print_service_cate_teasing_texts->content ?></p>
