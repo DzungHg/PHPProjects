@@ -23,6 +23,7 @@ function vcRenderPriceTable(Page $page)
             $table_heading03 = $item->table_heading_4c->column_03;
             $table_heading04 = $item->table_heading_4c->column_04;
             //Tạo bảng phải 4 tiêu đề cột trên và row cũng phải có 4 cột tương ứng
+            $tbl_content = '';//Xong 1 xóa trắng lại
             foreach ($item->price_table_4c as $row) {
                 $tbl_content .= "<tr>
                                     <td>$row->quantity</td>
@@ -33,13 +34,14 @@ function vcRenderPriceTable(Page $page)
             }
             $out .= "<div class='in-pricing'>
                         <div class='uk-card uk-card-default uk-card-small'>
-                                    <div class='uk-card-header'>
+                            <div class='uk-card-header'>
                                         <h3>$item->headline</h3>
                                         $item->table_top_content
-                                    </div>
-                                    <div class='uk-card-body'>
+                            </div>
+                            <div class='uk-card-body'>
                                     <!-- bảng giá ở đây -->
-                                        <table class='uk-table uk-table-striped'>
+                                <div class='uk-overflow-auto'>
+                                        <table class='uk-table uk-table-small uk-table-striped uk-text-small uk-text-lighter'>
                                             <thead>
                                                 <tr>
                                                     <th>$table_heading01</th>
@@ -52,13 +54,59 @@ function vcRenderPriceTable(Page $page)
                                                 $tbl_content
                                             </tbody>
                                         </table>
+                                </div>
                                        <!-- bảng giá hết --> 
                                        $item->table_bottom_content
                                         <a href='$item->url_link' class='uk-button uk-button-primary uk-button-large uk-border-rounded'>$item->button_caption</a>
-                                    </div>
+                            </div>
                         </div>
                     </div>";
-        }
+        }//If 4c
+        //If table 3c
+        if ($item->type == 'price_table_3c') {
+            $table_heading01 = $item->table_heading_3c->column_01;
+            $table_heading02 = $item->table_heading_3c->column_02;
+            $table_heading03 = $item->table_heading_3c->column_03;
+            
+            //Tạo bảng phải 3 tiêu đề cột trên và row cũng phải có 4 cột tương ứng
+            $tbl_content = '';//Xong 1 xóa trắng lại
+            foreach ($item->table_3col as $row) {
+                $tbl_content .= "<tr>
+                                     <td>$row->column_01</td>
+                                     <td>$row->column_02</td>
+                                     <td>$row->column_03</td>
+                                    
+                                </tr>";
+            }
+            $out .= "<div class='in-pricing'>
+                        <div class='uk-card uk-card-default uk-card-small'>
+                            <div class='uk-card-header'>
+                                        <h3>$item->headline</h3>
+                                        $item->table_top_content
+                            </div>
+                            <div class='uk-card-body'>
+                                    <!-- bảng giá ở đây -->
+                                <div class='uk-overflow-auto'>
+                                        <table class='uk-table uk-table-small uk-table-striped uk-text-small uk-text-lighter'>
+                                            <thead>
+                                                <tr>
+                                                    <th>$table_heading01</th>
+                                                    <th>$table_heading02</th>
+                                                    <th>$table_heading03</th>                                               
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                $tbl_content
+                                            </tbody>
+                                        </table>
+                                </div>
+                                       <!-- bảng giá hết --> 
+                                       $item->table_bottom_content
+                                        <a href='$item->url_link' class='uk-button uk-button-primary uk-button-large uk-border-rounded'>$item->button_caption</a>
+                            </div>
+                        </div>
+                    </div>";
+        }//If 4c
     }
 
     return $out;
