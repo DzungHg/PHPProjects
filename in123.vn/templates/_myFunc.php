@@ -18,21 +18,25 @@ function vcRenderPriceTable(Page $page)
     $tbl_content = '';
     foreach ($page->price_table_repeater as $item) {
         if ($item->type == 'price_table_4c') {
-            $table_heading01 = $item->table_heading_4c->column_01;
-            $table_heading02 = $item->table_heading_4c->column_02;
-            $table_heading03 = $item->table_heading_4c->column_03;
-            $table_heading04 = $item->table_heading_4c->column_04;
-            //Tạo bảng phải 4 tiêu đề cột trên và row cũng phải có 4 cột tương ứng
-            $tbl_content = '';//Xong 1 xóa trắng lại
-            foreach ($item->price_table_4c as $row) {
-                $tbl_content .= "<tr>
+            //Nếu không tắt bảng thì in nó ra
+            if (!$item->inactive) {
+
+                $table_heading01 = $item->table_heading_4c->column_01;
+                $table_heading02 = $item->table_heading_4c->column_02;
+                $table_heading03 = $item->table_heading_4c->column_03;
+                $table_heading04 = $item->table_heading_4c->column_04;
+
+                //Tạo bảng phải 4 tiêu đề cột trên và row cũng phải có 4 cột tương ứng
+                $tbl_content = ''; //Xong 1 xóa trắng lại
+                foreach ($item->price_table_4c as $row) {
+                    $tbl_content .= "<tr>
                                     <td>$row->quantity</td>
                                      <td>$row->option_01</td>
                                      <td>$row->option_02</td>
                                      <td>$row->option_03</td>
                                 </tr>";
-            }
-            $out .= "<div class='in-pricing'>
+                }
+                $out .= "<div class='in-pricing'>
                         <div class='uk-card uk-card-default uk-card-small'>
                             <div class='uk-card-header'>
                                         <h3>$item->headline</h3>
@@ -61,24 +65,27 @@ function vcRenderPriceTable(Page $page)
                             </div>
                         </div>
                     </div>";
-        }//If 4c
+            } //If
+        } //If 4c
         //If table 3c
         if ($item->type == 'price_table_3c') {
-            $table_heading01 = $item->table_heading_3c->column_01;
-            $table_heading02 = $item->table_heading_3c->column_02;
-            $table_heading03 = $item->table_heading_3c->column_03;
-            
-            //Tạo bảng phải 3 tiêu đề cột trên và row cũng phải có 4 cột tương ứng
-            $tbl_content = '';//Xong 1 xóa trắng lại
-            foreach ($item->table_3col as $row) {
-                $tbl_content .= "<tr>
+            //Nếu không tắt bảng thì in nó ra
+            if (!$item->inactive) {
+                $table_heading01 = $item->table_heading_3c->column_01;
+                $table_heading02 = $item->table_heading_3c->column_02;
+                $table_heading03 = $item->table_heading_3c->column_03;
+
+                //Tạo bảng phải 3 tiêu đề cột trên và row cũng phải có 4 cột tương ứng
+                $tbl_content = ''; //Xong 1 xóa trắng lại
+                foreach ($item->table_3col as $row) {
+                    $tbl_content .= "<tr>
                                      <td>$row->column_01</td>
                                      <td>$row->column_02</td>
                                      <td>$row->column_03</td>
                                     
                                 </tr>";
-            }
-            $out .= "<div class='in-pricing'>
+                }
+                $out .= "<div class='in-pricing'>
                         <div class='uk-card uk-card-default uk-card-small'>
                             <div class='uk-card-header'>
                                         <h3>$item->headline</h3>
@@ -106,7 +113,8 @@ function vcRenderPriceTable(Page $page)
                             </div>
                         </div>
                     </div>";
-        }//If 4c
+            } //If 
+        } //If 3c
     }
 
     return $out;
