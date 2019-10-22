@@ -35,7 +35,7 @@ function renderAllPrintService(PageArray $items)
                      <div class="uk-margin-large-left">
                         <?= $page->body ?>
                      </div>
-                     <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@m uk-margin-small-bottom" data-uk-grid>
+                     <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m uk-margin-small-bottom" data-uk-grid>
                         <!--render các bảng giá -->
                         <?= vcRenderPriceTable($page) ?>
                      </div>
@@ -44,12 +44,25 @@ function renderAllPrintService(PageArray $items)
                </div>
                <div class="uk-width-1-1 uk-width-1-3@m in-margin-bottom@s">
                   <aside class="in-blog-sidebar uk-margin-medium-bottom">
-                     <form class="uk-search uk-search-default uk-width-1-1">
-                        <a href="" class="uk-search-icon-flip" data-uk-search-icon></a>
-                        <input class="uk-search-input" type="search" placeholder="Search here...">
-                     </form>
+                     <p class="uk-text-lead"><?= $page->print_service_page_cta_text->heading ?></p>
+                     <p><?= $page->print_service_page_cta_text->content ?></p>
+                     <a href="<?= $page->print_service_page_cta_text->url_link ?>" class="uk-button uk-button-link uk-margin-small-top uk-margin-right"><?= $page->print_service_page_cta_text->url_link_title ?> <span data-uk-icon="icon: fa-arrow-right; ratio:0.028"></span></a>
                   </aside>
-
+                  <!-- chêm dịch vụ cùng danh mục ở đây -->
+                  <aside class="in-blog-sidebar uk-margin-medium-bottom">
+                  <div class="uk-card uk-card-default">
+                        <div class="uk-card-body">
+                           <h5 class="uk-text-uppercase uk-margin-remove-bottom"><?=$page->parent->title?></h5>
+                           <ul class="uk-list uk-list-divider in-widget-category">
+                              <?php
+                              $items = $page->parent->children();
+                              //Xài hàm giống nhau đỡ
+                              echo renderAllPrintService($items);
+                              ?>
+                           </ul>
+                        </div>
+                     </div>
+                  </aside>
                   <aside class="in-blog-sidebar uk-margin-medium-bottom">
                      <div class="uk-card uk-card-default">
                         <div class="uk-card-body">
