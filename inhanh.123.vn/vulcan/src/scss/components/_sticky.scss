@@ -1,0 +1,30 @@
+.in-sticky {  
+    background-color: #f8f8f8;
+    box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.15);
+    .uk-section {
+        border-top: none;
+        height: 70px;
+    }
+    .uk-container::after {
+        border-bottom: 0;
+    }
+    .in-header-logo {
+        margin: -52px 0 0px 0;
+    }
+    .in-header-logo h1,
+    .in-header-logo p {
+        display: none;
+    }
+    .uk-navbar-nav > li > a {
+        position: relative;
+        top: -21px;
+        min-height: 70px;
+    }
+    [class*='uk-navbar-dropdown-bottom'] {
+        margin-top: 0px;
+    }
+    a.uk-button {
+        position: relative;
+        top: -20px;
+    }
+}

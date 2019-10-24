@@ -1,0 +1,68 @@
+footer {
+    .uk-light {
+        .uk-label {
+            svg[data-svg^='fa-'] {
+                position: relative;
+                top: -1px;
+            }
+            font-family: 'Open Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0;
+            background: #7f8387;
+            color: #fff;
+            border-radius: 25px;
+            padding: 4px 15px;
+        }
+        .uk-list-divider > li {
+            line-height: 32px;
+            a {
+                color: rgba(255, 255, 255, 0.7);
+            }
+            a:hover {            
+                text-decoration: none;
+            }
+            span {  
+                color: #ffffff;          
+                font-family: 'Open Sans', sans-serif;
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+            &::before {
+                content: "";
+                float: left;
+                width: 0.6em;
+                height: 0.6em;
+                margin: 12px 15px 0 0;
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23d1d3d4%22%20stroke-width%3D%221.03%22%20points%3D%227%204%2013%2010%207%2016%22%2F%3E%3C%2Fsvg%3E");
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+            }
+        }
+        .in-footer-subnav {
+            font-size: 13px;
+            margin-bottom: -60px;
+            padding-top: 10px;
+            .uk-subnav > * {
+                padding-right: 20px;
+            }
+            .uk-subnav > * a {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.7);
+                text-transform: capitalize;
+            }
+        }
+    }
+    .uk-section {
+        background-image: radial-gradient(ellipse farthest-side at center top, #7D8185 0%, #65696E 60%);
+    }
+    .in-header-logo {
+        margin-left: 0px;
+        h1 a.uk-logo,
+        h1 a:hover.uk-logo {
+            color: #e3e3e3;
+        }
+    }
+}
