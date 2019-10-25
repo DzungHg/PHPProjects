@@ -29,6 +29,14 @@
                                         <p><?= $page->contact_part[3] ?></p>
                                     </div>
                                 </div>
+                                <div class="uk-flex">
+                                    <div class="in-custom-icon-button small">
+                                        <span class="uk-icon-button" data-uk-icon="icon:fa-skype; ratio: 0.028"></span>
+                                    </div>
+                                    <div class="uk-margin-small-left">
+                                        <p><?= $page->contact_part[4] ?></p>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <h4><?= $page->contact_part_2[0] ?></h4>
@@ -57,7 +65,7 @@
                                 <span class="uk-icon-button" data-uk-icon="icon:fa-map-marker-alt; ratio: 0.028"></span>
                             </div>
                             <div class="uk-margin-small-left" data-uk-lightbox>
-                                <p><?= $page->contact_page_addresses->address_1 ?><a href="<?= $page->contact_page_addresses->url_google_map_1 ?>">Xem bản đồ</span></a></p>
+                                <p><?= $page->contact_page_addresses->address_1 ?> <a href="<?= $page->contact_page_addresses->url_google_map_1 ?>">Xem bản đồ</span></a></p>
                             </div>
                         </div>
                         <div class="uk-flex">

@@ -5,6 +5,9 @@ namespace ProcessWire;
 $home = pages()->get('/'); // homepage
 $siteTitle = "Dịch Vụ In Nhanh 123";
 $siteTagline = $home->summary;
+//thếm
+$settingPage = pages()->get('/cai-dat');
+$settingLogo = $settingPage->settings_logo;
 
 // as a convenience, set location of our 3rd party resources (Uikit and jQuery)...
 urls()->set('uikit', 'wire/modules/AdminTheme/AdminThemeUikit/uikit/dist/');
@@ -46,8 +49,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 								<a class="uk-logo" href="<?= urls()->root ?>"><img src="<?= pathToAsset() ?>img/logo123in.svg" data-src="<?= pathToAsset() ?>img/logo123in.svg" width="88" height="150" alt="logo" data-uk-img></a>
 							</div>
 							<div>
-								<h1><a class="uk-logo" href="<?= urls()->root ?>">In123</a></h1>
-								<p class="uk-text-small">Đối Tác SX ĐH In Nhanh</p>
+								<h1><a class="uk-logo" href="<?=$home->url() ?>"><?= $settingPage->settings_logo->logo_text?></a></h1>
+								<p class="uk-text-small"><?= $settingPage->settings_logo->logo_slogan?></p>
 							</div>
 						</div>
 						<!-- header logo end -->
@@ -119,14 +122,14 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 					<div>
 						<div class="uk-grid-collapse in-header-logo" data-uk-grid>
 							<div>
-								<a class="uk-logo" href="<?= urls()->root ?>"><img src="<?= urls()->templates ?>styles/img/logo123in.svg" data-src="<?= urls()->templates ?>styles/img/logo123in.svg" width="88" height="150" alt="logo" data-uk-img></a>
+								<a class="uk-logo" href="<?= $home->url()?>"><img src="<?= urls()->templates ?>styles/img/logo123in.svg" data-src="<?= urls()->templates ?>styles/img/logo123in.svg" width="88" height="150" alt="logo" data-uk-img></a>
 							</div>
 							<div>
-								<h1><a class="uk-logo" href="<?= urls()->root ?>">In123</a></h1>
-								<p class="uk-text-small">Đối Tác SX ĐH In Nhanh</p>
+								<h1><a class="uk-logo" href="<?=$home->url() ?>"><?= $settingPage->settings_logo->logo_text?></a></h1>
+								<p class="uk-text-small"><?= $settingPage->settings_logo->logo_slogan?></p>
 							</div>
 						</div>
-						<p>In123 là dịch vụ của CTY TNHH MTV CA AN, 132 Cộng Hòa, P. 4, Tân Bình</p>
+						<p><?= $settingPage->settings_logo->copy_right_text?></p>
 						<span class="uk-label uk-margin-small-right in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-phone; ratio: .024"></span>1800-6549</span>
 						<span class="uk-label in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-envelope; ratio: .024"></span>info@caan.com.vn</span>
 						<span class="in-margin-bottom@s"></span><img src="<?= urls()->templates ?>styles/img/da-thong-bao-bo-cong-thuong.png" data-src="<?= urls()->templates ?>styles/img/da-thong-bao-bo-cong-thuong.png" alt="Đã thông báo bộ công thương" height="" width=""></span>
