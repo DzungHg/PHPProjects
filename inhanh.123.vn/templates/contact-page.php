@@ -9,6 +9,7 @@
                 <div class="uk-grid">
                     <div class="uk-width-1-1 uk-width-3-5@m">
                         <p><?= $page->summary ?></p>
+                        <?= $page->body ?>
                         <div class="uk-grid-divider uk-child-width-1-1 uk-child-width-1-2@m uk-margin-medium-top uk-margin-bottom" data-uk-grid>
                             <div>
                                 <h4><?= $page->contact_part[0] ?></h4>
@@ -81,7 +82,8 @@
                         <div class="in-colored-card grey">
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-body">
-                                    <form id="contact-form" class="uk-form">
+                                    <?php echo $forms->embed('trang_lien_he'); ?>
+                                    <!--  <form id="contact-form" class="uk-form">
                                         <div class="uk-margin uk-width-1-1">
                                             <input class="uk-input" id="name" value="" type="text" placeholder="Full name">
                                         </div>
@@ -97,7 +99,7 @@
                                         <div>
                                             <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded uk-float-left" id="buttonsend" type="submit" name="submit">Send Message</button>
                                         </div>
-                                    </form>
+                                    </form> -->
                                 </div>
                             </div>
                         </div>

@@ -3,7 +3,7 @@
 namespace ProcessWire;
 // _main.php template file, called after a page’s template file	
 $home = pages()->get('/'); // homepage
-$siteTitle = "Dịch Vụ In Nhanh 123";
+$siteTitle = $home->headline;
 $siteTagline = $home->summary;
 //thếm
 $settingPage = pages()->get('/cai-dat');
@@ -49,8 +49,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 								<a class="uk-logo" href="<?= urls()->root ?>"><img src="<?= pathToAsset() ?>img/logo123in.svg" data-src="<?= pathToAsset() ?>img/logo123in.svg" width="88" height="150" alt="logo" data-uk-img></a>
 							</div>
 							<div>
-								<h1><a class="uk-logo" href="<?=$home->url() ?>"><?= $settingPage->settings_logo->logo_text?></a></h1>
-								<p class="uk-text-small"><?= $settingPage->settings_logo->logo_slogan?></p>
+								<h1><a class="uk-logo" href="<?= $home->url() ?>"><?= $settingPage->settings_logo->logo_text ?></a></h1>
+								<p class="uk-text-small"><?= $settingPage->settings_logo->logo_slogan ?></p>
 							</div>
 						</div>
 						<!-- header logo end -->
@@ -59,7 +59,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 						<!-- main navigation begin -->
 						<nav class="uk-navbar-container uk-navbar-transparent uk-visible@m uk-margin-top uk-margin-bottom" data-uk-navbar>
 							<div class="uk-navbar-right">
-								<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-cates']])
+								<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-cates', 'contact-page']])
 								?>
 								<!-- tạm ẩn <a href="signin.html" class="uk-button uk-button-small">Sign in<span class="uk-margin-small-left" data-uk-icon="icon: fa-sign-in-alt; ratio:0.023"></span></a> -->
 							</div>
@@ -73,7 +73,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 							<div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport>
 								<button class="uk-modal-close-full uk-close-large" type="button" data-uk-icon="icon: fa-times; ratio: 0.040"></button>
 								<div class="uk-width-large uk-padding-large">
-									<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-cates']]) ?>
+									<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-cates', 'contact-page']]) ?>
 									<!--	<ul class="uk-nav-primary uk-nav-parent-icon in-margin-negative-top@s" data-uk-nav>
 										<li><a href="index.html">Home</a>
 										</li>
@@ -122,14 +122,14 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 					<div>
 						<div class="uk-grid-collapse in-header-logo" data-uk-grid>
 							<div>
-								<a class="uk-logo" href="<?= $home->url()?>"><img src="<?= urls()->templates ?>styles/img/logo123in.svg" data-src="<?= urls()->templates ?>styles/img/logo123in.svg" width="88" height="150" alt="logo" data-uk-img></a>
+								<a class="uk-logo" href="<?= $home->url() ?>"><img src="<?= urls()->templates ?>styles/img/logo123in.svg" data-src="<?= urls()->templates ?>styles/img/logo123in.svg" width="88" height="150" alt="logo" data-uk-img></a>
 							</div>
 							<div>
-								<h1><a class="uk-logo" href="<?=$home->url() ?>"><?= $settingPage->settings_logo->logo_text?></a></h1>
-								<p class="uk-text-small"><?= $settingPage->settings_logo->logo_slogan?></p>
+								<h1><a class="uk-logo" href="<?= $home->url() ?>"><?= $settingPage->settings_logo->logo_text ?></a></h1>
+								<p class="uk-text-small"><?= $settingPage->settings_logo->logo_slogan ?></p>
 							</div>
 						</div>
-						<p><?= $settingPage->settings_logo->copy_right_text?></p>
+						<p><?= $settingPage->settings_logo->copy_right_text ?></p>
 						<span class="uk-label uk-margin-small-right in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-phone; ratio: .024"></span>1800-6549</span>
 						<span class="uk-label in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-envelope; ratio: .024"></span>info@caan.com.vn</span>
 						<span class="in-margin-bottom@s"></span><img src="<?= urls()->templates ?>styles/img/da-thong-bao-bo-cong-thuong.png" data-src="<?= urls()->templates ?>styles/img/da-thong-bao-bo-cong-thuong.png" alt="Đã thông báo bộ công thương" height="" width=""></span>
@@ -207,8 +207,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 	<!--[[ChatScipt]]: không được nên làm đỡ bên dưới-->
 	<!-- Chat Livechat Script -->
 	<?php $settingPage = pages()->get('/cai-dat');
-		echo $settingPage->setting_hanna_codes->chat_code;
-	 ?>
+	echo $settingPage->setting_hanna_codes->chat_code;
+	?>
 	<!-- End  Livechat Script -->
 </body>
 

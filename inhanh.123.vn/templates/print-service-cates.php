@@ -45,7 +45,9 @@ function renderCates(PageArray $items)
          <div class="uk-container">
             <!-- grid content begin -->
             <div class="uk-grid">
-
+               <!-- <div class="uk-width-1-1 uk-width-3-4@m in-margin-large-top@s">
+                  <p><?= $page->summary ?></p> <br>
+               </div>-->
                <div class="uk-width-1-1 uk-width-3-4@m in-margin-large-top@s">
                   <div class="uk-grid-match uk-grid-small uk-child-width-1-1 uk-child-width-1-3@m" data-uk-grid>
                      <?php
@@ -57,6 +59,7 @@ function renderCates(PageArray $items)
                </div>
                <div class="uk-width-1-1 uk-width-expand@m">
                   <?= $page->body ?>
+                  <div><?= $page->contact_band ?></div>
                   <ul class="uk-list uk-list-divider">
                      <li>
                         <div class="uk-flex uk-margin-bottom">
@@ -64,8 +67,8 @@ function renderCates(PageArray $items)
                               <span data-uk-icon="icon:fa-paper-plane; ratio: 0.054"></span>
                            </div>
                            <div class="uk-margin-small-left">
-                              <h2 class="uk-margin-small-top uk-margin-remove-bottom">35,817</h2>
-                              <span class="uk-label">Update sent</span>
+                              <h2 class="uk-margin-small-top uk-margin-remove-bottom">Xu Thế</h2>
+                              <span class="uk-label">Là in nhanh</span>
                            </div>
                         </div>
                      </li>
@@ -75,8 +78,8 @@ function renderCates(PageArray $items)
                               <span data-uk-icon="icon:fa-user-tie; ratio: 0.054"></span>
                            </div>
                            <div class="uk-margin-small-left">
-                              <h2 class="uk-margin-small-top uk-margin-remove-bottom">4,400</h2>
-                              <span class="uk-label">Investor engaged</span>
+                              <h2 class="uk-margin-small-top uk-margin-remove-bottom">Khách Hàng</h2>
+                              <span class="uk-label">Theo nhu cầu</span>
                            </div>
                         </div>
                      </li>
@@ -86,8 +89,8 @@ function renderCates(PageArray $items)
                               <span data-uk-icon="icon:fa-money-bill-wave; ratio: 0.054"></span>
                            </div>
                            <div class="uk-margin-small-left">
-                              <h2 class="uk-margin-small-top uk-margin-remove-bottom">$620M</h2>
-                              <span class="uk-label">In funding raised</span>
+                              <h2 class="uk-margin-small-top uk-margin-remove-bottom">Lợi Nhuận</h2>
+                              <span class="uk-label">Bài in ngắn</span>
                            </div>
                         </div>
                      </li>
