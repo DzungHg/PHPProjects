@@ -130,8 +130,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 							</div>
 						</div>
 						<p><?= $settingPage->settings_logo->copy_right_text ?></p>
-						<span class="uk-label uk-margin-small-right in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-phone; ratio: .024"></span>1800-6549</span>
-						<span class="uk-label in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-envelope; ratio: .024"></span>info@caan.com.vn</span>
+						<span class="uk-label uk-margin-small-right in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-phone; ratio: .024"></span><?= $settingPage->settings_logo->phone_number ?></span>
+						<span class="uk-label in-margin-bottom@s"><span class="uk-margin-small-right" data-uk-icon="icon:fa-envelope; ratio: .024"></span><?= $settingPage->settings_logo->email_address ?></span>
 						<span class="in-margin-bottom@s"></span><img src="<?= urls()->templates ?>styles/img/da-thong-bao-bo-cong-thuong.png" data-src="<?= urls()->templates ?>styles/img/da-thong-bao-bo-cong-thuong.png" alt="Đã thông báo bộ công thương" height="" width=""></span>
 					</div>
 					<div>
