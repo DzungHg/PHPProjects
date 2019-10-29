@@ -66,7 +66,7 @@ function renderHome6Links(Page $page)
          }
          $out .= " <div>
                         <div class='in-client-logo uk-card'>
-                           <a href='$item->url_link'><img src='<?= $imageLink' data-src='$imageLink' alt='logo-link' data-width data-height data-uk-img></a>
+                           <a href='$item->url_link'  target='_blank'><img src='$imageLink' data-src='$imageLink' alt='$item->image_alt_text' uk-tooltip='$item->tooltip_text' data-width data-height data-uk-img></a>
                         </div>
                      </div>";
       }
