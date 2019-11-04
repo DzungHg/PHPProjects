@@ -32,11 +32,16 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 </head>
 
 <body>
-	<header data-uk-sticky="top: 400; cls-active: in-sticky">
+	<header data-uk-sticky="top: 200; cls-active: in-sticky">
 		<!-- top bar  -->
 		<div class="uk-container">
-			<div class=uk-grid>
-				<span><a href="">Bên trái</a></span>
+			<div class="uk-grid">
+				<div class="uk-float-left">
+					<span><a href="">Bên trái</a></span>
+				</div>
+				<div class="uk-float-right">
+					<span><a href="">Bên phari</a></span>
+				</div>
 			</div>
 		</div>
 		<!-- top bar  -->
