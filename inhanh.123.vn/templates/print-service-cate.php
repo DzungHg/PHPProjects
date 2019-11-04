@@ -35,12 +35,13 @@ function renderAllPrintServiceCates(PageArray $items)
                      echo vcRenderPrintServiceItemCard($items); ?>
                   </div>
                </div>
-               <div class="uk-width-1-1 uk-widht-1-4@m in-margin-bottom@s">
+               <div class="uk-width-1-1 uk-width-1-4@m in-margin-bottom@s">
                   <!--<div class="uk-width-1-1 uk-width-expand@m in-margin-bottom@s">-->
                   <aside class="in-blog-sidebar uk-margin-medium-bottom">
                      <p class="uk-text-lead"><?= $page->print_service_cate_teasing_texts->heading ?></p>
                      <p><?= $page->print_service_cate_teasing_texts->content ?></p>
                      <a href="<?= $page->print_service_cate_teasing_texts->url_link ?>" class="uk-button uk-button-link uk-margin-small-top uk-margin-right"><?= $page->print_service_cate_teasing_texts->url_link_title ?> <span data-uk-icon="icon: fa-arrow-right; ratio:0.028"></span></a>
+                     <p><?= $page->contact_band ?></p>
                   </aside>
                   <aside class="in-blog-sidebar uk-margin-medium-bottom">
                      <div class="uk-card uk-card-default">
@@ -55,9 +56,7 @@ function renderAllPrintServiceCates(PageArray $items)
                         </div>
                      </div>
                   </aside>
-
                </div>
-
             </div>
 
          </div>
