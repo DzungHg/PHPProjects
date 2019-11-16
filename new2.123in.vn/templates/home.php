@@ -98,31 +98,32 @@ function renderHomeFeatures(Page $page)
 
 ?>
 <pw-region id="page-content">
-   <!-- TOP -->
-   <section class="uk-section uk-section-default">
-      <!--<div class="uk-cover-container uk-light uk-flex uk-flex-middle top-wrap-height"> -->
-      <div class="uk-cover-container uk-light uk-flex uk-flex-middle top-wrap-height">
-         <!-- TOP CONTAINER -->
-         <div class="uk-container uk-flex-auto top-container uk-position-relative uk-margin-medium-top" data-uk-parallax="y: 0,50; easing:0; opacity:0.2">
-            <div class="uk-width-1-2@s" data-uk-scrollspy="cls: uk-animation-slide-right-medium; target: > *; delay: 150">
-               <h6 class="uk-text-primary uk-margin-small-bottom">RESEARCH</h6>
-               <h1 class="uk-margin-remove-top">Innovation in your hands.</h1>
-               <p class="subtitle-text uk-visible@s">Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+<div class="spacer40"></div>
+   <!--HOme TOP BANNER-->
+		<div class="uk-cover-container uk-light uk-flex uk-flex-middle top-wrap-height">
+				
+            <!-- TOP CONTAINER -->
+            <div class="uk-container uk-flex-auto top-container uk-position-relative uk-margin-medium-top" data-uk-parallax="y: 0,50; easing:0; opacity:0.2">
+               <div class="uk-width-1-2@s" data-uk-scrollspy="cls: uk-animation-slide-right-medium; target: > *; delay: 150">
+                  <h6 class="uk-text-primary uk-margin-small-bottom">RESEARCH</h6>
+                  <h1 class="uk-margin-remove-top">Innovation in your hands.</h1>
+                  <p class="subtitle-text uk-visible@s">Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                   quis nostrud exercitation ullamco </p>
-               <a href="#" title="Learn More" class="uk-button uk-button-primary uk-border-pill" data-uk-scrollspy-class="uk-animation-fade">LEARN MORE</a>
+                  <a href="#" title="Learn More" class="uk-button uk-button-primary uk-border-pill" data-uk-scrollspy-class="uk-animation-fade">LEARN MORE</a>
+               </div>
             </div>
-         </div>
-         <!-- /TOP CONTAINER -->
-         <!-- TOP IMAGE -->
-         <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="https://picsum.photos/640/700/?image=816 640w,
-				https://picsum.photos/960/700/?image=816 960w,
-				https://picsum.photos/1200/900/?image=816 1200w,
-				https://picsum.photos/2000/1000/?image=816 2000w" data-sizes="100vw" data-src="https://picsum.photos/1200/900/?image=816" alt="" data-uk-cover data-uk-img data-uk-parallax="opacity: 1,0.1; easing:0">
-         <!-- /TOP IMAGE -->
-      </div>
+            <!-- /TOP CONTAINER -->
+            <!-- TOP IMAGE -->
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="https://picsum.photos/640/700/?image=816 640w,
+            https://picsum.photos/960/700/?image=816 960w,
+            https://picsum.photos/1200/900/?image=816 1200w,
+            https://picsum.photos/2000/1000/?image=816 2000w"
+            data-sizes="100vw"
+            data-src="https://picsum.photos/1200/900/?image=816" alt="" data-uk-cover data-uk-img data-uk-parallax="opacity: 1,0.1; easing:0"						>
+            <!-- /TOP IMAGE -->
+</div>	
 
-   </section>
-   <!-- /TOP -->
+<!--/Home TOP BANNER-->
    <section id="content" class="uk-section uk-section-default">
       <div class="uk-container">
          <div class="uk-section uk-section-small uk-padding-remove-top">

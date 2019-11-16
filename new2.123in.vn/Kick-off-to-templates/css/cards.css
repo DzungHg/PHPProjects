@@ -23,14 +23,8 @@
 .uk-logo img {
 	width: 50px;
 }
-.spacer40 { /* thêm vô */
-	height: 40px;
-}
-.spacer60 { /* thêm vô */
+.spacer {
 	height: 60px;
-}
-.spacer { /* sửa từ 60px */
-	height: 80px;
 }
 .uk-card {
 	border-top: 2px solid;

@@ -16,6 +16,7 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 // urls()->set('uikit', 'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/');
 // urls()->set('jquery', 'https://code.jquery.com/jquery-2.2.4.min.js'); 
 
+//Gắn một số trang ảo vô đây nếu cần
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,55 +29,45 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 	<!-- CSS FILES -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.2/css/uikit.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= pathToAsset() ?>css/marketing.css">
+	<link rel="stylesheet" type="text/css" href="<?= pathToAsset() ?>css/cards.css">
 
 </head>
 
 <body>
-	<header data-uk-sticky="top: 200; cls-active: in-sticky">
-		<!-- top bar  -->
-		<div class="uk-container">
-			<div class="uk-grid">
-				<div class="uk-float-left">
-					<span><a href="">Bên trái</a></span>
-				</div>
-				<div class="uk-float-right">
-					<span><a href="">Bên phari</a></span>
-				</div>
-			</div>
-		</div>
-		<!-- top bar  -->
-		<!-- NAV 2 -->
-		<div class="uk-container">
-			<nav class="uk-navbar uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-				<div class="uk-navbar-left">
-					<div class="uk-navbar-item uk-padding-remove-horizontal">
-						<a class="uk-logo" title="Logo" href=""><img src="img/marketing-logo.svg" alt="Logo"></a>
+<!--Top header-->
+	<header id="site-head">
+			<div class="uk-container uk-container-expand">
+					<div class="uk-grid uk-grid-medium uk-flex uk-flex-middle" data-uk-grid>
+						<div class="uk-width-auto">
+							<span>Hotline: 0913900552</span>
+						</div>
+						<div class="uk-width-expand">											
+							<span> thông tin quảng cáo </span>
+						</div>
+						<div class="uk-width-auto">
+							<span><a href="#">Yêu cầu chào giá</a></span><span> | </span><span><a href="#">Liên hệ</a></span>						
+							
+						</div>
 					</div>
+			</div>
+				<!--main nav-->
+				<div class="uk-container  uk-container-expand">
+					<nav class="uk-navbar uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+						<div class="uk-navbar-left">
+								<div class="uk-navbar-item uk-padding-remove-horizontal">
+									<a class="uk-logo" title="Logo" href=""><img src="<?= pathToAsset() ?>img/marketing-logo.svg" alt="Logo"></a>
+								</div>
+						</div>
+						<div class="uk-navbar-right">
+							<!--Thanh menu chính dùng ukNavbarNav (chỉ tạo ul cơ bản)-->
+							<?= ukNavbarNav($home->and($home->children), ['dropdown' => ['in123-page', 'print-service-cates', 'contact-page']])	?>
+							<a class="uk-navbar-toggle uk-navbar-item uk-hidden@s" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
+						</div>
+					</nav>
 				</div>
-				<div class="uk-navbar-right">
-					<ul class="uk-navbar-nav uk-visible@s">
-						<li class="uk-active uk-visible@m"><a href="" data-uk-icon="home"></a></li>
-						<li><a href="">Dịch Vụ</a></li>
-						<li>
-							<a href="#" data-uk-icon="chevron-down">Products</a>
-							<div class="uk-navbar-dropdown">
-								<ul class="uk-nav uk-navbar-dropdown-nav">
-									<li><a href="#">Big Data</a></li>
-									<li><a href="#">Marketing</a></li>
-									<li><a href="#">Analytics</a></li>
-									<li><a href="#">AI Lab</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="">Testimonials</a></li>
-					</ul>
-					<a class="uk-navbar-toggle uk-navbar-item uk-hidden@s" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
-				</div>
-			</nav>
-
-		</div>
-		<!-- /NAV 2 -->
-	</header>
+		</header>
+		<!--/Top header-->
+		<div class="spacer"></div>
 	<!-- Phần content của các trang -->
 	<pw-region id="page-content">
 		<!-- content trang vô đây có Main -->
@@ -159,6 +150,8 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 	<!-- JS FILES -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.2/js/uikit.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.2/js/uikit-icons.min.js"></script>
+	<script src="<?=pathToAsset()?>js/cards.js"></script>	
+		
 </body>
 
 </html>
